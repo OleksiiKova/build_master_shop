@@ -34,6 +34,12 @@
     <div class="message-container"></div>
     {% endif %}
 
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
     {% block corejs %}
     <!-- JavaScript Libraries and Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
