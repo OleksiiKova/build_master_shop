@@ -1,0 +1,67 @@
+from django.db import models
+
+
+class FirstLevelCategory(models.Model):
+    name = models.CharField(max_length=255)
+    friendly_name = models.CharField(max_length = 254, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class SecondLevelCategory(models.Model):
+    name = models.CharField(max_length=255)
+    friendly_name = models.CharField(max_length = 254, null=True, blank=True)
+    first_level_category = models.ForeignKey(FirstLevelCategory, on_delete=models.CASCADE, related_name='second_level_categories')
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class ThirdLevelCategory(models.Model):
+    name = models.CharField(max_length=255)
+    friendly_name = models.CharField(max_length = 254, null=True, blank=True)
+    second_level_category = models.ForeignKey(SecondLevelCategory, on_delete=models.CASCADE, related_name='third_level_categories', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    second_level_category = models.ForeignKey(SecondLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
+    third_level_category = models.ForeignKey(ThirdLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
+    image_url = models.URLField(max_length=1024, blank=True, null=True)
+    image = models.ImageField(null=True, blank=True)
+    sku = models.CharField(max_length=64, unique=True)
+    rating = models.DecimalField(max_digits=3, decimal_places=2, default=None, null=True, blank=True)
+    
+    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    stock = models.IntegerField(blank=True, null=True)
+    additional_attributes = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ProductVariant(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='variants')
+    size = models.CharField(max_length=64, blank=True, null=True)
+    color = models.CharField(max_length=64, blank=True, null=True)
+    additional_attributes = models.TextField(blank=True, null=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    stock = models.IntegerField()
+    sku = models.CharField(max_length=64, unique=True)
+
+    def __str__(self):
+        return f"{self.product.name} - {self.size or ''} / {self.color or ''}"
