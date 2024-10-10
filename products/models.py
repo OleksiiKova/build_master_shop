@@ -2,6 +2,10 @@ from django.db import models
 
 
 class FirstLevelCategory(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'First Level Categories'
+
     name = models.CharField(max_length=255)
     friendly_name = models.CharField(max_length = 254, null=True, blank=True)
 
@@ -13,6 +17,10 @@ class FirstLevelCategory(models.Model):
 
 
 class SecondLevelCategory(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Second Level Categories'
+
     name = models.CharField(max_length=255)
     friendly_name = models.CharField(max_length = 254, null=True, blank=True)
     first_level_category = models.ForeignKey(FirstLevelCategory, on_delete=models.CASCADE, related_name='second_level_categories')
@@ -25,6 +33,10 @@ class SecondLevelCategory(models.Model):
 
 
 class ThirdLevelCategory(models.Model):
+    
+    class Meta:
+        verbose_name_plural = 'Third Level Categories'
+
     name = models.CharField(max_length=255)
     friendly_name = models.CharField(max_length = 254, null=True, blank=True)
     second_level_category = models.ForeignKey(SecondLevelCategory, on_delete=models.CASCADE, related_name='third_level_categories', blank=True, null=True)
@@ -39,6 +51,7 @@ class ThirdLevelCategory(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
+    first_level_category = models.ForeignKey(FirstLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
     second_level_category = models.ForeignKey(SecondLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
     third_level_category = models.ForeignKey(ThirdLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
     image_url = models.URLField(max_length=1024, blank=True, null=True)

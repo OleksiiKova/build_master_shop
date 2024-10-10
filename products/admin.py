@@ -1,8 +1,67 @@
 from django.contrib import admin
 from .models import FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory, Product, ProductVariant
 
-admin.site.register(FirstLevelCategory)
-admin.site.register(SecondLevelCategory)
-admin.site.register(ThirdLevelCategory)
-admin.site.register(Product)
-admin.site.register(ProductVariant)
+
+class ProductVariantInline(admin.TabularInline):
+    model = ProductVariant
+    extra = 1
+
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'first_level_category',
+        'second_level_category',
+        'third_level_category',
+        'price',
+        'rating',
+        'image',
+    )
+
+    ordering = ('first_level_category',)
+
+    inlines = [ProductVariantInline]
+
+
+class ProductVariantAdmin(admin.ModelAdmin):
+    list_display = (
+        'product',
+        'size',
+        'color',
+        'price',
+    )
+
+    ordering = ('product',)
+
+
+class FirstLevelCategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+    )
+
+    ordering = ('friendly_name',)
+
+
+class SecondLevelCategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'first_level_category',
+    )
+
+    ordering = ('first_level_category',)
+
+
+class ThirdLevelCategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'second_level_category',
+    )
+
+    ordering = ('second_level_category',)
+
+
+admin.site.register(FirstLevelCategory, FirstLevelCategoryAdmin)
+admin.site.register(SecondLevelCategory, SecondLevelCategoryAdmin)
+admin.site.register(ThirdLevelCategory, ThirdLevelCategoryAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(ProductVariant, ProductVariantAdmin)
