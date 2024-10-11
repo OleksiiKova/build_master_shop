@@ -65,6 +65,23 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    def get_category_hierarchy(self):
+        categories = []
+        if self.first_level_category:
+            categories.append(self.first_level_category)
+        if self.second_level_category:
+            categories.append(self.second_level_category)
+        if self.third_level_category:
+            categories.append(self.third_level_category)
+        return categories
+
+    def save(self, *args, **kwargs):
+        if self.third_level_category:
+            self.second_level_category = self.third_level_category.second_level_category
+        if self.second_level_category:
+            self.first_level_category = self.second_level_category.first_level_category
+        super().save(*args, **kwargs)
+
 
 class ProductVariant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='variants')
