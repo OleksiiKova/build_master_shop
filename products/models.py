@@ -54,7 +54,6 @@ class Product(models.Model):
     first_level_category = models.ForeignKey(FirstLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
     second_level_category = models.ForeignKey(SecondLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
     third_level_category = models.ForeignKey(ThirdLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
-    image_url = models.URLField(max_length=1024, blank=True, null=True)
     image = models.ImageField(null=True, blank=True)
     sku = models.CharField(max_length=64, unique=True)
     rating = models.DecimalField(max_digits=3, decimal_places=2, default=None, null=True, blank=True)
