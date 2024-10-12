@@ -58,6 +58,27 @@
                 {% else %}
                 <small class="text-muted">No Rating</small>
                 {% endif %}
+                <p class="small mt-1 mb-0">
+                    {% if product.first_level_category %}
+
+                    <a class="text-muted"
+                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ product.first_level_category.friendly_name }}
+                    </a> /
+                    {% endif %}
+                    {% if product.second_level_category %}
+                    <a class="text-muted"
+                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ product.second_level_category.friendly_name }}
+                    </a> /
+                    {% endif %}
+                    {% if product.third_level_category %}
+                    <a class="text-muted"
+                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}&third_level={{ product.third_level_category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ product.third_level_category.friendly_name }}
+                    </a>
+                    {% endif %}
+                </p>
                 <!-- {% if request.user.is_superuser %}
                 <small class="ml-3">
                     <a href="">Edit</a>

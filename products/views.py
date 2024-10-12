@@ -14,8 +14,24 @@ def product_list(request):
     second_level = None
     third_level = None
     category_hierarchy = []
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'first_level_category__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
         first_level = request.GET.get('first_level')
         second_level = request.GET.get('second_level')
         third_level = request.GET.get('third_level')
@@ -53,6 +69,8 @@ def product_list(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'products': products,
         'search_term': query,
@@ -60,6 +78,7 @@ def product_list(request):
         'second_level': second_level,
         'third_level': third_level,
         'category_hierarchy': category_hierarchy,
+        'current_sorting': current_sorting
     }
 
     return render(request, 'products/products.html', context)
