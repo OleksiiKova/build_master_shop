@@ -5,13 +5,29 @@ from django.db.models.functions import Lower
 from .models import Product, ProductVariant, FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory
 
 # Create your views here.
-def all_products(request):
+def product_list(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
     query = None
+    first_level = None
+    second_level = None
+    third_level = None
 
     if request.GET:
+        first_level = request.GET.get('first_level')
+        second_level = request.GET.get('second_level')
+        third_level = request.GET.get('third_level')
+
+        if first_level:
+            products = products.filter(first_level_category__name=first_level)
+
+        if second_level:
+            products = products.filter(second_level_category__name=second_level)
+
+        if third_level:
+            products = products.filter(third_level_category__name=third_level)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -24,6 +40,9 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'first_level': first_level,
+        'second_level': second_level,
+        'third_level': third_level,
     }
 
     return render(request, 'products/products.html', context)

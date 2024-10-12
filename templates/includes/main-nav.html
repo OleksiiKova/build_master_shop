@@ -10,13 +10,42 @@
                 aria-expanded="false">
                 Tools
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">Power Tools</a>
-                <a href="" class="dropdown-item ">Hand Tools</a>
-                <a href="" class="dropdown-item ">Measuring Tools</a>
-                <a href="" class="dropdown-item">Tool Accessories</a>
-                <a href="" class="dropdown-item">All Tools</a>
-            </div>
+
+            <ul class="dropdown-menu border-0" aria-labelledby="tools-link">
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item" href="{% url 'products' %}?second_level=power_tools">Power
+                        Tools</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=power_tools&third_level=angle_grinders">Angle
+                                Grinders</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=power_tools&third_level=drills">Drills</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=power_tools&third_level=multi_tools">Multi
+                                Tools</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=power_tools&third_level=saws">Saws</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item" href="{% url 'products' %}?second_level=hand_tools">Hand Tools</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=hand_tools&third_level=hammers">Hammers</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=hand_tools&third_level=sawing_cutting">Sawing
+                                &amp; Cutting</a></li>
+                    </ul>
+                </li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?second_level=measuring_tools">Measuring
+                        Tools</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?second_level=tool_accessories">Tool
+                        Accessories</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?first_level=tools">All Tools</a></li>
+            </ul>
         </li>
 
         <li class="nav-item dropdown">
@@ -25,11 +54,10 @@
                 Fasteners
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Screws &amp; Nails</a>
-                <a href="" class="dropdown-item">Bolts &amp; Nuts</a>
-                <a href="" class="dropdown-item">Anchors</a>
-                <a href="" class="dropdown-item">Hinges</a>
-                <a href="" class="dropdown-item">All Fasteners</a>
+                <a href="{% url 'products' %}?second_level=screws_nails" class="dropdown-item">Screws &amp; Nails</a>
+                <a href="{% url 'products' %}?second_level=bolts_nuts" class="dropdown-item">Bolts &amp; Nuts</a>
+                <a href="{% url 'products' %}?second_level=anchors" class="dropdown-item">Anchors</a>
+                <a href="{% url 'products' %}?first_level=fasteners" class="dropdown-item">All Fasteners</a>
             </div>
         </li>
 
@@ -38,12 +66,28 @@
                 aria-expanded="false">
                 Safety Equipment
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Safety Clothing</a>
-                <a href="" class="dropdown-item">Eye &amp; Ear Protection</a>
-                <a href="" class="dropdown-item">Respirators &amp; Masks</a>
-                <a href="" class="dropdown-item">All Safety Clothing</a>
-            </div>
+            <ul class="dropdown-menu border-0" aria-labelledby="equipment-link">
+                <li class="dropdown-submenu">
+                    <a href="{% url 'products' %}?second_level=safety_clothing" class="dropdown-item">Safety
+                        Clothing</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=safety_clothing&third_level=hi_vis_vests">Hi Vis
+                                Vests</a></li>
+                        <li><a class="dropdown-item"
+                                href="{% url 'products' %}?second_level=safety_clothing&third_level=work_gloves">Work
+                                Gloves</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="{% url 'products' %}?second_level=eye_ear_protection" class="dropdown-item">Eye &amp; Ear
+                        Protection</a></li>
+                <li><a href="{% url 'products' %}?second_level=respirators_masks" class="dropdown-item">Respirators
+                        &amp;
+                        Masks</a></li>
+                <li> <a href="{% url 'products' %}?first_level=safety_equipment" class="dropdown-item">All Safety
+                        Clothing</a></li>
+            </ul>
         </li>
 
         <li class="nav-item dropdown">
@@ -52,10 +96,10 @@
                 Workwear
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">Work Boots</a>
-                <a href="" class="dropdown-item">Work Jackets</a>
-                <a href="" class="dropdown-item">Work Trousers</a>
-                <a href="" class="dropdown-item">All Workwear</a>
+                <a href="{% url 'products' %}?second_level=work_boots" class="dropdown-item">Work Boots</a>
+                <a href="{% url 'products' %}?second_level=work_jackets" class="dropdown-item">Work Jackets</a>
+                <a href="{% url 'products' %}?second_level=work_trousers" class="dropdown-item">Work Trousers</a>
+                <a href="{% url 'products' %}?first_level=workwear" class="dropdown-item">All Workwear</a>
             </div>
         </li>
 
