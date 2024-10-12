@@ -13,6 +13,7 @@ def product_list(request):
     first_level = None
     second_level = None
     third_level = None
+    category_hierarchy = []
 
     if request.GET:
         first_level = request.GET.get('first_level')
@@ -21,12 +22,27 @@ def product_list(request):
 
         if first_level:
             products = products.filter(first_level_category__name=first_level)
+            first_level_category = FirstLevelCategory.objects.get(name=first_level)
+            category_hierarchy.append({
+                'name': first_level_category.name,
+                'friendly_name': first_level_category.friendly_name
+            })
 
         if second_level:
             products = products.filter(second_level_category__name=second_level)
+            second_level_category = SecondLevelCategory.objects.get(name=second_level)
+            category_hierarchy.append({
+                'name': second_level_category.name,
+                'friendly_name': second_level_category.friendly_name
+            })
 
         if third_level:
             products = products.filter(third_level_category__name=third_level)
+            third_level_category = ThirdLevelCategory.objects.get(name=third_level)
+            category_hierarchy.append({
+                'name': third_level_category.name,
+                'friendly_name': third_level_category.friendly_name
+            })
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -43,6 +59,7 @@ def product_list(request):
         'first_level': first_level,
         'second_level': second_level,
         'third_level': third_level,
+        'category_hierarchy': category_hierarchy,
     }
 
     return render(request, 'products/products.html', context)
