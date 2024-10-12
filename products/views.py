@@ -14,13 +14,22 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id):
+def product_detail(request, product_id, variant_sku=None):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
 
+    if variant_sku is None and product.variants.exists():
+        first_variant = product.variants.first()
+        return redirect('product_detail_variant', product_id=product.id, variant_sku=first_variant.sku)
+
+    selected_variant = None
+    if variant_sku:
+        selected_variant = get_object_or_404(ProductVariant, sku=variant_sku, product=product)
+
     context = {
         'product': product,
+        'selected_variant': selected_variant
     }
 
     return render(request, 'products/product_detail.html', context)
