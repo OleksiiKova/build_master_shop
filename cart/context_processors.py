@@ -1,5 +1,5 @@
 from decimal import Decimal
-
+# from .models import Cart
 
 def cart_contents(request):
 
@@ -11,6 +11,14 @@ def cart_contents(request):
     EXPRESS_DELIVERY_COST = Decimal(20.00)
     free_delivery_threshold = Decimal(50.00)
     free_delivery_delta = 0
+
+    # if request.user.is_authenticated:
+    #     try:
+    #         cart_items = Cart.objects.get(user=request.user)
+    #     except Cart.DoesNotExist:
+    #         cart_items = None
+    # else:
+    #     cart_items = None
 
     selected_delivery_method = request.session.get('selected_delivery_method', 'standard')
     delivery_cost = STANDARD_DELIVERY_COST if selected_delivery_method == 'standard' else EXPRESS_DELIVERY_COST
