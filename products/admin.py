@@ -21,6 +21,7 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('first_level_category',)
 
     inlines = [ProductVariantInline]
+    exclude = ('sku',)
 
 
 class ProductVariantAdmin(admin.ModelAdmin):
@@ -32,6 +33,7 @@ class ProductVariantAdmin(admin.ModelAdmin):
     )
 
     ordering = ('product',)
+    exclude = ('sku',)
 
 
 class FirstLevelCategoryAdmin(admin.ModelAdmin):

@@ -1,4 +1,5 @@
 from django.db import models
+import random
 
 
 class FirstLevelCategory(models.Model):
@@ -55,7 +56,7 @@ class Product(models.Model):
     second_level_category = models.ForeignKey(SecondLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
     third_level_category = models.ForeignKey(ThirdLevelCategory, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
     image = models.ImageField(null=True, blank=True)
-    sku = models.CharField(max_length=64, unique=True)
+    sku = models.CharField(max_length=64, null=True, blank=True, unique=True)
     rating = models.DecimalField(max_digits=3, decimal_places=2, default=None, null=True, blank=True)
     
     price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
@@ -82,6 +83,19 @@ class Product(models.Model):
             self.first_level_category = self.second_level_category.first_level_category
         super().save(*args, **kwargs)
 
+    def save(self, *args, **kwargs):
+        if not self.sku:
+            self.sku = self.generate_sku()
+        super().save(*args, **kwargs)
+    
+    def generate_sku(self):
+        prefix = "bm-"
+        while True:
+            random_number = ''.join(random.choices('0123456789', k=7))
+            new_sku = f"{prefix}{random_number}"
+            if not Product.objects.filter(sku=new_sku).exists():
+                return new_sku
+
 
 class ProductVariant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='variants')
@@ -90,7 +104,36 @@ class ProductVariant(models.Model):
     additional_attributes = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
-    sku = models.CharField(max_length=64, unique=True)
+    sku = models.CharField(max_length=64, blank=True, null=True, unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.sku and self.product and self.product.sku:
+            self.sku = self.generate_variant_sku()
+        super().save(*args, **kwargs)
+
+    def generate_variant_sku(self):
+        base_sku = self.product.sku
+        parts = [base_sku]
+
+        if self.size:
+            parts.append(self.size)
+
+        if self.color:
+            parts.append(self.color)
+
+        new_sku = '-'.join(parts)
+
+        return self.ensure_unique_sku(new_sku)
+
+    def ensure_unique_sku(self, sku):
+        original_sku = sku
+        counter = 1
+
+        while ProductVariant.objects.filter(sku=sku).exists():
+            sku = f"{original_sku}-{counter}"
+            counter += 1
+
+        return sku
 
     def __str__(self):
         return f"{self.product.name} - {self.size or ''} / {self.color or ''}"
