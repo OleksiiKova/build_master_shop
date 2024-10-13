@@ -10,7 +10,19 @@
     </div>
 
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+            {% if bag_items %}
+
+            {% else %}
+            <p class="lead mb-5">Your basket is empty.</p>
+            <a href="{% url 'products' %}" class="btn btn-secondary rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="bi bi-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shoping</span>
+            </a>
+            {% endif %}
+        </div>
     </div>
 
 </div>
