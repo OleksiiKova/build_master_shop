@@ -1,4 +1,6 @@
 from decimal import Decimal
+from django.shortcuts import get_object_or_404
+from products.models import Product
 # from .models import Cart
 
 def cart_contents(request):
@@ -11,7 +13,29 @@ def cart_contents(request):
     EXPRESS_DELIVERY_COST = Decimal(20.00)
     free_delivery_threshold = Decimal(50.00)
     free_delivery_delta = 0
+    cart = request.session.get('cart', {})
 
+    for item_id, quantity in cart.items():
+        # if isinstance(item_data, int):
+        #     product = get_object_or_404(Product, pk=item_id)
+        #     total_cost += item_data * product.price
+        #     product_count += item_data
+        #     cart_items.append({
+        #         'item_id': item_id,
+        #         'quantity': item_data,
+        #         'product': product,
+        #     })
+        # else:
+        product = get_object_or_404(Product, pk=item_id)
+        # for size, quantity, in item_data['items_by_size'].items():
+        total_cost += quantity * product.price
+        product_count += quantity
+        cart_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+            # 'size': size,
+        })
     # if request.user.is_authenticated:
     #     try:
     #         cart_items = Cart.objects.get(user=request.user)
@@ -23,8 +47,8 @@ def cart_contents(request):
     selected_delivery_method = request.session.get('selected_delivery_method', 'standard')
     delivery_cost = STANDARD_DELIVERY_COST if selected_delivery_method == 'standard' else EXPRESS_DELIVERY_COST
     
-    if cart_items:
-        total_cost = sum(item.product.price * item.quantity for item in cart.items.all())
+    # if cart_items:
+    #     total_cost = sum(item.product.price * item.quantity for item in cart.items.all())
 
     if total_cost >= free_delivery_threshold and selected_delivery_method == 'standard':
         delivery_cost = 0

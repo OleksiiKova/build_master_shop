@@ -47,10 +47,10 @@
                 <p class="mb-0">{{ product.name }}</p>
                 <div class="lead">
                     {% if selected_variant %}
-                    <p class="mb-0">${{ selected_variant.price }}</p>
+                    <p class="mb-0">€{{ selected_variant.price }}</p>
                     <p class="mb-0">Size: {{ selected_variant.size }}</p>
                     {% else %}
-                    <p class="mb-0">${{ product.price }}</p>
+                    <p class="mb-0">€{{ product.price }}</p>
                     {% endif %}
                 </div>
                 {% if product.rating %}
