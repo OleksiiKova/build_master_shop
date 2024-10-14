@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.shortcuts import get_object_or_404
-from products.models import Product
+from products.models import Product, ProductVariant
 # from .models import Cart
 
 def cart_contents(request):
@@ -15,37 +15,33 @@ def cart_contents(request):
     free_delivery_delta = 0
     cart = request.session.get('cart', {})
 
-    for item_id, quantity in cart.items():
-        # if isinstance(item_data, int):
-        #     product = get_object_or_404(Product, pk=item_id)
-        #     total_cost += item_data * product.price
-        #     product_count += item_data
-        #     cart_items.append({
-        #         'item_id': item_id,
-        #         'quantity': item_data,
-        #         'product': product,
-        #     })
-        # else:
-        product = get_object_or_404(Product, pk=item_id)
-        # for size, quantity, in item_data['items_by_size'].items():
-        total_cost += quantity * product.price
+    for sku, item_data in cart.items():
+        variant = ProductVariant.objects.filter(sku=sku).first()
+        if variant:
+            product = variant.product
+        else:
+            product = get_object_or_404(Product, sku=sku)
+
+        quantity = item_data['quantity']
+        total_cost += quantity * (variant.price if variant else product.price)
         product_count += quantity
         cart_items.append({
-            'item_id': item_id,
+            'sku': sku,
             'quantity': quantity,
             'product': product,
-            # 'size': size,
+            'variant_sku': item_data.get('variant_sku'),
+            'size': item_data.get('size'),
         })
-    # if request.user.is_authenticated:
-    #     try:
-    #         cart_items = Cart.objects.get(user=request.user)
-    #     except Cart.DoesNotExist:
-    #         cart_items = None
-    # else:
-    #     cart_items = None
 
+    
     selected_delivery_method = request.session.get('selected_delivery_method', 'standard')
-    delivery_cost = STANDARD_DELIVERY_COST if selected_delivery_method == 'standard' else EXPRESS_DELIVERY_COST
+    if not cart_items:
+        delivery_cost = 0
+    else:
+        delivery_cost = (
+            STANDARD_DELIVERY_COST if selected_delivery_method == 'standard' else EXPRESS_DELIVERY_COST
+        )
+
     
     # if cart_items:
     #     total_cost = sum(item.product.price * item.quantity for item in cart.items.all())

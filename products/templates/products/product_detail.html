@@ -48,7 +48,6 @@
                 <div class="lead">
                     {% if selected_variant %}
                     <p class="mb-0">€{{ selected_variant.price }}</p>
-                    <p class="mb-0">Size: {{ selected_variant.size }}</p>
                     {% else %}
                     <p class="mb-0">€{{ product.price }}</p>
                     {% endif %}
@@ -87,22 +86,31 @@
                 {% endif %} -->
                 <p class="mt-3">{{ product.description }}</p>
                 <p class="mt-3">{{ product.additional_attributes }}</p>
-                {% if product.variants.exists %}
-                <div class="product-variants mt-4">
-                    <h5>Available Sizes:</h5>
-                    <div class="sizes">
-                        {% for variant in product.variants.all %}
-                        <a href="{% url 'product_detail_variant' product.id variant.sku %}"
-                            class="btn {% if selected_variant and selected_variant.sku == variant.sku %}btn-secondary{% else %}btn-light{% endif %} mr-2">
-                            {{ variant.size }}
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+
+                <form class="form" action="{% url 'add_to_cart' current_sku %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
+                        {% if product.variants.exists %}
+                        <div class="col product-variants mt-4">
+                            <h5>Available Sizes:</h5>
+                            <div class="sizes">
+                                {% for variant in product.variants.all %}
+                                <a href="{% url 'product_detail_by_sku' variant.sku %}"
+                                    class="btn {% if selected_variant and selected_variant.sku == variant.sku %}btn-secondary{% else %}btn-light{% endif %} mr-2">
+                                    {{ variant.size }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <p><strong>Selected Size: </strong><span
+                                    id="selected_size">{% if selected_variant %}{{ selected_variant.size }}{% else %}None{% endif %}</span>
+                            </p>
+                            <p><strong>SKU: </strong><span id="selected_sku" class="sku">{{current_sku}}</span>
+                            </p>
+                        </div>
+                        {% endif %}
 
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>
@@ -143,6 +151,9 @@
                                 value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="hidden" name="size" value="{{ selected_variant.size }}">
+                        <input type="hidden" id="selected_variant" name="variant"
+                            value="{% if selected_variant %}{{ selected_variant.sku }}{% endif %}">
                     </div>
                 </form>
             </div>

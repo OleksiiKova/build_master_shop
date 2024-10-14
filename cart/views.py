@@ -3,7 +3,7 @@ from django.shortcuts import (
 )
 from django.contrib import messages
 
-from products.models import Product
+from products.models import Product, ProductVariant
 
 # Create your views here.
 
@@ -14,19 +14,40 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 
-def add_to_cart(request, item_id):
-    product = get_object_or_404(Product, pk=item_id)
+def add_to_cart(request, sku):
+    
+    product = Product.objects.filter(sku=sku).first()
+    variant = None
+    
+    if not product:
+        
+        variant = ProductVariant.objects.filter(sku=sku).first()
+        if variant:
+            product = variant.product
+        else:
+            return redirect('product_list')
 
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
+    quantity = int(request.POST.get('quantity', 1))
+    selected_size = request.POST.get('size')
+    redirect_url = request.POST.get('redirect_url', '/')
 
     cart = request.session.get('cart', {})
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
+    item_sku = variant.sku if variant else product.sku
+
+    if item_sku in cart:
+        cart[item_sku]['quantity'] += quantity
     else:
-        cart[item_id] = quantity
+        cart[item_sku] = {
+            'quantity': quantity,
+            'product_name': product.name,
+            'sku': item_sku,
+            'size': selected_size,
+            'price': str(variant.price if variant else product.price),
+        }
+
 
     request.session['cart'] = cart
+
     return redirect(redirect_url)
 

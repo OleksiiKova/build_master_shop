@@ -84,22 +84,48 @@ def product_list(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id, variant_sku=None):
-    """ A view to show individual product details """
+# def product_detail(request, product_id, variant_sku=None):
+#     """ A view to show individual product details """
 
-    product = get_object_or_404(Product, pk=product_id)
+#     product = get_object_or_404(Product, pk=product_id)
 
-    if variant_sku is None and product.variants.exists():
+#     if variant_sku is None and product.variants.exists():
+#         first_variant = product.variants.first()
+#         return redirect('product_detail_variant', product_id=product.id, variant_sku=first_variant.sku)
+
+#     selected_variant = None
+#     if variant_sku:
+#         selected_variant = get_object_or_404(ProductVariant, sku=variant_sku, product=product)
+
+#     context = {
+#         'product': product,
+#         'selected_variant': selected_variant
+#     }
+
+#     return render(request, 'products/product_detail.html', context)
+
+
+def product_detail_by_sku(request, sku):
+    variant = ProductVariant.objects.filter(sku=sku).first()
+
+    if variant:
+        product = variant.product
+        selected_variant = variant
+        current_sku = variant.sku
+    else:
+        product = get_object_or_404(Product, sku=sku)
+        
         first_variant = product.variants.first()
-        return redirect('product_detail_variant', product_id=product.id, variant_sku=first_variant.sku)
-
-    selected_variant = None
-    if variant_sku:
-        selected_variant = get_object_or_404(ProductVariant, sku=variant_sku, product=product)
+        if first_variant:
+            return redirect('product_detail_by_sku', sku=first_variant.sku)
+        
+        selected_variant = None
+        current_sku = product.sku
 
     context = {
         'product': product,
-        'selected_variant': selected_variant
+        'selected_variant': selected_variant,
+        'current_sku': current_sku,
     }
 
     return render(request, 'products/product_detail.html', context)

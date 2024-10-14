@@ -72,7 +72,13 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
 
                     <div class="card h-100">
-                        <a href="{% url 'product_detail' product.id %}" class="text-decoration-none d-block">
+                        <a href="{% url 'product_detail_by_sku' product.sku %}" class="text-decoration-none d-block">
+                            <!-- {% if product.variants.exists %}
+                            {% url 'product_detail_by_sku' product.variants.first.sku %}
+                            {% else %}
+                            {% url 'product_detail_by_sku' product.sku %}
+                            {% endif %} -->
+
                             {% if product.image %}
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                             {% else %}
