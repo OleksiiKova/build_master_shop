@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block content %}
 <div class="container">
@@ -43,16 +44,13 @@
                                 {{ item.size|upper }}
                                 {% endif %}
                             </p>
-                            <!-- <p class="my-0"><strong>Size:
-                                </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
-                            </p> -->
-                            <p class="my-0 small text-muted">SKU: {{ item.sku|upper }}</p>
+                            <p class="my-0 small text-muted">SKU: {{ item.sku }}</p>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <form action="" class="form update-form" method="post">
+                            <form action="{% url 'adjust_cart' item.sku %}" class="form update-form" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group input-group-{{ item.sku }}">
@@ -85,7 +83,7 @@
                                 id="remove_{{ item.sku}}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                     </tr>
                     {% endfor %}
@@ -152,7 +150,7 @@
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemSku = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemSku}/`;
+        var url = `/cart/remove/${itemSku}/`;
         var data = {
             'csrfmiddlewaretoken': csrfToken,
         };
