@@ -45,6 +45,7 @@ def add_to_cart(request, sku):
             'size': selected_size,
             'price': str(variant.price if variant else product.price),
         }
+        messages.success(request, f'Added {product.name} to your bag')
 
     request.session['cart'] = cart
 

@@ -115,7 +115,21 @@
     </header>
 
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -131,10 +145,11 @@
 
     {% block corejs %}
     <!-- JavaScript Libraries and Files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- <script>
         $(document).ready(function () {
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -154,10 +169,18 @@
             });
         });
     </script> -->
-
     {% endblock %}
 
     {% block postloadjs %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toastEl = document.querySelector('.toast');
+            if (toastEl) {
+                var toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        });
+    </script>
     {% endblock %}
 
     {% block extra_js %}
