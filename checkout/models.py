@@ -1,4 +1,6 @@
 import uuid
+import random
+import string
 
 from django.db import models
 from django.db.models import Sum
@@ -37,9 +39,19 @@ class Order(models.Model):
 
     def _generate_order_number(self):
         """
-        Generate a random, unique order number using UUID
+        Generate a random, unique order number starting with 'ORD-' and 10 characters long
         """
-        return uuid.uuid4().hex.upper()
+        prefix = "ORD-"
+        while True:  # Loop until a unique order number is generated
+            # Generate 8 random alphanumeric characters
+            unique_part = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+            order_number = prefix + unique_part
+            
+            # Check if the order number already exists in the database
+            if not Order.objects.filter(order_number=order_number).exists():
+                break
+
+        return order_number
 
     def update_total(self):
         """
