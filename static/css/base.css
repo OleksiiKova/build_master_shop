@@ -69,6 +69,8 @@ body {
 
 .custom-toast {
     overflow: visible;
+    background-color: white;
+    color: black;
 }
 
 .toast-capper {
