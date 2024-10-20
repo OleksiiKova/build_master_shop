@@ -61,5 +61,6 @@ def cart_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'grand_total': grand_total,
         'selected_delivery_method': selected_delivery_method,
+        'product_count': product_count,
     }
 
