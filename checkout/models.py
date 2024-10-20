@@ -50,13 +50,14 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         
         # Calculate delivery cost based on the chosen method
-        if self.delivery_method == self.STANDARD_DELIVERY:
+  
+        if self.order_total > 0:  
             if self.order_total < 50:  # Orders below 50 EUR
                 self.delivery_cost = 7  # Fixed 7 EUR for standard delivery
             else:
                 self.delivery_cost = 0  # Free delivery for orders over 50 EUR
-        elif self.delivery_method == self.EXPRESS_DELIVERY:
-            self.delivery_cost = 20  # Fixed 20 EUR for express delivery, regardless of total
+        else:
+            self.delivery_cost = 0
         
         # Calculate grand total (order total + delivery cost)
         self.grand_total = self.order_total + self.delivery_cost
