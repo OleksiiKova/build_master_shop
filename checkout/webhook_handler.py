@@ -1,10 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product, ProductVariant
 
 import stripe
+import time
 import json
 
 
@@ -23,6 +25,7 @@ class StripeWH_Handler:
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
+
     def handle_payment_intent_succeeded(self, event):
         """
         Handle the payment_intent.succeeded webhook from Stripe
@@ -35,7 +38,7 @@ class StripeWH_Handler:
         # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(
             intent.latest_charge
-        )
+)
 
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
@@ -70,7 +73,6 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
@@ -79,7 +81,6 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
-                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
@@ -92,34 +93,26 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for sku, item_data  in json.loads(cart).items():
-                    try:
-                        variant = ProductVariant.objects.filter(sku=sku).first()
-                        if variant:
-                            product = variant.product
-                        else:
-                            product = get_object_or_404(Product, sku=sku)
+                    variant = ProductVariant.objects.filter(sku=sku).first()
+                    if variant:
+                        product = variant.product
+                    else:
+                        product = get_object_or_404(Product, sku=sku)
 
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            variant=variant,
-                            quantity=item_data['quantity'],
-                            sku = sku,
-                        )
-                        order_line_item.save() 
-                    except Product.DoesNotExist:
-                        messages.error(request, (
-                            "One of the products in your cart wasn't found in our database. "
-                            "Please call us for assistance!")
-                        )
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        variant=variant,
+                        quantity=item_data['quantity'],
+                        sku = sku,
+                    )
+                    order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order)
-
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
