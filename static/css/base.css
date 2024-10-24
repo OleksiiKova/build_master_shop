@@ -137,3 +137,28 @@ input[name='q']::placeholder {
     border-color: #222;
 }
 
+
+/* ------------My Profile------------ */
+
+
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+} 
+
+.profile-form-input .form-control {
+    color: #000;
+}
+
+.profile-form-input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
