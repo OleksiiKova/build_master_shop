@@ -1,4 +1,5 @@
 from decimal import Decimal
+from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from products.models import Product, ProductVariant
 # from .models import Cart
@@ -15,12 +16,20 @@ def cart_contents(request):
     free_delivery_delta = 0
     cart = request.session.get('cart', {})
 
+    items_to_delete = []
+
     for sku, item_data in cart.items():
         variant = ProductVariant.objects.filter(sku=sku).first()
         if variant:
             product = variant.product
+            price = variant.price
         else:
-            product = get_object_or_404(Product, sku=sku)
+            product = Product.objects.filter(sku=sku).first()
+            if product:
+                price = product.price
+            else:
+                items_to_delete.append(sku)
+                continue
 
         quantity = item_data['quantity']
         total_cost += quantity * (variant.price if variant else product.price)
@@ -33,6 +42,12 @@ def cart_contents(request):
             'size': item_data.get('size'),
         })
 
+    for sku in items_to_delete:
+        del cart[sku]
+        messages.warning(request, f'The product {sku} has been removed from the cart because it no longer exists.')
+    
+    request.session['cart'] = cart
+
     
     selected_delivery_method = request.session.get('selected_delivery_method', 'standard')
     if not cart_items:
@@ -41,10 +56,6 @@ def cart_contents(request):
         delivery_cost = (
             STANDARD_DELIVERY_COST if selected_delivery_method == 'standard' else EXPRESS_DELIVERY_COST
         )
-
-    
-    # if cart_items:
-    #     total_cost = sum(item.product.price * item.quantity for item in cart.items.all())
 
     if total_cost >= free_delivery_threshold and selected_delivery_method == 'standard':
         delivery_cost = 0

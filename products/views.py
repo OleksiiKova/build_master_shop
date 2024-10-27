@@ -118,9 +118,6 @@ def add_product(request):
         variant_formset = ProductVariantFormSet(request.POST, prefix='variants')
 
         if product_form.is_valid() and variant_formset.is_valid():
-            print("Product Form:", product_form.cleaned_data)
-            for form in variant_formset:
-                print("Variant Form:", form.cleaned_data)
             product = product_form.save()
             
             # Save each variant associated with this product
@@ -136,7 +133,10 @@ def add_product(request):
             # Optional: call save_m2m() if there are any Many-to-Many relations
             variant_formset.save_m2m()
 
+            messages.success(request, 'Successfully added product!')
             return redirect('product_detail_by_sku', sku=product.sku)
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
 
     else:
         product_form = ProductForm()
