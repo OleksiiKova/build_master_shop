@@ -149,3 +149,48 @@ def add_product(request):
     }
     
     return render(request, template, context)
+
+
+def edit_product(request, sku):
+    # Fetch the product instance by SKU
+    product = get_object_or_404(Product, sku=sku)
+
+    if request.method == 'POST':
+        # Prepopulate the forms with data from the request and the existing product instance
+        product_form = ProductForm(request.POST, request.FILES, instance=product)
+        variant_formset = ProductVariantFormSet(request.POST, request.FILES, prefix='variants', instance=product)
+
+        if product_form.is_valid() and variant_formset.is_valid():
+            # Save the product and the associated variants
+            product = product_form.save()
+            variants = variant_formset.save(commit=False)
+
+            for variant in variants:
+                variant.product = product  # Link variant to the product
+                variant.save()
+
+            # Handle any variants marked for deletion
+            for form in variant_formset.deleted_forms:
+                form.instance.delete()
+
+            # Optional: call save_m2m() if there are Many-to-Many relationships
+            variant_formset.save_m2m()
+
+            messages.success(request, 'Successfully updated product!')
+            return redirect('product_detail_by_sku', sku=product.sku)
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+
+    else:
+        # If the request is not POST, initialize the forms with existing product data
+        product_form = ProductForm(instance=product)
+        variant_formset = ProductVariantFormSet(prefix='variants', instance=product)
+    
+    template = 'products/edit_product.html'
+    context = {
+        'product_form': product_form,
+        'variant_formset': variant_formset,
+        'product': product,
+    }
+    
+    return render(request, template, context)

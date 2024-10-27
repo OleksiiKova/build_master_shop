@@ -8,14 +8,14 @@
         <div class="col-md-6">
             <hr>
             <h2 class="mb-4">Product Management</h2>
-            <h5 class="text-muted">Add a Product</h5>
+            <h5 class="text-muted">Edit a Product</h5>
             <hr>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data">
+            <form method="post" action="{% url 'edit_product' product.sku %}" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 {{ product_form | crispy }}
@@ -37,7 +37,7 @@
                 <button id="add-variant">Add Variant</button>
                 <div class="text-end">
                     <a class="btn btn-secondary" href="{% url 'products' %}">Cancel</a>
-                    <button class="btn btn-primary" type="submit">Add Product</button>
+                    <button class="btn btn-primary" type="submit">Update Product</button>
                 </div>
             </form>
 
