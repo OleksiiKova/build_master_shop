@@ -1,0 +1,257 @@
+[
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "DeWalt DCD776D2T-GB 18V 2 x 2.0Ah Li-Ion XR Cordless Combi Drill",
+    "description": "Compact drill driver with XR Li-ion battery technology, designed for speed and efficiency. Ergonomic design and rubber grip increase comfort and offer maximum control. Supplied a TSTAK kit box with multi-voltage charger for all XR Li-ion slide pack batteries.",
+    "first_level_category": 1,
+    "second_level_category": 1,
+    "third_level_category": 1,
+    "image": "dewalt_combi_drill.webp",
+    "sku": "bm-8174416",
+    "rating": null,
+    "price": "149.99",
+    "stock": 50,
+    "additional_attributes": "2 x 2.0Ah Li-Ion Batteries\r\n90min Charge Time\r\nMax. Torque: 42Nm\r\n15 Torque Settings + Drill + Hammer Drill\r\n13mm Keyless Chuck\r\n2-Speed & Reverse\r\nAll-Metal Gearing\r\nElectronic Brake\r\nLED Work Light\r\nSpindle Lock"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "DeWalt Barstow Holster Work Trousers",
+    "description": "Lightweight pro-stretch, rip-stop work trousers with holster pockets. Features integrated padded mobile phone pocket. 200g/m².",
+    "first_level_category": 4,
+    "second_level_category": 14,
+    "third_level_category": null,
+    "image": "work-trousers.webp",
+    "sku": "bm-9997016",
+    "rating": "4.85",
+    "price": "32.99",
+    "stock": null,
+    "additional_attributes": "2 x Upper Front, 2 x Holster, 1 x Cargo Side, 1 x Ruler, 2 x Knee Pad, 1 x Mobile Phone & 2 x Back Pocket(s)\r\nCordura-Reinforced Knee Pad Pockets\r\nSlim Fit\r\nBreathable Fabric\r\nWithout Hammer Strap\r\nZip Fly"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Strike Fibreglass Claw Hammer 20oz (0.57kg)",
+    "description": "Textured, bi-material grip fibreglass handle absorbs shock and reduces vibration. Heat-treated and rim-tempered high-carbon steel head. Ideal for everyday use on light to medium-duty nailing applications.",
+    "first_level_category": 1,
+    "second_level_category": 3,
+    "third_level_category": 7,
+    "image": "strike-hammer-655249_1280.webp",
+    "sku": "bm-8146016",
+    "rating": null,
+    "price": "15.99",
+    "stock": 15,
+    "additional_attributes": "Heat-Treated Carbon Steel Head\r\nFibreglass Ergonomic Handle\r\n33mm Smooth Face\r\nShock-Absorbent Handle\r\nOverstrike Protection for Added Durability\r\nCurved Claw for Easy Nail Removal"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "Irwin Jack 8tpi Wood Saw 20\" (500mm)",
+    "description": "Razor-sharp triple-ground teeth for cutting all materials. Cuts on the push and pull. Water-based lacquer gives up to 4 times more rust protection. Comfortable handle for prolonged use.",
+    "first_level_category": 1,
+    "second_level_category": 3,
+    "third_level_category": 8,
+    "image": "",
+    "sku": "bm-8777016",
+    "rating": null,
+    "price": "10.00",
+    "stock": 30,
+    "additional_attributes": "Cuts Wood\r\nTriple-Ground Teeth\r\nRipping & Cross Cut\r\n0.85mm Steel Blade\r\nPlastic Soft-Grip Handle"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Stanley FatMax Retractable Folding Knife",
+    "description": "Folding retractable utility knife designed for safety and convenient storage. Ergonomically designed for comfort and with heavy duty construction for longer working life.",
+    "first_level_category": 1,
+    "second_level_category": 3,
+    "third_level_category": 8,
+    "image": "openart-image_CC63Fkda_173005204_1.webp",
+    "sku": "bm-8156016",
+    "rating": null,
+    "price": "12.95",
+    "stock": 50,
+    "additional_attributes": "* Blade\r\n* 3 Blades Supplied\r\n* Integrated Spare Blade Storage\r\n* Ergonomic Handle"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Storm Waterproof Jacket",
+    "description": "Mesh-lined, rip-stop jacket with concealed hood, adjustable hem and cuffs. 100g/m².",
+    "first_level_category": 4,
+    "second_level_category": 13,
+    "third_level_category": null,
+    "image": "openart-image_w81Ofp4S_173005025.webp",
+    "sku": "bm-9977016",
+    "rating": null,
+    "price": "58.00",
+    "stock": null,
+    "additional_attributes": "Waterproof\r\n1 x Chest & 2 x Lower Pocket(s)\r\nMesh Lining\r\nConcealed Hood\r\nNon-Breathable\r\nFront Zip\r\nAdjustable Cuffs\r\nCut & Sew Panels\r\nReflective Branding"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "Makita DTM51Z LXT Multi-Tool - Bare",
+    "description": "Multi-tool with tool-less blade change. Lever-style accessory clamp allows quick accessory replacement at 12 different angles over 360°. With variable speed control and anti-restart feature for added safety. Includes battery capacity lamp, showing when battery has been used and when battery power is nearly depleted.",
+    "first_level_category": 1,
+    "second_level_category": 1,
+    "third_level_category": 3,
+    "image": "makita-multi-tool-bare.webp",
+    "sku": "bm-1077016",
+    "rating": null,
+    "price": "129.00",
+    "stock": 10,
+    "additional_attributes": "6-Speed\r\nQuick-Release Blade Change\r\nAll-Metal Gearbox\r\nSlide On/Off Switch\r\nWithout Work Light\r\nRubber-Coated Grip\r\nReplaceable Carbon Brushes\r\nOscillation Angle 3.2°\r\nSoft Start\r\nDoes Not Include Battery or Charger"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Goldscrew PZ Double-Countersunk Self-Tapping Multipurpose Screws 5mm x 50mm 200 Pack",
+    "description": "Top quality, waxed single thread, multipurpose screw. Popular with the professional. Features a lower screw-in torque and faster drive speed. Suitable for screwdrivers, combi drills and impact drivers.",
+    "first_level_category": 2,
+    "second_level_category": 2,
+    "third_level_category": null,
+    "image": "screw-763182_1280.webp",
+    "sku": "bm-8177016",
+    "rating": null,
+    "price": "7.00",
+    "stock": 50,
+    "additional_attributes": "Double-Countersunk Head for Reduced Shear\r\nDeep, Sharp, Single Thread for Cutting Cleanly through Wood\r\nZinc-Plated & Yellow-Passivated\r\nCarbon Steel Construction\r\nWax-Coated\r\nFully Threaded\r\nFor Wood, Plastic, Masonry & 1mm Sheet Metal\r\nHeat-Treated for Snap Resistance\r\nCorrosion-Resistant"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "name": "Site Kirksey Stretch Holster Trousers Grey/Black",
+    "description": "Stretch holster trousers feature triple stitching for durability in tough working conditions. Multiple pockets include top-loading knee pad inserts and easy-access holster pockets.",
+    "first_level_category": 4,
+    "second_level_category": 14,
+    "third_level_category": null,
+    "image": "openart-image_OtGx7_Hu_173005045.webp",
+    "sku": "bm-4797760",
+    "rating": null,
+    "price": "30.00",
+    "stock": null,
+    "additional_attributes": "2 x Reinforced Holster, 2 x Front Hip, 2 x Free Swing Thigh, 1 x Phone, 2 x Back & 2 x Knee Pad Insert Pockets\r\nKnees Not Reinforced\r\nRegular Fit\r\nNon-Breathable\r\nHammer Strap\r\nYKK Front Zip"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "name": "Easyfix Bright Zinc-Plated High Tensile Steel Hex Bolts M16 x 60mm 25 Pack",
+    "description": "Bright zinc-plated high tensile steel. Hex head. Partially threaded.",
+    "first_level_category": 2,
+    "second_level_category": 6,
+    "third_level_category": null,
+    "image": "hex-bolt-1613931_1280_1.webp",
+    "sku": "bm-9265807",
+    "rating": null,
+    "price": "18.00",
+    "stock": 15,
+    "additional_attributes": ""
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "name": "DeWalt Reynolds Stone Waterproof Steel Toe Cap Safety Boots",
+    "description": "Stone leather nubuck. Waterproof and breathable membrane. Steel toe cap and steel midsole protection. Padded collar and tongue for added comfort. PU/Rubber injection outsole and PU comfort insole. Wide fit.",
+    "first_level_category": 4,
+    "second_level_category": 12,
+    "third_level_category": null,
+    "image": "openart-image_6aUD7Yhf_173005129.webp",
+    "sku": "bm-3955329",
+    "rating": null,
+    "price": "85.00",
+    "stock": null,
+    "additional_attributes": ""
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "name": "Site Fortress Black Waterproof Steel Toe Cap Safety Boots",
+    "description": "Tough and hardwearing safety boots with moulded rubber scuff cap and PU footbed. Water-resistant nubuck leather upper. Padded tongue and collar.",
+    "first_level_category": 4,
+    "second_level_category": 12,
+    "third_level_category": null,
+    "image": "openart-image_jRimpuo5_173005149.webp",
+    "sku": "bm-8214728",
+    "rating": null,
+    "price": "55.00",
+    "stock": null,
+    "additional_attributes": ""
+  }
+},
+{
+  "model": "products.product",
+  "pk": 23,
+  "fields": {
+    "name": "CAT Holton Honey Steel Toe Cap Safety Boots",
+    "description": "100% leather upper with ankle support. Protect the feet and provide all-day comfort. With Techni-Flex sole, 4 lacing eyelets, and padded collar and tongue. Ideal for any working environment.",
+    "first_level_category": 4,
+    "second_level_category": 12,
+    "third_level_category": null,
+    "image": "openart-image_0dJxCjJ0_173005101.webp",
+    "sku": "bm-2098889",
+    "rating": null,
+    "price": "105.00",
+    "stock": null,
+    "additional_attributes": ""
+  }
+},
+{
+  "model": "products.product",
+  "pk": 24,
+  "fields": {
+    "name": "Easyfix General Purpose Threaded Coach Bolts Carbon Steel Bright Zinc-Plated M10 x 130mm 50 Pack",
+    "description": "BZP. Mushroom head. Fully threaded. Nuts supplied.",
+    "first_level_category": 2,
+    "second_level_category": 6,
+    "third_level_category": null,
+    "image": "openart-image_0CEq4IfJ_173005187.webp",
+    "sku": "bm-5184952",
+    "rating": null,
+    "price": "28.00",
+    "stock": 15,
+    "additional_attributes": ""
+  }
+},
+{
+  "model": "products.product",
+  "pk": 25,
+  "fields": {
+    "name": "Blaklader Stretch Denim Trousers",
+    "description": "Durable, slim fit, craftsman trousers in cordura denim 2-way stretch fabric. Features top-loading knee pockets and button fly. Crotch and calf have 4-way stretch panels for movement.",
+    "first_level_category": 4,
+    "second_level_category": 14,
+    "third_level_category": null,
+    "image": "openart-image_blaklader_stretch_trousers.webp",
+    "sku": "bm-8220111",
+    "rating": null,
+    "price": "150.00",
+    "stock": null,
+    "additional_attributes": "2 x Nail with Zipped Pocket on Front, 2 x Back, 2 x Inset, 1 x Ruler, 1 x Pen, 1 x Upper Leg with Flap & Inside Phone Pocket, 1 x Zipped Upper Leg, 1 x Knife Holder & 2 x Kneepad Pocket(s)\r\nCordura-Reinforced Knee Pad Pockets\r\nSlim Fit\r\nBreathable Fabric\r\nWithout Hammer Strap\r\nButton Fly"
+  }
+}
+]

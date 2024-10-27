@@ -1,0 +1,74 @@
+[
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 1,
+  "fields": {
+    "name": "drills",
+    "friendly_name": "Drills",
+    "second_level_category": 1
+  }
+},
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 2,
+  "fields": {
+    "name": "angle_grinders",
+    "friendly_name": "Angle Grinders",
+    "second_level_category": 1
+  }
+},
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 3,
+  "fields": {
+    "name": "multi_tools",
+    "friendly_name": "Multi Tools",
+    "second_level_category": 1
+  }
+},
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 4,
+  "fields": {
+    "name": "saws",
+    "friendly_name": "Saws",
+    "second_level_category": 1
+  }
+},
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 5,
+  "fields": {
+    "name": "work_gloves",
+    "friendly_name": "Work Gloves",
+    "second_level_category": 9
+  }
+},
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 6,
+  "fields": {
+    "name": "hi_vis_vests",
+    "friendly_name": "Hi Vis Vests",
+    "second_level_category": 9
+  }
+},
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 7,
+  "fields": {
+    "name": "hammers",
+    "friendly_name": "Hammers",
+    "second_level_category": 3
+  }
+},
+{
+  "model": "products.thirdlevelcategory",
+  "pk": 8,
+  "fields": {
+    "name": "sawing_cutting",
+    "friendly_name": "Sawing & Cutting",
+    "second_level_category": 3
+  }
+}
+]

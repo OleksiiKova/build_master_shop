@@ -1,0 +1,34 @@
+[
+{
+  "model": "products.firstlevelcategory",
+  "pk": 1,
+  "fields": {
+    "name": "tools",
+    "friendly_name": "Tools"
+  }
+},
+{
+  "model": "products.firstlevelcategory",
+  "pk": 2,
+  "fields": {
+    "name": "fasteners",
+    "friendly_name": "Fasteners"
+  }
+},
+{
+  "model": "products.firstlevelcategory",
+  "pk": 3,
+  "fields": {
+    "name": "safety_equipment",
+    "friendly_name": "Safety Equipment"
+  }
+},
+{
+  "model": "products.firstlevelcategory",
+  "pk": 4,
+  "fields": {
+    "name": "workwear",
+    "friendly_name": "Workwear"
+  }
+}
+]
