@@ -1,1 +1,1 @@
-web: gunicorn build_master_shop.wsgi:application
+web: gunicorn build_master.wsgi:application
