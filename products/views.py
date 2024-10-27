@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, ProductVariant, FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory
@@ -111,8 +112,11 @@ def product_detail_by_sku(request, sku):
 
     return render(request, 'products/product_detail.html', context)
 
-
+@login_required
 def add_product(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
     if request.method == 'POST':
         product_form = ProductForm(request.POST, request.FILES)
         variant_formset = ProductVariantFormSet(request.POST, prefix='variants')
@@ -150,8 +154,11 @@ def add_product(request):
     
     return render(request, template, context)
 
-
+@login_required
 def edit_product(request, sku):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
     # Fetch the product instance by SKU
     product = get_object_or_404(Product, sku=sku)
 
@@ -195,7 +202,7 @@ def edit_product(request, sku):
     
     return render(request, template, context)
 
-
+@login_required
 def delete_product(request, sku):
     """Delete a product from the store"""
     if not request.user.is_superuser:
