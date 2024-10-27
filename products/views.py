@@ -194,3 +194,15 @@ def edit_product(request, sku):
     }
     
     return render(request, template, context)
+
+
+def delete_product(request, sku):
+    """Delete a product from the store"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
+    product = get_object_or_404(Product, sku=sku)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
