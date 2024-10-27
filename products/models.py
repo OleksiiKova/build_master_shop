@@ -81,9 +81,7 @@ class Product(models.Model):
             self.second_level_category = self.third_level_category.second_level_category
         if self.second_level_category:
             self.first_level_category = self.second_level_category.first_level_category
-        super().save(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
         if not self.sku:
             self.sku = self.generate_sku()
         super().save(*args, **kwargs)
@@ -100,7 +98,6 @@ class Product(models.Model):
 class ProductVariant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='variants')
     size = models.CharField(max_length=64, blank=True, null=True)
-    color = models.CharField(max_length=64, blank=True, null=True)
     additional_attributes = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
@@ -118,9 +115,6 @@ class ProductVariant(models.Model):
         if self.size:
             parts.append(self.size)
 
-        if self.color:
-            parts.append(self.color)
-
         new_sku = '-'.join(parts)
 
         return self.ensure_unique_sku(new_sku)
@@ -136,4 +130,4 @@ class ProductVariant(models.Model):
         return sku
 
     def __str__(self):
-        return f"{self.product.name} - {self.size or ''} / {self.color or ''}"
+        return f"{self.product.name} - {self.size or ''}"

@@ -5,6 +5,7 @@ from .models import FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory,
 class ProductVariantInline(admin.TabularInline):
     model = ProductVariant
     extra = 1
+    readonly_fields = ('sku',)
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -21,19 +22,18 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('first_level_category',)
 
     inlines = [ProductVariantInline]
-    exclude = ('sku',)
+    readonly_fields = ('sku',)
 
 
 class ProductVariantAdmin(admin.ModelAdmin):
     list_display = (
         'product',
         'size',
-        'color',
         'price',
     )
 
     ordering = ('product',)
-    exclude = ('sku',)
+    readonly_fields = ('sku',)
 
 
 class FirstLevelCategoryAdmin(admin.ModelAdmin):

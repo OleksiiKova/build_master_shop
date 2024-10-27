@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, ProductVariant, FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory
+from .forms import ProductForm, ProductVariantForm, ProductVariantFormSet
+from django.forms import modelformset_factory
 
 # Create your views here.
 def product_list(request):
@@ -84,27 +86,6 @@ def product_list(request):
     return render(request, 'products/products.html', context)
 
 
-# def product_detail(request, product_id, variant_sku=None):
-#     """ A view to show individual product details """
-
-#     product = get_object_or_404(Product, pk=product_id)
-
-#     if variant_sku is None and product.variants.exists():
-#         first_variant = product.variants.first()
-#         return redirect('product_detail_variant', product_id=product.id, variant_sku=first_variant.sku)
-
-#     selected_variant = None
-#     if variant_sku:
-#         selected_variant = get_object_or_404(ProductVariant, sku=variant_sku, product=product)
-
-#     context = {
-#         'product': product,
-#         'selected_variant': selected_variant
-#     }
-
-#     return render(request, 'products/product_detail.html', context)
-
-
 def product_detail_by_sku(request, sku):
     variant = ProductVariant.objects.filter(sku=sku).first()
 
@@ -129,3 +110,42 @@ def product_detail_by_sku(request, sku):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+def add_product(request):
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, request.FILES)
+        variant_formset = ProductVariantFormSet(request.POST, prefix='variants')
+
+        if product_form.is_valid() and variant_formset.is_valid():
+            print("Product Form:", product_form.cleaned_data)
+            for form in variant_formset:
+                print("Variant Form:", form.cleaned_data)
+            product = product_form.save()
+            
+            # Save each variant associated with this product
+            variants = variant_formset.save(commit=False)
+            for variant in variant_formset.save(commit=False):
+                variant.product = product  # Link variant to the saved product
+                variant.save()
+
+            # Delete any variants marked for deletion in the formset
+            for form in variant_formset.deleted_forms:
+                form.instance.delete()
+
+            # Optional: call save_m2m() if there are any Many-to-Many relations
+            variant_formset.save_m2m()
+
+            return redirect('product_detail_by_sku', sku=product.sku)
+
+    else:
+        product_form = ProductForm()
+        variant_formset = ProductVariantFormSet(prefix='variants')
+    
+    template = 'products/add_product.html'
+    context = {
+        'product_form': product_form,
+        'variant_formset': variant_formset,
+    }
+    
+    return render(request, template, context)

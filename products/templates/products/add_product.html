@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <hr>
+            <h2 class="mb-4">Product Management</h2>
+            <h5 class="text-muted">Add a Product</h5>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ product_form | crispy }}
+                <h3>Product Variants</h3>
+                <div id="variant-forms">
+                    {{ variant_formset.management_form }}
+
+                    {% for form in variant_formset %}
+                    <div class="variant-form">
+                        {{ form | crispy }}
+                        {% if form.instance.pk %}
+                        <label for="{{ form.prefix }}-DELETE">Delete:</label> {{ form.DELETE }}
+                        {% endif %}
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+                <button id="add-variant">Add Variant</button>
+                <div class="text-end">
+                    <a class="btn btn-secondary" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn btn-primary" type="submit">Add Product</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const totalForms = document.getElementById('id_variants-TOTAL_FORMS');
+        const variantContainer = document.getElementById('variant-forms');
+
+        document.getElementById('add-variant').addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const newFormIndex = totalForms.value; // Get the current number of forms
+
+            // Get the last variant form
+            const lastVariantForm = variantContainer.querySelector('.variant-form:last-child');
+
+            // Clone the last variant form
+            const newVariantForm = lastVariantForm.cloneNode(true);
+
+            // Update the cloned form's input names and ids
+            const inputs = newVariantForm.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.name = input.name.replace(/-\d+-/, `-${newFormIndex}-`);
+                input.id = input.id.replace(/-\d+-/, `-${newFormIndex}-`);
+                // Clear input values
+                input.value = '';
+                // If the input is a DELETE checkbox, it should be unchecked
+                if (input.type === 'checkbox') {
+                    input.checked = false;
+                }
+            });
+
+            // Append the cloned form to the container
+            variantContainer.appendChild(newVariantForm);
+
+            // Update the total forms count
+            totalForms.value = parseInt(newFormIndex) + 1;
+        });
+    });
+</script>
+{% endblock %}
