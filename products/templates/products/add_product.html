@@ -17,8 +17,14 @@
         <div class="col-md-6">
             <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data">
                 {% csrf_token %}
+                {% for field in product_form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
 
-                {{ product_form | crispy }}
                 <h3>Product Variants</h3>
                 <div id="variant-forms">
                     {{ variant_formset.management_form }}
@@ -84,6 +90,11 @@
             // Update the total forms count
             totalForms.value = parseInt(newFormIndex) + 1;
         });
+    });
+
+    $('#new-image').change(function () {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
     });
 </script>
 {% endblock %}

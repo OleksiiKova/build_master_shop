@@ -17,8 +17,14 @@
         <div class="col-md-6">
             <form method="post" action="{% url 'edit_product' product.sku %}" enctype="multipart/form-data">
                 {% csrf_token %}
+                {% for field in product_form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
 
-                {{ product_form | crispy }}
                 <h3>Product Variants</h3>
                 <div id="variant-forms">
                     {{ variant_formset.management_form }}
