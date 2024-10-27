@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-i&s*rde$%5+o3o7pl$%z6k7))45y0@wegxnwmqddi^k@bx(c=1
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-oleksiikova-buildmaster-f2krae16o6g.ws.codeinstitute-ide.net',
-                 'build-master-shop.herokuapp.com']
+                 'https://build-master-shop-84761d123763.herokuapp.com/']
 
 
 # Application definition
