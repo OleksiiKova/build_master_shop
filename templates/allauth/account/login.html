@@ -6,10 +6,8 @@
 {% trans "Sign In" %}
 {% endblock head_title %}
 {% block content %}
-<div class="container my-4 allauth-form-inner-content">
-    <hr>
-    <h2 class="logo-font mb-4">{% trans "Sign In" %}</h2>
-    <hr>
+<div class="container col-md-6 my-4 allauth-form-inner-content">
+    <h2 class="mb-4">{% trans "Sign In" %}</h2>
 
     {% get_providers as socialaccount_providers %}
 

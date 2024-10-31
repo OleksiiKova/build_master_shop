@@ -13,22 +13,24 @@
     <div class="row">
         <div class="col">
             {% if cart_items %}
-            <div class="table-responsive rounded d-none d-md-block">
+            <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
-                    <thead class="text-black">
+                    <thead class="">
                         <tr>
-                            <th scope="col">Product Info</th>
-                            <th scope="col"></th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Subtotal</th>
+                            <th scope="col" class="col-md-2">Item Info</th>
+                            <th scope="col" class="col-md-3"></th>
+                            <th scope="col" class="col-md-2 text-center">Item Price</th>
+                            <th scope="col" class="col-md-2 text-center">Quantity</th>
+                            <th scope="col" class="col-md-2 text-center">Item Total</th>
+                            <th scope="col" class="col-md-1 text-center">Remove</th>
                         </tr>
                     </thead>
 
                     {% for item in cart_items %}
-                    <tr>
-                        <td class="p-3 w-25">
+                    <tr class="d-flex flex-column d-md-table-row align-items-start border p-3 mb-3 rounded">
+                        <td class="col-md-2">
                             {% if item.product.image %}
+
                             <img class="img-fluid rounded" src="{{ item.product.image.url }}"
                                 alt="{{ item.product.name }}">
                             {% else %}
@@ -36,7 +38,7 @@
                                 alt="{{ item.product.name }}">
                             {% endif %}
                         </td>
-                        <td class="py-3">
+                        <td class="col-md-3">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0">
                                 {% if item.size %}
@@ -46,10 +48,10 @@
                             </p>
                             <p class="my-0 small text-muted">SKU: {{ item.sku }}</p>
                         </td>
-                        <td class="py-3">
+                        <td class="col-md-2 text-center" data-label="Item Price:">
                             <p class="my-0">€{{ item.product.price }}</p>
                         </td>
-                        <td class="py-3 w-25">
+                        <td class="col-md-2 text-center" data-label="Quantity:">
                             <form action="{% url 'adjust_cart' item.sku %}" class="form update-form" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
@@ -78,20 +80,23 @@
                                     </div>
                                 </div>
                             </form>
-                            <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right"
-                                id="remove_{{ item.sku}}"><small>Remove</small></a>
+                            <a class="btn btn-sm btn-secondary update-link col-md-12"><small>Update</small></a>
+
                         </td>
-                        <td class="py-3">
+                        <td class="col-md-2 text-center" data-label="Item Total:">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        </td>
+                        <td class="col-md-1 text-center" data-label="Remove:">
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.sku}}"><i
+                                    class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="pt-5 text-end">
+                        <td colspan="6" class="pt-md-5 text-center text-md-end">
                             <h6><strong>Cart Total: €{{ total_cost|floatformat:2 }}</strong></h6>
                             <h6>Standart Delivery: €{{ delivery_cost|floatformat:2 }}</h6>
-                            <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                            <h4 class="my-3"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                             {% if free_delivery_delta > 0 %}
                             <p class="mb-1 text-danger">
                                 You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong>
@@ -101,19 +106,17 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="text-end">
-                            <a href="{% url 'products' %}" class="btn btn-secondary rounded-0 btn-lg">
-                                <span class="icon">
-                                    <i class="bi bi-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 btn-lg">
-                                <span class="text-uppercase">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="bi bi-lock-fill"></i>
-                                </span>
-                            </a>
+                        <td colspan="6">
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
+                                <a href="{% url 'products' %}"
+                                    class="btn btn-secondary btn-lg col-12 col-md-4 order-2 order-md-1">
+                                    <span class="text-uppercase">Continue Shopping</span>
+                                </a>
+                                <a href="{% url 'checkout' %}"
+                                    class="btn btn-primary btn-lg col-12 col-md-4 order-1 order-md-2 mb-2 mb-md-0">
+                                    <span class="text-uppercase">Checkout Now</span>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 </table>
@@ -124,12 +127,11 @@
                 <span class="icon">
                     <i class="bi bi-chevron-left"></i>
                 </span>
-                <span class="text-uppercase">Keep Shoping</span>
+                <span class="text-uppercase">Continue Shopping</span>
             </a>
             {% endif %}
         </div>
     </div>
-
 </div>
 {% endblock %}
 
