@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory, Product, ProductVariant
+from .models import (
+    FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory, Product,
+    ProductVariant
+)
 
 
 class ProductVariantInline(admin.TabularInline):

@@ -1,8 +1,7 @@
 from decimal import Decimal
 from django.contrib import messages
-from django.shortcuts import get_object_or_404
 from products.models import Product, ProductVariant
-# from .models import Cart
+
 
 def cart_contents(request):
 
@@ -44,28 +43,39 @@ def cart_contents(request):
 
     for sku in items_to_delete:
         del cart[sku]
-        messages.warning(request, f'The product {sku} has been removed from the cart because it no longer exists.')
-    
+        messages.warning(
+            request,
+            f'The product {sku} has been removed from the cart '
+            'because it no longer exists.'
+        )
     request.session['cart'] = cart
 
-    
-    selected_delivery_method = request.session.get('selected_delivery_method', 'standard')
+    selected_delivery_method = request.session.get(
+        'selected_delivery_method',
+        'standard'
+    )
     if not cart_items:
         delivery_cost = 0
     else:
         delivery_cost = (
-            STANDARD_DELIVERY_COST if selected_delivery_method == 'standard' else EXPRESS_DELIVERY_COST
+            STANDARD_DELIVERY_COST
+            if selected_delivery_method == 'standard'
+            else EXPRESS_DELIVERY_COST
         )
 
-    if total_cost >= free_delivery_threshold and selected_delivery_method == 'standard':
+    if (total_cost >= free_delivery_threshold and
+            selected_delivery_method == 'standard'):
         delivery_cost = 0
     else:
-        free_delivery_delta = free_delivery_threshold - total_cost if selected_delivery_method == 'standard' else 0
-
+        free_delivery_delta = (
+            free_delivery_threshold - total_cost
+            if selected_delivery_method == 'standard'
+            else 0
+        )
     grand_total = total_cost + delivery_cost
 
     return {
-        'cart_items': cart_items, 
+        'cart_items': cart_items,
         'total_cost': total_cost,
         'delivery_cost': delivery_cost,
         'free_delivery_threshold': free_delivery_threshold,
@@ -74,4 +84,3 @@ def cart_contents(request):
         'selected_delivery_method': selected_delivery_method,
         'product_count': product_count,
     }
-

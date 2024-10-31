@@ -3,11 +3,14 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, ProductVariant, FirstLevelCategory, SecondLevelCategory, ThirdLevelCategory
+from .models import (
+    Product, ProductVariant, FirstLevelCategory, SecondLevelCategory,
+    ThirdLevelCategory
+)
 from .forms import ProductForm, ProductVariantForm, ProductVariantFormSet
 from django.forms import modelformset_factory
 
-# Create your views here.
+
 def product_list(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -41,15 +44,20 @@ def product_list(request):
 
         if first_level:
             products = products.filter(first_level_category__name=first_level)
-            first_level_category = FirstLevelCategory.objects.get(name=first_level)
+            first_level_category = FirstLevelCategory.objects.get(
+                name=first_level
+            )
             category_hierarchy.append({
                 'name': first_level_category.name,
                 'friendly_name': first_level_category.friendly_name
             })
 
         if second_level:
-            products = products.filter(second_level_category__name=second_level)
-            second_level_category = SecondLevelCategory.objects.get(name=second_level)
+            products = products.filter(
+                second_level_category__name=second_level)
+            second_level_category = SecondLevelCategory.objects.get(
+                name=second_level
+            )
             category_hierarchy.append({
                 'name': second_level_category.name,
                 'friendly_name': second_level_category.friendly_name
@@ -57,7 +65,8 @@ def product_list(request):
 
         if third_level:
             products = products.filter(third_level_category__name=third_level)
-            third_level_category = ThirdLevelCategory.objects.get(name=third_level)
+            third_level_category = ThirdLevelCategory.objects.get(
+                name=third_level)
             category_hierarchy.append({
                 'name': third_level_category.name,
                 'friendly_name': third_level_category.friendly_name
@@ -66,10 +75,14 @@ def product_list(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request,
+                    "You didn't enter any search criteria!"
+                )
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -96,11 +109,11 @@ def product_detail_by_sku(request, sku):
         current_sku = variant.sku
     else:
         product = get_object_or_404(Product, sku=sku)
-        
+
         first_variant = product.variants.first()
         if first_variant:
             return redirect('product_detail_by_sku', sku=first_variant.sku)
-        
+
         selected_variant = None
         current_sku = product.sku
 
@@ -112,6 +125,7 @@ def product_detail_by_sku(request, sku):
 
     return render(request, 'products/product_detail.html', context)
 
+
 @login_required
 def add_product(request):
     if not request.user.is_superuser:
@@ -119,11 +133,12 @@ def add_product(request):
         return redirect(reverse('home'))
     if request.method == 'POST':
         product_form = ProductForm(request.POST, request.FILES)
-        variant_formset = ProductVariantFormSet(request.POST, prefix='variants')
+        variant_formset = ProductVariantFormSet(
+            request.POST, prefix='variants')
 
         if product_form.is_valid() and variant_formset.is_valid():
             product = product_form.save()
-            
+
             # Save each variant associated with this product
             variants = variant_formset.save(commit=False)
             for variant in variant_formset.save(commit=False):
@@ -140,19 +155,23 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect('product_detail_by_sku', sku=product.sku)
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. Please ensure the form is valid.'
+            )
 
     else:
         product_form = ProductForm()
         variant_formset = ProductVariantFormSet(prefix='variants')
-    
+
     template = 'products/add_product.html'
     context = {
         'product_form': product_form,
         'variant_formset': variant_formset,
     }
-    
+
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, sku):
@@ -163,9 +182,12 @@ def edit_product(request, sku):
     product = get_object_or_404(Product, sku=sku)
 
     if request.method == 'POST':
-        # Prepopulate the forms with data from the request and the existing product instance
-        product_form = ProductForm(request.POST, request.FILES, instance=product)
-        variant_formset = ProductVariantFormSet(request.POST, request.FILES, prefix='variants', instance=product)
+        # Prepopulate the forms with data from the request and the existing
+        # product instance
+        product_form = ProductForm(request.POST, request.FILES,
+                                   instance=product)
+        variant_formset = ProductVariantFormSet(
+            request.POST, request.FILES, prefix='variants', instance=product)
 
         if product_form.is_valid() and variant_formset.is_valid():
             # Save the product and the associated variants
@@ -186,21 +208,27 @@ def edit_product(request, sku):
             messages.success(request, 'Successfully updated product!')
             return redirect('product_detail_by_sku', sku=product.sku)
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update product. Please ensure the form is valid.'
+            )
 
     else:
-        # If the request is not POST, initialize the forms with existing product data
+        # If the request is not POST, initialize the forms with
+        # existing product data
         product_form = ProductForm(instance=product)
-        variant_formset = ProductVariantFormSet(prefix='variants', instance=product)
-    
+        variant_formset = ProductVariantFormSet(
+            prefix='variants', instance=product)
+
     template = 'products/edit_product.html'
     context = {
         'product_form': product_form,
         'variant_formset': variant_formset,
         'product': product,
     }
-    
+
     return render(request, template, context)
+
 
 @login_required
 def delete_product(request, sku):
@@ -208,13 +236,13 @@ def delete_product(request, sku):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-        
+
     product = get_object_or_404(Product, sku=sku)
     if request.method == 'POST':
         product.delete()
         messages.success(request, 'Product deleted!')
         return redirect(reverse('products'))
-    
+
     template = 'products/delete_product.html'
     context = {
         'product': product,
