@@ -7,7 +7,7 @@
 {% endblock head_title %}
 {% block content %}
 <div class="container col-md-6 my-4 allauth-form-inner-content">
-    <h2 class="mb-4">{% trans "Sign In" %}</h2>
+    <h1 class="mb-4">{% trans "Sign In" %}</h1>
 
     {% get_providers as socialaccount_providers %}
 
@@ -39,7 +39,7 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <a class="btn btn-secondary rounded-0" href="{% url 'home' %}">Home</a>
+        <a class="btn btn-secondary" href="{% url 'home' %}">Home</a>
         <button class="" type="submit">{% trans "Sign In" %}</button>
     </form>
 </div>

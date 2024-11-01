@@ -57,8 +57,7 @@
                                 <div class="form-group">
                                     <div class="input-group input-group-{{ item.sku }}">
                                         <div class="input-group-prepend">
-                                            <button
-                                                class="decrement-qty btn btn-sm rounded-0 decrement-qty_{{ item.sku }}"
+                                            <button class="decrement-qty btn btn-sm decrement-qty_{{ item.sku }}"
                                                 data-item_sku="{{ item.sku }}">
                                                 <span>
                                                     <i class="bi bi-dash-circle"></i>
@@ -69,8 +68,7 @@
                                             type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_sku="{{ item.sku }}">
                                         <div class="input-group-append">
-                                            <button
-                                                class="increment-qty btn btn-sm rounded-0 increment-qty_{{ item.sku }}"
+                                            <button class="increment-qty btn btn-sm increment-qty_{{ item.sku }}"
                                                 data-item_sku="{{ item.sku }}">
                                                 <span>
                                                     <i class="bi bi-plus-circle"></i>
@@ -87,8 +85,7 @@
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                         <td class="col-md-1 text-center" data-label="Remove:">
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.sku}}"><i
-                                    class="bi bi-trash"></i></a>
+                            <a class="remove-item float-right" id="remove_{{ item.sku}}"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -123,7 +120,7 @@
             </div>
             {% else %}
             <p class="lead mb-5">Your basket is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-secondary rounded-0 btn-lg">
+            <a href="{% url 'products' %}" class="btn btn-secondary btn-lg">
                 <span class="icon">
                     <i class="bi bi-chevron-left"></i>
                 </span>
