@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -147,34 +148,70 @@
     {% endblock %}
 
     <footer class="footer mt-4">
-        <div class="container">
+        <div class="container-fluid px-md-4">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-lg-3 text-center text-lg-start">
                     <h5>Contact Information</h5>
                     <p>
-                        <strong>Phone:</strong> +123 456 7890<br>
-                        <strong>Email:</strong> info@example.com<br>
-                        <a href="{% url 'contact_us' %}">Contact us</a>
+                        <strong>Phone:</strong> +353 1 2312 3123<br>
+                        <strong>Email:</strong> buildmaster@example.com<br>
+                        <a href="{% url 'contact_us' %}">Contact us</a><br>
                     </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3 text-center">
+                    <h5>Stay Connected</h5>
+                    <ul class="list-unstyled d-flex justify-content-around">
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=61568320523905" target="_blank">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="https://www.twitter.com/YourPage" target="_blank">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/YourPage" target="_blank">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="col-lg-3 text-center">
                     <h5>Policies</h5>
                     <ul class="list-unstyled">
                         <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
                         <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h5>Subscribe to Us</h5>
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Your email" name="email" required>
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">Subscribe</button>
-                            </div>
+                <div class="col-lg-3 text-center text-lg-end d-flex justify-content-center d-lg-block">
+                    <div id="mc_embed_shell">
+                        <div id="mc_embed_signup">
+                            <form
+                                action="https://herokuapp.us17.list-manage.com/subscribe/post?u=e3659d00cab8fee39e602266c&amp;id=dbdf50c9d2&amp;f_id=0015a0e0f0"
+                                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                class="validate" target="_blank">
+                                <div id="mc_embed_signup_scroll">
+                                    <h5 class="text-center text-lg-end">Subscribe to Us</h5>
+                                    <div class="mc-field-group"><input type="email" name="EMAIL" class="required email"
+                                            id="mce-EMAIL" required="" value="" placeholder="Email Address"></div>
+                                    <div id="mce-responses" class="clear foot">
+                                        <div class="response" id="mce-error-response" style="display: none;"></div>
+                                        <div class="response" id="mce-success-response" style="display: none;"></div>
+                                    </div>
+                                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                        /* real people should not fill this in and expect good things - do not remove
+                                        this or risk form bot signups */
+                                        <input type="text" name="b_e3659d00cab8fee39e602266c_dbdf50c9d2" tabindex="-1"
+                                            value="">
+                                    </div>
+                                    <input type="submit" name="subscribe" id="mc-embedded-subscribe"
+                                        class="btn btn-sm btn-primary w-100 m-0" value="Subscribe">
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -185,6 +222,29 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <!-- MailChimp scripts-->
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = 'EMAIL';
+            ftypes[0] = 'email';
+            fnames[1] = 'FNAME';
+            ftypes[1] = 'text';
+            fnames[2] = 'LNAME';
+            ftypes[2] = 'text';
+            fnames[3] = 'ADDRESS';
+            ftypes[3] = 'address';
+            fnames[4] = 'PHONE';
+            ftypes[4] = 'phone';
+            fnames[5] = 'BIRTHDAY';
+            ftypes[5] = 'birthday';
+            fnames[6] = 'COMPANY';
+            ftypes[6] = 'text';
+        }(jQuery));
+        var $mcj = jQuery.noConflict(true);
     </script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
