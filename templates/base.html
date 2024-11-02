@@ -32,7 +32,7 @@
     {% endblock %}
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
     <header class="container-fluid fixed-top">
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
@@ -123,6 +123,8 @@
         {% include 'includes/toasts/toast_error.html' %}
         {% elif level == 30 %}
         {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 26 %}
+        {% include 'includes/toasts/toast_cart_success.html' %}
         {% elif level == 25 %}
         {% include 'includes/toasts/toast_success.html' %}
         {% else %}
@@ -143,6 +145,40 @@
 
     {% block content %}
     {% endblock %}
+
+    <footer class="footer mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Information</h5>
+                    <p>
+                        <strong>Phone:</strong> +123 456 7890<br>
+                        <strong>Email:</strong> info@example.com<br>
+                        <a href="{% url 'contact_us' %}">Get in touch with us</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Policies</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Subscribe to Us</h5>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" name="email" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="submit">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     {% block corejs %}
     <!-- JavaScript Libraries and Files -->

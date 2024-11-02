@@ -336,5 +336,31 @@ input[name='q']::placeholder {
 }
 
 
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    color: #495057;
+}
 
+.footer h5 {
+    color: #527F89;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: #5F9EA0;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #527F89;
+}
+
+.footer .form-control {
+    border: 1px solid #ced4da;
+}
+
+.footer .btn-primary, .footer .btn-secondary {
+    margin-top: 10px;
+}
 

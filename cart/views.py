@@ -35,16 +35,20 @@ def add_to_cart(request, sku):
     if item_sku in cart:
         cart[item_sku]['quantity'] += quantity
         if selected_size:
-            messages.success(
+            messages.add_message(
                 request,
+                26,
                 f'Updated {product.name} quantity (Size: {selected_size}) '
-                f'to {cart[sku]["quantity"]} item(s)'
+                f'to {cart[sku]["quantity"]} item(s)',
+                extra_tags='is_cart_related'
             )
         else:
-            messages.success(
+            messages.add_message(
                 request,
+                26,
                 f'Updated {product.name} quantity to {cart[sku]['quantity']} '
-                f'item(s)'
+                f'item(s)',
+                extra_tags='is_cart_related'
             )
     else:
         cart[item_sku] = {
@@ -55,12 +59,19 @@ def add_to_cart(request, sku):
             'price': str(variant.price if variant else product.price),
         }
         if selected_size:
-            messages.success(
+            messages.add_message(
                 request,
-                f'Added {product.name} (Size: {selected_size}) to your cart'
+                26,
+                f'Added {product.name} (Size: {selected_size}) to your cart',
+                extra_tags='is_cart_related'
             )
         else:
-            messages.success(request, f'Added {product.name} to your cart')
+            messages.add_message(
+                request,
+                26,
+                f'Added {product.name} to your cart',
+                extra_tags='is_cart_related'
+            )
 
     request.session['cart'] = cart
 
@@ -80,13 +91,15 @@ def adjust_cart(request, sku):
             messages.success(
                 request,
                 f'Updated {product_name} quantity (Size: {selected_size}) '
-                f'to {cart[sku]['quantity']} item(s)'
+                f'to {cart[sku]['quantity']} item(s)',
+                extra_tags='is_cart_related'
             )
         else:
             messages.success(
                 request,
                 f'Updated {product_name} quantity to {cart[sku]['quantity']} '
-                f'item(s)'
+                f'item(s)',
+                extra_tags='is_cart_related'
             )
     else:
         cart.pop(sku)
@@ -94,10 +107,15 @@ def adjust_cart(request, sku):
             messages.success(
                 request,
                 f'Removed {product_name} (Size: {selected_size}) '
-                f'from your cart'
+                f'from your cart',
+                extra_tags='is_cart_related'
             )
         else:
-            messages.success(request, f'Removed {product_name} from your cart')
+            messages.success(
+                request,
+                f'Removed {product_name} from your cart',
+                extra_tags='is_cart_related'
+            )
 
     request.session['cart'] = cart
 
@@ -117,10 +135,15 @@ def remove_from_cart(request, sku):
             messages.success(
                 request,
                 f'Removed {product_name} (Size: {selected_size}) '
-                f'from your cart'
+                f'from your cart',
+                extra_tags='is_cart_related'
             )
         else:
-            messages.success(request, f'Removed {product_name} from your cart')
+            messages.success(
+                request,
+                f'Removed {product_name} from your cart',
+                extra_tags='is_cart_related'
+            )
         request.session['cart'] = cart
 
         return HttpResponse(status=200)
