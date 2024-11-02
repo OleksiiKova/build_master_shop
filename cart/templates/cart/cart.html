@@ -16,7 +16,7 @@
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="">
-                        <tr>
+                        <tr class="bg-white">
                             <th scope="col" class="col-md-2">Item Info</th>
                             <th scope="col" class="col-md-3"></th>
                             <th scope="col" class="col-md-2 text-center">Item Price</th>
@@ -27,8 +27,8 @@
                     </thead>
 
                     {% for item in cart_items %}
-                    <tr class="d-flex flex-column d-md-table-row align-items-start border p-3 mb-3 rounded">
-                        <td class="col-md-2">
+                    <tr class="d-flex flex-column bg-white d-md-table-row align-items-start border p-3 mb-3 rounded">
+                        <td class="col-md-2 py-0">
                             {% if item.product.image %}
 
                             <img class="img-fluid rounded" src="{{ item.product.image.url }}"
@@ -38,7 +38,7 @@
                                 alt="{{ item.product.name }}">
                             {% endif %}
                         </td>
-                        <td class="col-md-3">
+                        <td class="col-md-3 py-0">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0">
                                 {% if item.size %}
@@ -46,12 +46,12 @@
                                 {{ item.size|upper }}
                                 {% endif %}
                             </p>
-                            <p class="my-0 small text-muted">SKU: {{ item.sku }}</p>
+                            <p class="my-0 sku-card">SKU: {{ item.sku }}</p>
                         </td>
-                        <td class="col-md-2 text-center" data-label="Item Price:">
+                        <td class="col-md-2  py-0 text-center" data-label="Item Price:">
                             <p class="my-0">€{{ item.product.price }}</p>
                         </td>
-                        <td class="col-md-2 text-center" data-label="Quantity:">
+                        <td class="col-md-2  py-0 text-center" data-label="Quantity:">
                             <form action="{% url 'adjust_cart' item.sku %}" class="form update-form" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
@@ -64,8 +64,8 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control form-control-sm qty_input id_qty_{{ item.sku }}"
-                                            type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                        <input class="form-control qty_input id_qty_{{ item.sku }}" type="number"
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_sku="{{ item.sku }}">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-sm increment-qty_{{ item.sku }}"
@@ -78,18 +78,19 @@
                                     </div>
                                 </div>
                             </form>
-                            <a class="btn btn-sm btn-secondary update-link col-md-12"><small>Update</small></a>
+                            <a class="btn btn-sm btn-secondary update-link mt-md-1 col-md-12"
+                                id="update-link">Update</a>
 
                         </td>
-                        <td class="col-md-2 text-center" data-label="Item Total:">
+                        <td class="col-md-2  py-0 text-center" data-label="Item Total:">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
-                        <td class="col-md-1 text-center" data-label="Remove:">
+                        <td class="col-md-1  py-0 text-center" data-label="Remove:">
                             <a class="remove-item float-right" id="remove_{{ item.sku}}"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
-                    <tr>
+                    <tr class="bg-white">
                         <td colspan="6" class="pt-md-5 text-center text-md-end">
                             <h6><strong>Cart Total: €{{ total_cost|floatformat:2 }}</strong></h6>
                             <h6>Standart Delivery: €{{ delivery_cost|floatformat:2 }}</h6>
@@ -102,11 +103,11 @@
                             {% endif %}
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="bg-white">
                         <td colspan="6">
                             <div class="d-flex flex-column flex-md-row justify-content-between">
                                 <a href="{% url 'products' %}"
-                                    class="btn btn-secondary btn-lg col-12 col-md-4 order-2 order-md-1">
+                                    class="btn btn-secondary responsive-btn col-12 col-md-4 order-2 order-md-1">
                                     <span class="text-uppercase">Continue Shopping</span>
                                 </a>
                                 <a href="{% url 'checkout' %}"
