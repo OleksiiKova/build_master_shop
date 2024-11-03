@@ -86,7 +86,7 @@
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                         <td class="col-md-1  py-0 text-center" data-label="Remove:">
-                            <a class="remove-item float-right" id="remove_{{ item.sku}}"><i class="bi bi-trash"></i></a>
+                            <a class="remove-item float-end" id="remove_{{ item.sku}}"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-6 col-lg-4 offset-lg-2">
             <p class="small mt-1 mb-0">
-                <i class="fas fa-tag mr-1"></i>
+                <i class="bi bi-tag me-1"></i>
                 {% for category in product.get_category_hierarchy %}
                 {% if forloop.first %}
                 <a class="text-muted" href="{% url 'products' %}?first_level={{ category.name }}">
@@ -58,7 +58,7 @@
                 <small class="text-muted">No Rating</small>
                 {% endif %}
                 {% if request.user.is_superuser %}
-                <small class="ml-3">
+                <small class="ms-3">
                     <a href="{% url 'edit_product' product.sku %}">Edit</a>
                     <a class="text-danger" href="{% url 'delete_product' product.sku %}">Delete</a>
                 </small>
@@ -68,19 +68,19 @@
 
                     <a class="text-muted"
                         href="{% url 'products' %}?first_level={{ product.first_level_category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.first_level_category.friendly_name }}
+                        <i class="bi bi-tag me-1"></i>{{ product.first_level_category.friendly_name }}
                     </a> /
                     {% endif %}
                     {% if product.second_level_category %}
                     <a class="text-muted"
                         href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.second_level_category.friendly_name }}
+                        <i class="bi bi-tag me-1"></i>{{ product.second_level_category.friendly_name }}
                     </a> /
                     {% endif %}
                     {% if product.third_level_category %}
                     <a class="text-muted"
                         href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}&third_level={{ product.third_level_category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.third_level_category.friendly_name }}
+                        <i class="bi bi-tag me-1"></i>{{ product.third_level_category.friendly_name }}
                     </a>
                     {% endif %}
                 </p> -->
@@ -96,7 +96,7 @@
                             <div class="sizes">
                                 {% for variant in product.variants.all %}
                                 <a href="{% url 'product_detail_by_sku' variant.sku %}"
-                                    class="btn {% if selected_variant and selected_variant.sku == variant.sku %}btn-secondary{% else %}btn-light{% endif %} mr-2">
+                                    class="btn {% if selected_variant and selected_variant.sku == variant.sku %}btn-secondary{% else %}btn-light{% endif %} me-2">
                                     {{ variant.size }}
                                 </a>
                                 {% endfor %}

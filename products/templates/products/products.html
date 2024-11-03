@@ -17,9 +17,9 @@
     </div>
     <div class="product-container col-10 offset-1">
         <p class="small mt-1 mb-0">
-            <i class="fas fa-tag mr-1"></i>
             {% for category in category_hierarchy %}
             {% if forloop.first %}
+            <i class="bi bi-tag me-1"></i>
             <a class="text-muted" href="{% url 'products' %}?first_level={{ category.name }}">
                 {{ category.friendly_name }}
             </a>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 order-md-first">
-                    <p class="text-muted mt-3 text-center text-md-left">
+                    <p class="text-muted mt-3 text-center text-md-start">
                         <!-- {% if search_term or current_categories or current_sorting != 'None_None' %}
                         <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
                         {% endif %} -->
@@ -88,41 +88,39 @@
                             <div class="card-body pb-0">
                                 <p class="mb-0">{{ product.name }}</p>
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="card-footer bg-white pt-0 border-0 text-start">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                                        <p class="lead mb-0 text-start font-weight-bold">€{{ product.price }}</p>
                                         <p class="small mt-1 mb-0">
                                             {% if product.first_level_category %}
                                             <a class="text-muted"
                                                 href="{% url 'products' %}?category={{ product.first_level_category.name }}">
                                                 <i
-                                                    class="fas fa-tag mr-1"></i>{{ product.first_level_category.friendly_name }}
+                                                    class="bi bi-tag me-1"></i>{{ product.first_level_category.friendly_name }}
                                             </a> /
                                             {% endif %}
                                             {% if product.second_level_category %}
                                             <a class="text-muted"
                                                 href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}">
-                                                <i
-                                                    class="fas fa-tag mr-1"></i>{{ product.second_level_category.friendly_name }}
+                                                {{ product.second_level_category.friendly_name }}
                                             </a> /
                                             {% endif %}
                                             {% if product.third_level_category %}
                                             <a class="text-muted"
                                                 href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}&third_level={{ product.third_level_category.name }}">
-                                                <i
-                                                    class="fas fa-tag mr-1"></i>{{ product.third_level_category.friendly_name }}
+                                                {{ product.third_level_category.friendly_name }}
                                             </a>
                                             {% endif %}
                                         </p>
                                         {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
+                                        <small class="text-muted"><i class="bi bi-star me-1"></i>{{ product.rating }} /
                                             5</small>
                                         {% else %}
                                         <small class="text-muted">No Rating</small>
                                         {% endif %}
                                         {% if request.user.is_superuser %}
-                                        <small class="ml-3">
+                                        <small class="ms-3">
                                             <a href="{% url 'edit_product' product.sku %}">Edit</a>
                                             <a class="text-danger"
                                                 href="{% url 'delete_product' product.sku %}">Delete</a>
