@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid flex-grow-1">
+<div class="container flex-grow-1">
     <div class="row">
         <div class="col text-center mt-3">
             <h2>Products</h2>
@@ -79,75 +79,66 @@
                             {% url 'product_detail_by_sku' product.sku %}
                             {% endif %} -->
 
-                            {% if product.image %}
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            {% else %}
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
-                            {% endif %}
-                            <div class="card-body pb-0">
-                                <p class="mb-0">{{ product.name }}</p>
+                            <div class="card-image-container">
+                                {% if product.image %}
+                                <img class="card-img-top img-fluid card-body-image" src="{{ product.image.url }}"
+                                    alt="{{ product.name }}">
+                                {% else %}
+                                <img class="card-img-top img-fluid card-body-image" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ product.name }}">
+                                {% endif %}
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-start">
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 text-start font-weight-bold">€{{ product.price }}</p>
-                                        <p class="small mt-1 mb-0">
-                                            {% if product.first_level_category %}
-                                            <a class="text-muted"
-                                                href="{% url 'products' %}?category={{ product.first_level_category.name }}">
-                                                <i
-                                                    class="bi bi-tag me-1"></i>{{ product.first_level_category.friendly_name }}
-                                            </a> /
-                                            {% endif %}
-                                            {% if product.second_level_category %}
-                                            <a class="text-muted"
-                                                href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}">
-                                                {{ product.second_level_category.friendly_name }}
-                                            </a> /
-                                            {% endif %}
-                                            {% if product.third_level_category %}
-                                            <a class="text-muted"
-                                                href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}&third_level={{ product.third_level_category.name }}">
-                                                {{ product.third_level_category.friendly_name }}
-                                            </a>
-                                            {% endif %}
-                                        </p>
-                                        {% if product.rating %}
-                                        <small class="text-muted"><i class="bi bi-star me-1"></i>{{ product.rating }} /
-                                            5</small>
-                                        {% endif %}
-                                        {% if request.user.is_superuser %}
-                                        <small class="ms-3">
-                                            <a href="{% url 'edit_product' product.sku %}">Edit</a>
-                                            <a class="text-danger"
-                                                href="{% url 'delete_product' product.sku %}">Delete</a>
-                                        </small>
-                                        {% endif %}
-                                    </div>
-                                </div>
+                            <div class="card-body pb-0 px-0">
+                                <!-- <p class="small mt-1 mb-0">
+                                    {% if product.first_level_category %}
+                                    <a class="text-muted"
+                                        href="{% url 'products' %}?category={{ product.first_level_category.name }}">
+                                        <i class="bi bi-tag me-1"></i>{{ product.first_level_category.friendly_name }}
+                                    </a> /
+                                    {% endif %}
+                                    {% if product.second_level_category %}
+                                    <a class="text-muted"
+                                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}">
+                                        {{ product.second_level_category.friendly_name }}
+                                    </a> /
+                                    {% endif %}
+                                    {% if product.third_level_category %}
+                                    <a class="text-muted"
+                                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}&third_level={{ product.third_level_category.name }}">
+                                        {{ product.third_level_category.friendly_name }}
+                                    </a>
+                                    {% endif %}
+                                </p> -->
+                                <p id="card-body-name" class="mb-0">{{ product.name }}</p>
+                                <p class="lead mb-0 text-start font-weight-bold">€{{ product.price }}</p>
+                                <!-- {% if product.rating %}
+                                <small class="text-muted"><i class="bi bi-star me-1"></i>{{ product.rating }} /
+                                    5</small>
+                                {% endif %} -->
+                                {% if request.user.is_superuser %}
+                                <small class="">
+                                    <a href="{% url 'edit_product' product.sku %}">Edit</a>
+                                    <a class="text-danger" href="{% url 'delete_product' product.sku %}">Delete</a>
+                                </small>
+                                {% endif %}
                             </div>
                         </a>
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:1 %}
                 <div class="col-12 d-sm-none mb-5">
-                    <hr>
                 </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:2 %}
                 <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                    <hr>
                 </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:3 %}
                 <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                    <hr>
                 </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:4 %}
                 <div class="col-12 d-none d-xl-block mb-5">
-                    <hr>
                 </div>
                 {% endif %}
                 {% endfor %}
