@@ -12,12 +12,23 @@
     <meta charset="utf-8">
     <!-- Viewport Meta Tag for Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Meta Tags for SEO -->
+    <meta name="description"
+        content="Build Master Shop offers high-quality power tools, durable workwear, and safety equipment for professionals and DIY enthusiasts. Discover reliable tools and protective gear designed for construction, woodworking, and industrial work.">
+    <meta name="keywords"
+        content="power tools, hand tools, durable workwear, safety equipment, construction gear, cordless drills, heavy-duty tools, professional-grade tools, high-visibility clothing">
+    <meta name="author" content="Oleksii Kovalenko">
     {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
 
     {% block corecss %}
+    <!-- Favicon for the website -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="/site.webmanifest">
     <!-- Bootstrap CSS for Responsive Layout and Components -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -162,17 +173,18 @@
                     <h5>Stay Connected</h5>
                     <ul class="list-unstyled d-flex justify-content-around">
                         <li>
-                            <a href="https://www.facebook.com/profile.php?id=61568320523905" target="_blank">
+                            <a href="https://www.facebook.com/profile.php?id=61568320523905" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="bi bi-facebook"></i>
                             </a>
                         </li>
                         <!-- <li>
-                            <a href="https://www.twitter.com/YourPage" target="_blank">
+                            <a href="https://www.twitter.com/YourPage" target="_blank" rel="noopener noreferrer">
                                 <i class="bi bi-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/YourPage" target="_blank">
+                            <a href="https://www.instagram.com/YourPage" target="_blank" rel="noopener noreferrer">
                                 <i class="bi bi-instagram"></i>
                             </a>
                         </li> -->
@@ -181,6 +193,9 @@
                 <div class="col-lg-3 text-center">
                     <h5>Policies</h5>
                     <ul class="list-unstyled">
+                        <li><a href="https://www.termsfeed.com/live/e92715b8-edde-4374-bc0f-97ff667ede0f"
+                                target="_blank">Privacy Policy-link</a></li>
+
                         <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
                         <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
                     </ul>
