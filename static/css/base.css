@@ -490,3 +490,12 @@ input[name='q']::placeholder {
         height: 250px;
     }
 }
+
+.card-blog-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    height: 48px;
+}

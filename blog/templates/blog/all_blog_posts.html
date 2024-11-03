@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container flex-grow-1">
+    <h1 class="text-center my-4">All Blog Posts</h1>
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card">
+                <a href="{% url 'blog_post' post.slug %}">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}blog_images/default-image.jpg" class="card-img-top" alt="Default Image">
+                    {% endif %}
+                </a>
+                <div class="card-body px-0">
+                    <h5 class="card-blog-title">{{ post.title }}</h5>
+                    <p class="text-muted small card-blog-text">Published on: {{ post.published_date }}</p>
+                </div>
+                {% if request.user.is_superuser %}
+
+                <div class="d-flex justify-content-end">
+                    <a href="{% url 'edit_blog_post' post.slug %}">Edit</a>
+                    <a class="text-danger ms-3" href="{% url 'delete_blog_post' post.slug %}">Delete</a>
+
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-12 d-sm-none mb-3">
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="d-none d-sm-block d-lg-none mb-4">
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="d-none d-lg-block mb-5">
+        </div>
+        {% endif %}
+        {% empty %}
+        <div class="col-12">
+            <p>No blog posts available.</p>
+        </div>
+        {% endfor %}
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+            <a href="{% url 'products' %}" class="btn btn-primary">Shop Now</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

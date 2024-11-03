@@ -4,17 +4,139 @@
 {% block content %}
 <div class="container flex-grow-1">
     <div class="row h-100">
-        <div class="div">
-            <h1>All gear are here!</h1>
-        </div>
-        <div class="col-7 col-md-6 my-auto">
-            <div class="my-5">
-                <h4>
-                    <a href="{% url 'products' %}" class="shop-now-button btn btn-primary btn-lg text-uppercase">Shop
-                        Now</a>
-                </h4>
+        <section>
+            <h1>Welcome to Build Master Shop</h1>
+            <p>Discover high-quality power tools, durable workwear, and reliable safety equipment for professionals and
+                DIY enthusiasts. We provide trusted products built to the highest quality standards.</p>
+            <h4>
+                <a href="{% url 'products' %}" class="shop-now-button btn btn-primary btn-lg text-uppercase">Shop
+                    Now</a>
+            </h4>
+        </section>
+
+        <section>
+            <h2>Popular Categories</h2>
+            <ul>
+                <li><a href="{% url 'products' %}?first_level=tools&second_level=power_tools">Power Tools for
+                        Construction</a> - Reliable, high-performance tools
+                    for any job.</li>
+                <li><a href="{% url 'products' %}?first_level=workwear">Durable Workwear</a> - Tough, comfortable
+                    workwear built for outdoor
+                    jobs.</li>
+                <li><a href="{% url 'products' %}?first_level=safety_equipment">Safety Equipment</a> - Stay protected
+                    with high-quality gloves, helmets,
+                    and more.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Why Choose Build Master Shop?</h2>
+            <p>We offer top-quality power tools, professional-grade workwear, and reliable safety equipment designed for
+                your needs. Our commitment to quality and service sets us apart.</p>
+        </section>
+
+        <section>
+            <h2>Featured Products</h2>
+            <p>Our best-selling tools and safety gear help you tackle any project with confidence.</p>
+        </section>
+
+        <section>
+            <h2>Guides and Tips</h2>
+            <p><strong>Choosing Power Tools</strong>: Learn how to select the best tools for your projects.</p>
+            <p><strong>Guide to Durable Workwear</strong>: Find out what makes quality workwear essential for industrial
+                jobs.</p>
+        </section>
+        <section class="container">
+            <h2 class="text-center mb-4">Latest Blog Posts</h2>
+            <div class="row">
+                <div class="d-sm-none mb-4">
+                    <!-- Mobile layout: Only 1 post in full width -->
+                    {% if latest_posts %}
+                    <div class="card mb-4">
+                        <a href="{% url 'blog_post' latest_posts.0.slug %}">
+                            <!-- Displaying only the latest post -->
+                            {% if latest_posts.0.image %}
+                            <img src="{{ latest_posts.0.image.url }}" class="card-img-top"
+                                alt="{{ latest_posts.0.title }}">
+                            {% else %}
+                            <img src="{{ MEDIA_URL }}blog_images/default-image.jpg" class="card-img-top"
+                                alt="Default Image">
+                            {% endif %}
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-blog-title">{{ latest_posts.0.title }}</h5>
+                            <p class="card-blog-text">Published on: {{ latest_posts.0.published_date }}</p>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p>No blog posts available.</p>
+                    {% endif %}
+                </div>
+
+                <div class="d-none d-sm-block d-lg-none mb-4">
+                    <!-- Tablet layout: 2 posts in full width -->
+                    <div class="row">
+                        {% for post in latest_posts|slice:":2" %}
+                        <!-- Displaying only the first 2 posts -->
+                        <div class="col-6 mb-4">
+                            <div class="card">
+                                <a href="{% url 'blog_post' post.slug %}">
+                                    {% if post.image %}
+                                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                                    {% else %}
+                                    <img src="{{ MEDIA_URL }}blog_images/default-image.jpg" class="card-img-top"
+                                        alt="Default Image">
+                                    {% endif %}
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-blog-title">{{ post.title }}</h5>
+                                    <p class="card-blog-text">Published on: {{ post.published_date }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p>No blog posts available.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="d-none d-lg-block">
+                    <!-- Desktop layout: 3 posts in full width -->
+                    <div class="row">
+                        {% for post in latest_posts %}
+                        <!-- Displaying all 3 posts -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="{% url 'blog_post' post.slug %}">
+                                    {% if post.image %}
+                                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                                    {% else %}
+                                    <img src="{{ MEDIA_URL }}blog_images/default-image.jpg" class="card-img-top"
+                                        alt="Default Image">
+                                    {% endif %}
+                                </a>
+                                <div class="card-body px-0">
+                                    <h5 class="card-blog-title">{{ post.title }}</h5>
+                                    <p class="text-muted small card-blog-text">Published on:
+                                        {{ post.published_date }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p>No blog posts available.</p>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="text-center my-4">
+                <a href="{% url 'all_blog_posts' %}" class="btn btn-primary">View All Blog Posts</a>
+            </div>
+        </section>
+        <section>
+            <h2>About Us</h2>
+            <p>Build Master Shop is your trusted source for quality power tools, hand tools, durable workwear, and
+                safety equipment. Our products meet the highest standards trusted by professionals.</p>
+        </section>
     </div>
 </div>
 {% endblock %}

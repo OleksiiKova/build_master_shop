@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ContactForm
+from blog.models import BlogPost
 import pprint
 
 
@@ -9,7 +10,8 @@ def index(request):
     """
     A view to return the index page
     """
-    return render(request, 'home/index.html')
+    latest_posts = BlogPost.objects.order_by('-published_date')[:3]
+    return render(request, 'home/index.html', {'latest_posts': latest_posts})
 
 
 def privacy_policy(request):
