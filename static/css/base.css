@@ -524,6 +524,11 @@ input[name='q']::placeholder {
 
 
 
-
+.product-reviews .rating i {
+    color: #FFD700;
+}
+.product-reviews .review {
+    margin-bottom: 1rem;
+}
 
 

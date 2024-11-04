@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block content %}
 <div class="container-fluid flex-grow-1">
@@ -140,6 +141,7 @@
                             </div>
                         </div>
 
+
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <a href="{% url 'products' %}" class="btn btn-secondary rounded-0 mt-5">
                                 <span class="icon">
@@ -150,12 +152,73 @@
                             <input type="submit" class="btn btn-primary rounded-0 text-uppercase mt-5"
                                 value="Add to Bag">
                         </div>
+
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         <input type="hidden" name="size" value="{{ selected_variant.size }}">
                         <input type="hidden" id="selected_variant" name="variant"
                             value="{% if selected_variant %}{{ selected_variant.sku }}{% endif %}">
                     </div>
                 </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 product-reviews">
+                <h3>Customer Reviews</h3>
+                {% if reviews %}
+                {% for review in reviews %}
+                <div class="review mb-3 p-2 border-bottom">
+                    <strong>{{ review.user.username }}</strong> -
+                    <small>{{ review.created_at|date:"F j, Y" }}</small>
+                    <div class="rating text-warning text-end">
+                        {% for i in "12345" %}
+                        <i class="bi bi-star{% if user_review.rating >= i|to_int %}-fill{% endif %}"></i>
+                        {% endfor %}
+                    </div>
+                    <p class="bg-white p-2 rounded">{{ review.comment }}</p>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>No reviews yet. Be the first to write one!</p>
+                {% endif %}
+            </div>
+
+            <div class="col-md-6">
+                {% if request.user.is_authenticated %}
+                {% if user_has_reviewed %}
+                <div class="p-3">
+                    <h4>Your Review</h4>
+                    <p>You have already submitted a review for this product.</p>
+                    <div class="border ronded p-2">
+                        <div class="rating text-warning text-end">
+                            {% for i in "12345" %}
+                            <i class="bi bi-star{% if user_review.rating >= i|to_int %}-fill{% endif %}"></i>
+                            {% endfor %}
+                        </div>
+                        <p class="bg-white p-2 rounded">{{ user_review.comment }}</p>
+                        <div class="mt-3">
+                            <a href="{% url 'edit_review' user_review.id %}" class="btn btn-sm btn-secondary">Edit</a>
+                            <a href="{% url 'delete_review' user_review.id %}" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="review-form p-3 border rounded">
+                    <h4>Write a Review</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form_review|crispy }}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                {% endif %}
+                {% else %}
+                <p class="mt-4"><a href="{% url 'login' %}">Log in</a> to write a review.</p>
+                {% endif %}
             </div>
         </div>
     </div>

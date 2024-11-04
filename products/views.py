@@ -7,6 +7,8 @@ from .models import (
     Product, ProductVariant, FirstLevelCategory, SecondLevelCategory,
     ThirdLevelCategory
 )
+from profiles.models import Review
+from profiles.forms import ReviewForm
 from .forms import ProductForm, ProductVariantForm, ProductVariantFormSet
 from django.forms import modelformset_factory
 
@@ -117,8 +119,38 @@ def product_detail_by_sku(request, sku):
         selected_variant = None
         current_sku = product.sku
 
+    reviews = product.reviews.all()
+    user_has_reviewed = False
+
+    if request.user.is_authenticated:
+        user_review = reviews.filter(user=request.user).first()
+        user_has_reviewed = reviews.filter(user=request.user).exists()
+
+    if request.method == "POST" and request.user.is_authenticated:
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            existing_review = product.reviews.filter(user=request.user).first()
+            if existing_review:
+                messages.error(request, 'You have already submitted a review for this product.')
+            else:
+                try:
+                    review = form.save(commit=False)
+                    review.product = product
+                    review.user = request.user
+                    review.save()
+                    messages.success(request, 'Successfully added review!')
+                except IntegrityError:
+                    messages.error(request, 'You have already submitted a review for this product.')
+            return redirect(request.path)
+    else:
+        form_review = ReviewForm()
+
     context = {
         'product': product,
+        'reviews': reviews,
+        'form_review': form_review,
+        'user_has_reviewed': user_has_reviewed,
+        'user_review': user_review,
         'selected_variant': selected_variant,
         'current_sku': current_sku,
     }
@@ -248,3 +280,30 @@ def delete_product(request, sku):
         'product': product,
     }
     return render(request, template, context)
+
+
+@login_required
+def edit_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    form = ReviewForm(request.POST or None, instance=review)
+
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Your review was updated successfully!')
+        return redirect('product_detail_by_sku', sku=review.product.sku)
+
+    context = {'form': form, 'review': review}
+    return render(request, 'products/edit_review.html', context)
+
+
+@login_required
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    if request.method == "POST":
+        product_sku = review.product.sku
+        review.delete()
+        messages.success(request, 'Your review was deleted successfully!')
+        return redirect('product_detail_by_sku', sku=product_sku)
+
+    context = {'review': review}
+    return render(request, 'products/delete_review.html', context)
