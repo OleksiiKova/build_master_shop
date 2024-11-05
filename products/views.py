@@ -8,6 +8,7 @@ from .models import (
     ThirdLevelCategory
 )
 from profiles.models import Review
+from checkout.models import OrderLineItem
 from profiles.forms import ReviewForm
 from .forms import ProductForm, ProductVariantForm, ProductVariantFormSet
 from django.forms import modelformset_factory
@@ -119,7 +120,14 @@ def product_detail_by_sku(request, sku):
         selected_variant = None
         current_sku = product.sku
 
-    reviews = product.reviews.all()
+    is_verified_user = False
+    if request.user.is_authenticated:
+        is_verified_user = OrderLineItem.objects.filter(
+            order__user_profile=request.user.userprofile,
+            product=product
+        ).exists()
+
+    reviews = product.reviews.all().order_by('-created_at')
     user_has_reviewed = False
     user_review = None
 
@@ -152,6 +160,7 @@ def product_detail_by_sku(request, sku):
         'form_review': form_review,
         'user_has_reviewed': user_has_reviewed,
         'user_review': user_review,
+        'is_verified_user': is_verified_user,
         'selected_variant': selected_variant,
         'current_sku': current_sku,
     }
@@ -289,7 +298,9 @@ def edit_review(request, review_id):
     form = ReviewForm(request.POST or None, instance=review)
 
     if form.is_valid():
-        form.save()
+        review = form.save(commit=False)
+        review.is_updated = True
+        review.save()
         messages.success(request, 'Your review was updated successfully!')
         return redirect('product_detail_by_sku', sku=review.product.sku)
 
@@ -308,3 +319,13 @@ def delete_review(request, review_id):
 
     context = {'review': review}
     return render(request, 'products/delete_review.html', context)
+
+
+@login_required
+def user_reviews(request):
+    reviews = Review.objects.filter(user=request.user).select_related('product').order_by('-created_at')
+
+    context = {
+        'reviews': reviews
+    }
+    return render(request, 'products/user_reviews.html', context)

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="container flex-grow-1">
+    <h2 class="my-4 text-center">Your Reviews</h2>
+    {% if reviews %}
+    <div class="row">
+        {% for review in reviews %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ review.product.name }}</h5>
+                    <div class="d-flex justify-content-between">
+                        <small>{{ review.created_at|date:"M j, Y, g:i A" }}</small>
+                        <div class="rating text-warning">
+                            {% for i in "12345" %}
+                            <i class="bi bi-star{% if review.rating >= i|to_int %}-fill{% endif %}"></i>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if review.is_updated %}
+                    <small class="fst-italic text-muted">(updated on
+                        {{ review.updated_at|date:"M j, Y, g:i A" }})</small>
+                    {% endif %}
+                    <p class="mt-2">{{ review.comment }}</p>
+                    <div class="mt-2 text-end">
+                        <a href="{% url 'edit_review' review.id %}" class="">Edit</a>
+                        <a href="{% url 'delete_review' review.id %}" class="ms-2">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>You have not written any reviews yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

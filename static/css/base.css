@@ -531,4 +531,11 @@ input[name='q']::placeholder {
     margin-bottom: 1rem;
 }
 
+.review-comment {
+    height: 80px;
+    overflow-y: auto;
+}
 
+.verified-purchase-label {
+    color: #8B4513;
+}

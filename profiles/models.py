@@ -61,6 +61,8 @@ class Review(models.Model):
     rating = models.IntegerField(choices=RATING_CHOICES)
     comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_updated = models.BooleanField(default=False)
 
     class Meta:
         unique_together = ('product', 'user')

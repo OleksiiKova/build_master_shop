@@ -167,58 +167,79 @@
     </div>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6 product-reviews">
-                <h3>Customer Reviews</h3>
-                {% if reviews %}
-                {% for review in reviews %}
-                <div class="review mb-3 p-2 border-bottom">
-                    <strong>{{ review.user.username }}</strong> -
-                    <small>{{ review.created_at|date:"F j, Y" }}</small>
-                    <div class="rating text-warning text-end">
-                        {% for i in "12345" %}
-                        <i class="bi bi-star{% if user_review.rating >= i|to_int %}-fill{% endif %}"></i>
-                        {% endfor %}
+            <div class="col-md-6 product-reviews order-2 order-md-1">
+                <div class="col-lg-10 mx-auto">
+                    <h3 class="text-center">Customer Reviews</h3>
+                    {% if reviews %}
+                    {% for review in reviews %}
+                    <div class="review mb-3 p-2 border-bottom">
+                        <strong>{{ review.user.username }}</strong>
+
+                        {% if is_verified_user %}
+                        <small class="ms-2 verified-purchase-label">Verified Purchase</small>
+                        {% endif %}
+                        <div class="d-flex justify-content-between">
+                            <small>{{ review.created_at|date:"M j, Y, g:i A" }}</small>
+                            <div class="rating text-warning text-end">
+                                {% for i in "12345" %}
+                                <i class="bi bi-star{% if review.rating >= i|to_int %}-fill{% endif %}"></i>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% if review.is_updated %}
+                        <small class="fst-italic text-muted">(updated on
+                            {{ review.updated_at|date:"M j, Y, g:i A" }})</small>
+                        {% endif %}
+                        <p class="review-comment bg-white mt-2 p-2 rounded">{{ review.comment }}</p>
                     </div>
-                    <p class="bg-white p-2 rounded">{{ review.comment }}</p>
+                    {% endfor %}
+                    {% else %}
+                    <p>No reviews yet. Be the first to write one!</p>
+                    {% endif %}
                 </div>
-                {% endfor %}
-                {% else %}
-                <p>No reviews yet. Be the first to write one!</p>
-                {% endif %}
             </div>
 
-            <div class="col-md-6">
-                {% if request.user.is_authenticated %}
-                {% if user_has_reviewed %}
-                <div class="p-3">
-                    <h4>Your Review</h4>
-                    <p>You have already submitted a review for this product.</p>
-                    <div class="border ronded p-2">
-                        <div class="rating text-warning text-end">
-                            {% for i in "12345" %}
-                            <i class="bi bi-star{% if user_review.rating >= i|to_int %}-fill{% endif %}"></i>
-                            {% endfor %}
-                        </div>
-                        <p class="bg-white p-2 rounded">{{ user_review.comment }}</p>
-                        <div class="mt-3">
-                            <a href="{% url 'edit_review' user_review.id %}" class="btn btn-sm btn-secondary">Edit</a>
-                            <a href="{% url 'delete_review' user_review.id %}" class="btn btn-sm btn-danger">Delete</a>
+            <div class="col-md-6 order-1 order-md-2">
+                <div class="col-lg-10 mx-auto">
+                    {% if request.user.is_authenticated %}
+                    {% if user_has_reviewed %}
+                    <h3 class="text-center">Your Review</h3>
+                    <div class="p-3">
+                        <p>You have already submitted a review for this product.</p>
+                        <div class="">
+                            <div class="d-flex justify-content-between">
+                                <small>{{ user_review.created_at|date:"M j, Y, g:i A" }}</small>
+                                <div class="rating text-warning">
+                                    {% for i in "12345" %}
+                                    <i class="bi bi-star{% if user_review.rating >= i|to_int %}-fill{% endif %}"></i>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% if user_review.is_updated %}
+                            <small class="fst-italic text-muted">(updated on
+                                {{ user_review.updated_at|date:"M j, Y, g:i A" }})</small>
+                            {% endif %}
+                            <p class="review-comment bg-white p-2 rounded mt-2">{{ user_review.comment }}</p>
+                            <div class="mt-3 text-end">
+                                <a href="{% url 'edit_review' user_review.id %}" class="">Edit</a>
+                                <a href="{% url 'delete_review' user_review.id %}" class="ms-2">Delete</a>
+                            </div>
                         </div>
                     </div>
+                    {% else %}
+                    <div class="review-form p-3 border rounded">
+                        <h4>Write a Review</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form_review|crispy }}
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <p class="mt-4"><a href="{% url 'account_login' %}">Log in</a> to write a review.</p>
+                    {% endif %}
                 </div>
-                {% else %}
-                <div class="review-form p-3 border rounded">
-                    <h4>Write a Review</h4>
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form_review|crispy }}
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-                {% endif %}
-                {% else %}
-                <p class="mt-4"><a href="{% url 'account_login' %}">Log in</a> to write a review.</p>
-                {% endif %}
             </div>
         </div>
     </div>
