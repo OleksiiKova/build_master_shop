@@ -121,6 +121,7 @@ def product_detail_by_sku(request, sku):
 
     reviews = product.reviews.all()
     user_has_reviewed = False
+    user_review = None
 
     if request.user.is_authenticated:
         user_review = reviews.filter(user=request.user).first()
