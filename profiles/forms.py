@@ -42,3 +42,5 @@ class ReviewForm(forms.ModelForm):
         widgets = {
             'comment': forms.Textarea(attrs={'rows': 3}),
         }
+
+
