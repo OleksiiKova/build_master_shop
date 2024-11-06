@@ -7,7 +7,7 @@ from .models import (
     Product, ProductVariant, FirstLevelCategory, SecondLevelCategory,
     ThirdLevelCategory
 )
-from profiles.models import Review
+from profiles.models import Review, Wishlist
 from checkout.models import OrderLineItem
 from profiles.forms import ReviewForm
 from .forms import ProductForm, ProductVariantForm, ProductVariantFormSet
@@ -89,20 +89,6 @@ def product_list(request):
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
-
-    for product in products:
-        if product.rating is not None:
-            fractional, whole = modf(product.rating)
-            # Генерация строк для полных, половинчатых и пустых звезд
-            product.full_stars = '★' * int(whole)  # Полные звезды
-            product.half_star = '½' if fractional >= 0.5 else ''  # Половинка звезды
-            product.empty_stars = '☆' * (5 - (int(whole) + (1 if fractional >= 0.5 else 0)))  # Пустые звезды
-        else:
-            product.full_stars = ''
-            product.half_star = ''
-            product.empty_stars = '☆' * 5  # Если нет рейтинга, показыва
-
-
 
     context = {
         'products': products,
@@ -343,3 +329,44 @@ def user_reviews(request):
         'reviews': reviews
     }
     return render(request, 'products/user_reviews.html', context)
+
+
+@login_required
+def add_to_wishlist(request):
+    redirect_url = request.POST.get('redirect_url', '')
+    if not redirect_url:
+        messages.error(request, 'Invalid URL.')
+        return redirect('products')
+
+    path_parts = redirect_url.strip('/').split('/')
+    sku_from_url = path_parts[-1]
+
+    variant = ProductVariant.objects.filter(sku=sku_from_url).first()
+    if variant:
+        product = variant.product
+    else:
+        product = get_object_or_404(Product, sku=sku_from_url)
+
+    if not Wishlist.objects.filter(user=request.user, product=product).exists():
+        Wishlist.objects.create(user=request.user, product=product)
+        messages.success(request, 'Successfully added to your wishlist!')
+    else:
+        messages.info(request, 'This product is already in your wishlist.')
+
+    return redirect(redirect_url)
+
+
+@login_required
+def wishlist(request):
+    wishlist_items = Wishlist.objects.filter(user=request.user)
+    return render(request, 'products/wishlist.html', {'wishlist_items': wishlist_items})
+
+
+@login_required
+def remove_from_wishlist(request, item_id):
+    wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
+
+    wishlist_item.delete()
+    messages.success(request, 'Successfully deleted from your wishlist!')
+
+    return redirect('wishlist')

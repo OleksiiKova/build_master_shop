@@ -86,3 +86,13 @@ def update_product_rating_on_save(sender, instance, **kwargs):
 @receiver(post_delete, sender=Review)
 def update_product_rating_on_delete(sender, instance, **kwargs):
     instance.update_product_rating()
+
+
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'product')
+    def __str__(self):
+        return f"{self.user.username}'s wishlist - {self.product.name}"
