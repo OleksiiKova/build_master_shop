@@ -12,7 +12,7 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ['name', 'description', 'first_level_category',
                   'second_level_category', 'third_level_category', 'price',
-                  'stock', 'additional_attributes', 'image']
+                  'stock', 'additional_attributes', 'image',]
 
     image = forms.ImageField(
         label='Image', required=False, widget=CustomClearableFileInput)
@@ -25,8 +25,8 @@ class ProductVariantForm(forms.ModelForm):
 
 
 ProductVariantFormSet = inlineformset_factory(
-    Product, ProductVariant,  # Parent model, Child model
+    Product, ProductVariant,
     form=ProductVariantForm,
-    extra=1,  # Number of empty forms displayed initially
-    can_delete=True  # Allow deleting variants
+    extra=1,
+    can_delete=True
 )

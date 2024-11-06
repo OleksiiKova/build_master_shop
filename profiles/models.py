@@ -1,6 +1,7 @@
 from django.db import models
+from django.db.models import Avg
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from django_countries.fields import CountryField
@@ -69,3 +70,19 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.product} - {self.rating}"
+
+    def update_product_rating(self):
+        """
+        Calculate and update the average rating of the associated product.
+        """
+        avg_rating = self.product.reviews.aggregate(Avg('rating'))['rating__avg']
+        self.product.rating = avg_rating
+        self.product.save()
+
+@receiver(post_save, sender=Review)
+def update_product_rating_on_save(sender, instance, **kwargs):
+    instance.update_product_rating()
+
+@receiver(post_delete, sender=Review)
+def update_product_rating_on_delete(sender, instance, **kwargs):
+    instance.update_product_rating()

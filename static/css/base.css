@@ -539,3 +539,7 @@ input[name='q']::placeholder {
 .verified-purchase-label {
     color: #8B4513;
 }
+
+.rating-star {
+    font-size: 0.8rem;
+}

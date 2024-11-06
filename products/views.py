@@ -12,7 +12,7 @@ from checkout.models import OrderLineItem
 from profiles.forms import ReviewForm
 from .forms import ProductForm, ProductVariantForm, ProductVariantFormSet
 from django.forms import modelformset_factory
-
+from math import modf
 
 def product_list(request):
     """ A view to show all products, including sorting and search queries """
@@ -89,6 +89,20 @@ def product_list(request):
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
+
+    for product in products:
+        if product.rating is not None:
+            fractional, whole = modf(product.rating)
+            # Генерация строк для полных, половинчатых и пустых звезд
+            product.full_stars = '★' * int(whole)  # Полные звезды
+            product.half_star = '½' if fractional >= 0.5 else ''  # Половинка звезды
+            product.empty_stars = '☆' * (5 - (int(whole) + (1 if fractional >= 0.5 else 0)))  # Пустые звезды
+        else:
+            product.full_stars = ''
+            product.half_star = ''
+            product.empty_stars = '☆' * 5  # Если нет рейтинга, показыва
+
+
 
     context = {
         'products': products,

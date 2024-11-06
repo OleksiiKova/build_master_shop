@@ -73,7 +73,7 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     sku = models.CharField(max_length=64, null=True, blank=True, unique=True)
     rating = models.DecimalField(
-        max_digits=3, decimal_places=2, default=None, null=True, blank=True)
+        max_digits=2, decimal_places=1, default=None, null=True, blank=True)
 
     price = models.DecimalField(
         max_digits=10, decimal_places=2, blank=True, null=True)

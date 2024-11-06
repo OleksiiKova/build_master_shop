@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block content %}
-<div class="container flex-grow-1">
+<div class="container flex-grow-1 mt-2 mb-4 my-md-4">
     <div class="row">
-        <h1>Privacy Policy</h1>
-        <p>Last updated: November 03, 2024</p>
+        <h1 class="text-center">Privacy Policy</h1>
+        <p class="text-muted">Last updated: November 03, 2024</p>
         <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
             information when You use the Service and tells You about Your privacy rights and how the law protects You.
         </p>
@@ -334,5 +334,14 @@
             </li>
         </ul>
     </div>
+    <div class="d-flex justify-content-between mt-4">
+        <a href="{% url 'home' %}" class="btn btn-secondary">Home Page</a>
+        <a href="{% url 'products' %}" class="btn btn-primary">Shop Now</a>
+    </div>
+</div>
+<div class="btt-button shadow-sm border">
+    <a href="" class="btt-link d-flex h-100">
+        <i class="bi bi-arrow-up mx-auto my-auto"></i>
+    </a>
 </div>
 {% endblock %}
