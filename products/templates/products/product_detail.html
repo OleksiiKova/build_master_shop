@@ -3,10 +3,10 @@
 {% load custom_filters %}
 
 {% block content %}
-<div class="container-fluid flex-grow-1">
+<div class="container-fluid flex-grow-1 mt-2 mb-4 my-md-4">
     <div class="row">
         <div class="col-md-6 col-lg-4 offset-lg-2">
-            <p class="small mt-1 mb-0">
+            <p class="small">
                 <i class="bi bi-tag me-1"></i>
                 {% for category in product.get_category_hierarchy %}
                 {% if forloop.first %}
@@ -31,7 +31,7 @@
     </div>
     <div class="row">
         <div class="col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
+            <div class="image-container my-2">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-4">
-            <div class="product-details-container mb-5 mt-md-5">
+            <div class="product-details-container mb-5 mt-md-2">
                 <p class="mb-0">{{ product.name }}</p>
                 <div class="lead">
                     {% if selected_variant %}
@@ -53,44 +53,46 @@
                     <p class="mb-0">€{{ product.price }}</p>
                     {% endif %}
                 </div>
-                {% if product.rating %}
-                <div class="rating-star">
-                    <span title="{{ product.rating }}/5">
-                        <i class="bi bi-star{% if product.rating >= 1 %}-fill{% else %}{% if product.rating >= 0.5 and product.rating < 1 %}-half{% endif %}{% endif %} text-warning"
-                            aria-hidden="true"></i>
-                        <i class="bi bi-star{% if product.rating >= 2 %}-fill{% else %}{% if product.rating >= 1.5 and product.rating < 2 %}-half{% endif %}{% endif %} text-warning"
-                            aria-hidden="true"></i>
-                        <i class="bi bi-star{% if product.rating >= 3 %}-fill{% else %}{% if product.rating >= 2.5 and product.rating < 3 %}-half{% endif %}{% endif %} text-warning"
-                            aria-hidden="true"></i>
-                        <i class="bi bi-star{% if product.rating >= 4 %}-fill{% else %}{% if product.rating >= 3.5 and product.rating < 4 %}-half{% endif %}{% endif %} text-warning"
-                            aria-hidden="true"></i>
-                        <i class="bi bi-star{% if product.rating == 5 %}-fill{% else %}{% if product.rating >= 4.5 and product.rating < 5 %}-half{% endif %}{% endif %} text-warning"
-                            aria-hidden="true"></i>
-                    </span>
-                    <span class="text-small">({{ product.rating|floatformat:1 }} / 5)</span>
+                <div>
+                    {% if product.rating %}
+                    <div class="rating-star">
+                        <span title="{{ product.rating }}/5">
+                            <i class="bi bi-star{% if product.rating >= 1 %}-fill{% else %}{% if product.rating >= 0.5 and product.rating < 1 %}-half{% endif %}{% endif %} text-warning"
+                                aria-hidden="true"></i>
+                            <i class="bi bi-star{% if product.rating >= 2 %}-fill{% else %}{% if product.rating >= 1.5 and product.rating < 2 %}-half{% endif %}{% endif %} text-warning"
+                                aria-hidden="true"></i>
+                            <i class="bi bi-star{% if product.rating >= 3 %}-fill{% else %}{% if product.rating >= 2.5 and product.rating < 3 %}-half{% endif %}{% endif %} text-warning"
+                                aria-hidden="true"></i>
+                            <i class="bi bi-star{% if product.rating >= 4 %}-fill{% else %}{% if product.rating >= 3.5 and product.rating < 4 %}-half{% endif %}{% endif %} text-warning"
+                                aria-hidden="true"></i>
+                            <i class="bi bi-star{% if product.rating == 5 %}-fill{% else %}{% if product.rating >= 4.5 and product.rating < 5 %}-half{% endif %}{% endif %} text-warning"
+                                aria-hidden="true"></i>
+                        </span>
+                        <span class="text-small">({{ product.rating|floatformat:1 }} / 5)</span>
+                    </div>
+                    {% else %}
+                    <div class="rating-star">
+                        <i class="bi bi-star text-muted" aria-hidden="true"></i>
+                        <i class="bi bi-star text-muted" aria-hidden="true"></i>
+                        <i class="bi bi-star text-muted" aria-hidden="true"></i>
+                        <i class="bi bi-star text-muted" aria-hidden="true"></i>
+                        <i class="bi bi-star text-muted" aria-hidden="true"></i>
+                    </div>
+                    {% endif %}
                 </div>
-                {% else %}
-                <div class="rating-star">
-                    <i class="bi bi-star text-muted" aria-hidden="true"></i>
-                    <i class="bi bi-star text-muted" aria-hidden="true"></i>
-                    <i class="bi bi-star text-muted" aria-hidden="true"></i>
-                    <i class="bi bi-star text-muted" aria-hidden="true"></i>
-                    <i class="bi bi-star text-muted" aria-hidden="true"></i>
-                </div>
-                {% endif %}
                 <form action="{% url 'add_to_wishlist' %}" method="POST">
                     {% csrf_token %}
 
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
 
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-link add-wishlist-btn p-0 py-2">
                         Add to Wishlist
                     </button>
                 </form>
                 {% if request.user.is_superuser %}
-                <small class="ms-3">
+                <small class="">
                     <a href="{% url 'edit_product' product.sku %}">Edit</a>
-                    <a class="text-danger" href="{% url 'delete_product' product.sku %}">Delete</a>
+                    <a class="text-danger ms-2" href="{% url 'delete_product' product.sku %}">Delete</a>
                 </small>
                 {% endif %}
                 <!-- <p class="small mt-1 mb-0">
@@ -140,6 +142,9 @@
                             <p><strong>SKU: </strong><span id="selected_sku" class="sku">{{current_sku}}</span>
                             </p>
                         </div>
+                        {% else %}
+                        <p><strong>SKU: </strong><span id="selected_sku" class="sku">{{current_sku}}</span>
+                        </p>
                         {% endif %}
 
                         <div class="col-12">
@@ -147,20 +152,20 @@
                             <div class="form-group w-50">
                                 <div class="input-group input-group-{{ current_sku }}">
                                     <div class="input-group-prepend">
-                                        <button
-                                            class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ current_sku }}"
-                                            data-item_sku="{{ current_sku }}">
+                                        <button class="decrement-qty btn decrement-qty_{{ current_sku }}"
+                                            data-item_sku="{{ current_sku }}" aria-label="Decrease quantity">
                                             <span>
                                                 <i class="bi bi-dash-circle"></i>
                                             </span>
                                         </button>
                                     </div>
-                                    <input class="form-control qty_input id_qty_{{ current_sku }}" type="number"
+                                    <label for="quantity-input-{{ current_sku }}" class="sr-only">Quantity</label>
+                                    <input id="quantity-input-{{ current_sku }}"
+                                        class="form-control qty_input id_qty_{{ current_sku }}" type="number"
                                         name="quantity" value="1" min="1" max="99" data-item_sku="{{ current_sku }}">
                                     <div class="input-group-append">
-                                        <button
-                                            class="increment-qty btn btn-black rounded-0 increment-qty_{{ current_sku }}"
-                                            data-item_sku="{{ current_sku }}">
+                                        <button class="increment-qty btn increment-qty_{{ current_sku }}"
+                                            data-item_sku="{{ current_sku }}" aria-label="Increase quantity">
                                             <span>
                                                 <i class="bi bi-plus-circle"></i>
                                             </span>
@@ -170,16 +175,14 @@
                             </div>
                         </div>
 
-
                         <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <a href="{% url 'products' %}" class="btn btn-secondary rounded-0 mt-5">
+                            <a href="{% url 'products' %}" class="btn btn-secondary mt-5">
                                 <span class="icon">
                                     <i class="bi bi-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-primary rounded-0 text-uppercase mt-5"
-                                value="Add to Bag">
+                            <input type="submit" class="btn btn-primary text-uppercase mt-5" value="Add to Bag">
                         </div>
 
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">

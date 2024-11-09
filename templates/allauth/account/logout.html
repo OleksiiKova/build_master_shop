@@ -5,9 +5,7 @@
 {% endblock head_title %}
 {% block content %}
 <div class="container flex-grow-1 col-md-6 col-lg-4 my-2 my-md-4 allauth-form-inner-content">
-    {% element h1 %}
-    {% trans "Sign Out" %}
-    {% endelement %}
+    <h1 class="mb-4 text-center">{% trans "Sign Out" %}</h1>
     {% element p %}
     {% trans 'Are you sure you want to sign out?' %}
     {% endelement %}
@@ -18,9 +16,12 @@
     {{ redirect_field }}
     {% endslot %}
     {% slot actions %}
-    {% element button type="submit" %}
-    {% trans 'Sign Out' %}
-    {% endelement %}
+    <div class="d-flex justify-content-between mt-4">
+        <a href="{% url 'home' %}" class="btn btn-secondary me-2">{% trans "Cancel" %}</a>
+        {% element button type="submit" %}
+        {% trans 'Sign Out' %}
+        {% endelement %}
+    </div>
     {% endslot %}
     {% endelement %}
 </div>

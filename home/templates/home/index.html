@@ -25,13 +25,13 @@
                         <div class="card border-0 shadow-sm h-100">
                             <div class="row g-0 flex-row flex-md-column">
                                 <div class="col-4 col-md-12">
-                                    <img src="{% static 'images/power-tools.jpg' %}" alt="Power Tools"
+                                    <img src="{% static 'images/power-tools.webp' %}" alt="Power Tools"
                                         class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
                                 </div>
                                 <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
-                                    <h5 class="card-title mb-1"><a
+                                    <h3 class="card-title mb-1 h5"><a
                                             href="{% url 'products' %}?first_level=tools&second_level=power_tools"
-                                            class="text-decoration-none">Power Tools for Construction</a></h5>
+                                            class="text-decoration-none">Power Tools for Construction</a></h3>
                                     <p class="card-text">Reliable, high-performance tools for any job.</p>
                                 </div>
                             </div>
@@ -43,12 +43,12 @@
                         <div class="card border-0 shadow-sm h-100">
                             <div class="row g-0 flex-row flex-md-column">
                                 <div class="col-4 col-md-12">
-                                    <img src="{% static 'images/workwear.jpg' %}" alt="Workwear"
+                                    <img src="{% static 'images/workwear.webp' %}" alt="Workwear"
                                         class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
                                 </div>
                                 <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
-                                    <h5 class="card-title mb-1"><a href="{% url 'products' %}?first_level=workwear"
-                                            class="text-decoration-none">Durable Workwear</a></h5>
+                                    <h3 class="card-title mb-1 h5"><a href="{% url 'products' %}?first_level=workwear"
+                                            class="text-decoration-none">Durable Workwear</a></h3>
                                     <p class="card-text">Tough, comfortable workwear built for outdoor jobs.</p>
                                 </div>
                             </div>
@@ -60,13 +60,13 @@
                         <div class="card border-0 shadow-sm h-100">
                             <div class="row g-0 flex-row flex-md-column">
                                 <div class="col-4 col-md-12">
-                                    <img src="{% static 'images/safety_equipment.jpg' %}" alt="Safety Equipment"
+                                    <img src="{% static 'images/safety-equipment.webp' %}" alt="Safety Equipment"
                                         class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
                                 </div>
                                 <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
-                                    <h5 class="card-title mb-1"><a
+                                    <h3 class="card-title mb-1 h5"><a
                                             href="{% url 'products' %}?first_level=safety_equipment"
-                                            class="text-decoration-none">Safety Equipment</a></h5>
+                                            class="text-decoration-none">Safety Equipment</a></h3>
                                     <p class="card-text">Stay protected with high-quality gloves, helmets, and more.</p>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 border-0 shadow-sm p-4">
                             <i class="bi bi-shield-check fs-1 mb-3"></i>
-                            <h5 class="card-title">Quality Guaranteed</h5>
+                            <h3 class="card-title h5">Quality Guaranteed</h3>
                             <p class="card-text">Every product is tested for durability and performance, ensuring the
                                 highest standards.</p>
                         </div>
@@ -97,7 +97,7 @@
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 border-0 shadow-sm p-4">
                             <i class="bi bi-tools fs-1 mb-3"></i>
-                            <h5 class="card-title">Expertise You Can Trust</h5>
+                            <h3 class="card-title h5">Expertise You Can Trust</h3>
                             <p class="card-text">Our team has decades of experience and is ready to help you find the
                                 right tools.</p>
                         </div>
@@ -107,7 +107,7 @@
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 border-0 shadow-sm p-4">
                             <i class="bi bi-headset fs-1 mb-3"></i>
-                            <h5 class="card-title">Exceptional Customer Service</h5>
+                            <h3 class="card-title h5">Exceptional Customer Service</h3>
                             <p class="card-text">We’re here to assist you before, during, and after every purchase.</p>
                         </div>
                     </div>
@@ -128,14 +128,14 @@
                                 <!-- Displaying only the latest post -->
                                 {% if latest_posts.0.image %}
                                 <img src="{{ latest_posts.0.image.url }}" class="card-img-top"
-                                    alt="{{ latest_posts.0.title }}">
+                                    alt="{{ latest_posts.0.title }}" width="100%" height="auto">
                                 {% else %}
-                                <img src="{{ MEDIA_URL }}blog_images/default-image.jpg" class="card-img-top"
-                                    alt="Default Image">
+                                <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
+                                    alt="Default Image" width="100%" height="auto">
                                 {% endif %}
                             </a>
                             <div class="card-body">
-                                <h5 class="card-blog-title">{{ latest_posts.0.title }}</h5>
+                                <h3 class="card-blog-title h5">{{ latest_posts.0.title }}</h3>
                                 <p class="card-blog-text">Published on: {{ latest_posts.0.published_date }}</p>
                             </div>
                         </div>
@@ -153,14 +153,15 @@
                                 <div class="card">
                                     <a href="{% url 'blog_post' post.slug %}">
                                         {% if post.image %}
-                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}"
+                                            width="100%" height="auto">
                                         {% else %}
-                                        <img src="{{ MEDIA_URL }}blog_images/default-image.jpg" class="card-img-top"
-                                            alt="Default Image">
+                                        <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
+                                            alt="Default Image" width="100%" height="auto">
                                         {% endif %}
                                     </a>
                                     <div class="card-body">
-                                        <h5 class="card-blog-title">{{ post.title }}</h5>
+                                        <h3 class="card-blog-title h5">{{ post.title }}</h3>
                                         <p class="card-blog-text">Published on: {{ post.published_date }}</p>
                                     </div>
                                 </div>
@@ -180,14 +181,15 @@
                                 <div class="card">
                                     <a href="{% url 'blog_post' post.slug %}">
                                         {% if post.image %}
-                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}"
+                                            width="100%" height="auto">
                                         {% else %}
-                                        <img src="{{ MEDIA_URL }}blog_images/default-image.jpg" class="card-img-top"
-                                            alt="Default Image">
+                                        <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
+                                            alt="Default Image" width="100%" height="auto">
                                         {% endif %}
                                     </a>
                                     <div class="card-body px-0">
-                                        <h5 class="card-blog-title">{{ post.title }}</h5>
+                                        <h3 class="card-blog-title h5">{{ post.title }}</h3>
                                         <p class="text-muted small card-blog-text">Published on:
                                             {{ post.published_date }}</p>
                                     </div>
@@ -200,7 +202,8 @@
                     </div>
                 </div>
                 <div class="text-center my-4">
-                    <a href="{% url 'all_blog_posts' %}" class="btn btn-primary">View All Blog Posts</a>
+                    <a href="{% url 'all_blog_posts' %}" class="btn btn-primary" aria-label="View all blog posts">View
+                        All Blog Posts</a>
                 </div>
             </div>
         </section>

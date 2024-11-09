@@ -4,14 +4,14 @@
 
 {% block content %}
 <div class="container flex-grow-1">
-    <h2 class="my-4 text-center">Your Reviews</h2>
+    <h1 class="my-4 text-center">Your Reviews</h1>
     {% if reviews %}
     <div class="row">
         {% for review in reviews %}
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ review.product.name }}</h5>
+                    <h2 class="card-title h5">{{ review.product.name }}</h2>
                     <div class="d-flex justify-content-between">
                         <small>{{ review.created_at|date:"M j, Y, g:i A" }}</small>
                         <div class="rating text-warning">
@@ -27,7 +27,7 @@
                     <p class="mt-2">{{ review.comment }}</p>
                     <div class="mt-2 text-end">
                         <a href="{% url 'edit_review' review.id %}" class="">Edit</a>
-                        <a href="{% url 'delete_review' review.id %}" class="ms-2">Delete</a>
+                        <a href="{% url 'delete_review' review.id %}" class="ms-2 text-danger">Delete</a>
                     </div>
                 </div>
             </div>

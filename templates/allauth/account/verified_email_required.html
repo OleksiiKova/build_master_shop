@@ -6,9 +6,7 @@
 {% endblock head_title %}
 {% block content %}
 <div class="container flex-grow-1 col-md-6 col-lg-4 my-2 my-md-4 allauth-form-inner-content">
-    {% element h1 %}
-    {% trans "Verify Your Email Address" %}
-    {% endelement %}
+    <h1 class="mb-4 text-center">{% trans "Verify Your Email Address" %}</h1>
     {% url 'account_email' as email_url %}
     {% element p %}
     {% blocktrans %}This part of the site requires us to verify that

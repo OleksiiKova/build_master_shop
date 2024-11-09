@@ -5,7 +5,7 @@ html {
 
 body {
     font-family: 'Montserrat';
-    background-color: #f0f0f0;
+    background-color: #ffffff;
 }
 h1, h2 {
     color: #333333;
@@ -34,7 +34,7 @@ p {
 
 .btn-secondary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #5F9EA0;
+    --bs-btn-bg: #2E7D82;
     --bs-btn-border-color: #6c757d;
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #527F89;
@@ -47,25 +47,37 @@ p {
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #a3b1b3;
     --bs-btn-disabled-border-color: #a3b1b3;
+    border-radius: 5px;
 }
 
 /* ----------------- Navigation ------------------ */
-.navbar-nav {
-    --bs-nav-link-hover-color: #527F89;
+header {
+    background-color: #F8F9FA;
 }
 
 a:not(.btn) {
-    color: #5F9EA0;
+    color: #2E7D82;
     text-decoration: none;
     transition: color 0.2s;
 }
 
+a:not(.btn):focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
+}
+
 a:not(.btn):hover {
-    color: #527F89;
+    color: #3A9198;
+}
+
+.qty_input:focus-visible,
+#search-input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
 }
 
 .nav-link:focus, .nav-link:hover {
-    color: #527F89;
+    color: #3A9198;
 }
 
 .nav-link {
@@ -73,24 +85,29 @@ a:not(.btn):hover {
     font-weight: 600;
 }
 
-.nav-link .bi-cart {
+/* .nav-link .bi-cart {
     color: #6c757d;
-}
+} */
 
 .nav-link.has-items {
-    color: #FF7F50;
+    color: #9E3D21;
 }
-.nav-link.has-items .bi-cart {
-    color: #FF7F50;
-} 
+/* .nav-link.has-items .bi-cart {
+    color: #D34A2B;
+}  */
 
 .nav-link.has-items:hover {
     color: #FF7F50;
 }
 
+#search-input {
+    border-color: #527F89;
+}
+
 #search-icon {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    border-color: #527F89;
 }
 
 #delivery-banner {
@@ -126,25 +143,30 @@ a:not(.btn):hover {
     display: block;
 }
 
+.navbar-toggler {
+    color: #2E7D82;
+    margin-left: 0.2rem;
+}
+
 /* -----------------  Footer ------------------ */
 .footer {
-    background-color: #f8f9fa;
+    background-color: #F8F9FA;
     padding: 40px 0;
     color: #495057;
 }
 
-.footer h5 {
-    color: #527F89;
+.footer h3 {
+    color: #2E7D82;
     margin-bottom: 20px;
 }
 
 .footer a {
-    color: #5F9EA0;
+    color: #2E7D82;
     text-decoration: none;
 }
 
 .footer a:hover {
-    color: #527F89;
+    color: #3A9198;
 }
 
 .footer .form-control {
@@ -251,6 +273,41 @@ a:not(.btn):hover {
     object-fit: cover;
 }
 
+.add-wishlist-btn{
+    color: #3a5c63;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.add-wishlist-btn:focus,
+.add-wishlist-btn:hover {
+    color: #527F89;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+#update-link {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 24px;
+    line-height: 24px;
+    font-size: 0.8rem;
+}
+
+.text-red-orange {
+color: #9E3D21;
+}
+
 /* ------------- Product Form Page ------------*/
 .btn-file {
     position: relative;
@@ -278,8 +335,28 @@ a:not(.btn):hover {
     border-radius: 0;
 }
 
+/* ------------ Rating block --------------- */
+.product-reviews .rating i {
+    color: #FFD700;
+}
+.product-reviews .review {
+    margin-bottom: 1rem;
+}
 
-/* ---------------To Top Button --------------  */
+.review-comment {
+    height: 80px;
+    overflow-y: auto;
+}
+
+.verified-purchase-label {
+    color: #8B4513;
+}
+
+.rating-star {
+    font-size: 0.8rem;
+}
+
+/* --------------- To Top Button --------------  */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -296,6 +373,37 @@ a:not(.btn):hover {
 
 input[name='q']::placeholder {
     color: #aab7c4;
+}
+
+/* ----------- Forms and check button */
+.form-check-input {
+    border-color: #527F89;
+}
+
+.form-check-input:checked {
+    background-color: #527F89;
+    border-color: #527F89;
+}
+
+.form-check-input:focus {
+    border-color: #527F89;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(46, 125, 130, 0.6);
+}
+
+.profile-form-input {
+    color: #000;
+    border-color: #527F89;
+}
+
+.profile-form-input:focus,
+.profile-form-input:active {
+  box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
+  border-color: #527F89;
+}
+
+.order-table-body {
+    font-size: 0.8rem;
 }
 
 /* ------------- Bootstrap toasts ------------- */
@@ -330,8 +438,14 @@ input[name='q']::placeholder {
 }
 
 .allauth-form-inner-content input {
-    border-color: #000;
+    border-color: #527F89;
 }
+
+.allauth-form-inner-content input:focus,
+.allauth-form-inner-content input:active {
+    box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
+    border-color: #527F89;
+  }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
@@ -407,6 +521,14 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+#mc_embed_signup h2 {
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    margin-bottom: .5rem;
+    font-size: 1.25rem;
+    }
+
 @media (max-width: 768px) {
     .table thead {
         display: none;
@@ -459,18 +581,6 @@ input[name='q']::placeholder {
         align-items: center;
         justify-content: center;
     }
-
-    #update-link {
-        padding-top: 0;
-        padding-bottom: 0;
-        height: 24px;
-        line-height: 24px;
-        font-size: 0.75rem;
-    }
-    .responsive-btn {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.9rem;
-    }
 }
 
 
@@ -481,29 +591,25 @@ input[name='q']::placeholder {
 }
 
 @media (min-width: 768px) {
-    .form-control {
+    /* .form-control {
         padding: 0.25rem 0.5rem;
         font-size: 0.875rem;
         height: auto;
-    }
-    .responsive-btn {
-        padding: 0.75rem 1.25rem;
-        font-size: 1.25rem;
-    }
+    } */
 }
 
 @media (min-width: 992px) {
     .header-container {
-        padding-top: 148px;
+        padding-top: 140px;
     }
 }
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 90px;
+        padding-top: 96px;
     }
     body {
-        height: calc(100vh - 90px);
+        height: calc(100vh - 96px);
     }
     .navbar-toggler {
         padding: .6rem .6rem;
@@ -524,22 +630,6 @@ input[name='q']::placeholder {
 
 
 
-.product-reviews .rating i {
-    color: #FFD700;
-}
-.product-reviews .review {
-    margin-bottom: 1rem;
-}
 
-.review-comment {
-    height: 80px;
-    overflow-y: auto;
-}
 
-.verified-purchase-label {
-    color: #8B4513;
-}
 
-.rating-star {
-    font-size: 0.8rem;
-}

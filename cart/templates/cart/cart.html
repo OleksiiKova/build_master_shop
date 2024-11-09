@@ -3,7 +3,7 @@
 {% load cart_tools %}
 
 {% block content %}
-<div class="container flex-grow-1">
+<div class="container flex-grow-1 mt-2 mb-4 my-md-4">
     <div class="row">
         <div class="col">
             <h1 class="text-center">Your basket</h1>
@@ -52,24 +52,26 @@
                             <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                         <td class="col-md-2  py-0 text-center" data-label="Quantity:">
-                            <form action="{% url 'adjust_cart' item.sku %}" class="form update-form" method="post">
+                            <form action="{% url 'adjust_cart' item.sku %}" class="form update-form mt-1" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group input-group-{{ item.sku }}">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-sm decrement-qty_{{ item.sku }}"
-                                                data-item_sku="{{ item.sku }}">
+                                                data-item_sku="{{ item.sku }}" aria-label="Decrease quantity">
                                                 <span>
                                                     <i class="bi bi-dash-circle"></i>
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control qty_input id_qty_{{ item.sku }}" type="number"
+                                        <label for="quantity-{{ current_sku }}" class="sr-only">Quantity</label>
+                                        <input id="quantity-{{ current_sku }}"
+                                            class="form-control qty_input id_qty_{{ item.sku }}" type="number"
                                             name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_sku="{{ item.sku }}">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-sm increment-qty_{{ item.sku }}"
-                                                data-item_sku="{{ item.sku }}">
+                                                data-item_sku="{{ item.sku }}" aria-label="Increase quantity">
                                                 <span>
                                                     <i class="bi bi-plus-circle"></i>
                                                 </span>
@@ -78,7 +80,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <a class="btn btn-sm btn-secondary update-link mt-md-1 col-md-12"
+                            <a class="btn btn-secondary update-link mt-md-1 col-md-12 ms-3 ms-md-0"
                                 id="update-link">Update</a>
 
                         </td>
@@ -86,17 +88,17 @@
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                         <td class="col-md-1  py-0 text-center" data-label="Remove:">
-                            <a class="remove-item float-end" id="remove_{{ item.sku}}"><i class="bi bi-trash"></i></a>
+                            <a class="remove-item" id="remove_{{ item.sku}}"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
                     <tr class="bg-white">
                         <td colspan="6" class="pt-md-5 text-center text-md-end">
-                            <h6><strong>Cart Total: €{{ total_cost|floatformat:2 }}</strong></h6>
-                            <h6>Standart Delivery: €{{ delivery_cost|floatformat:2 }}</h6>
-                            <h4 class="my-3"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                            <p class="h6">Cart Total: €{{ total_cost|floatformat:2 }}</p>
+                            <p class="h6">Standart Delivery: €{{ delivery_cost|floatformat:2 }}</p>
+                            <h2 class="my-3 h4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h2>
                             {% if free_delivery_delta > 0 %}
-                            <p class="mb-1 text-danger">
+                            <p class="mb-1 text-red-orange">
                                 You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong>
                                 more!
                             </p>
@@ -107,7 +109,7 @@
                         <td colspan="6">
                             <div class="d-flex flex-column flex-md-row justify-content-between">
                                 <a href="{% url 'products' %}"
-                                    class="btn btn-secondary responsive-btn col-12 col-md-4 order-2 order-md-1">
+                                    class="btn btn-secondary btn-lg col-12 col-md-4 order-2 order-md-1">
                                     <span class="text-uppercase">Continue Shopping</span>
                                 </a>
                                 <a href="{% url 'checkout' %}"

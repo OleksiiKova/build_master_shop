@@ -23,7 +23,7 @@
     // Check enable/disable every time the input is changed
     $('.qty_input').change(function () {
         var itemSku = $(this).data('item_sku');
-        handleEnableDisable(itemId);
+        handleEnableDisable(itemSku);
     })
 
     // Increment quantity
@@ -35,6 +35,7 @@
         var currentValue = parseInt($(closestInput).val());
         $(allQuantityInputs).val(currentValue + 1);
         handleEnableDisable(itemSku);
+        $(this).blur();
     });
 
     // Decrement quantity
@@ -46,5 +47,6 @@
         var currentValue = parseInt($(closestInput).val());
         $(allQuantityInputs).val(currentValue - 1);
         handleEnableDisable(itemSku);
+        $(this).blur();
     });
 </script>
