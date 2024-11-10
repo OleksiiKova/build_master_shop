@@ -378,8 +378,18 @@ input[name='q']::placeholder {
 /* ----------- Forms and check button */
 .form-check-input,
 #id_rating,
-#id_comment {
+#id_comment,
+#id_title,
+#id_content,
+#id_image {
     border-color: #527F89;
+}
+
+.border-dark-cyan,
+.input-group {
+    border: 1px solid;
+    border-color: #527F89;
+    border-radius: 5px;
 }
 
 .form-check-input:checked {
@@ -389,7 +399,10 @@ input[name='q']::placeholder {
 
 .form-check-input:focus,
 #id_rating:focus,
-#id_comment:focus {
+#id_comment:focus,
+#id_title:focus,
+#id_content:focus,
+#id_image:focus {
     border-color: #527F89;
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(46, 125, 130, 0.6);
