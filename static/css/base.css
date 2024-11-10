@@ -376,7 +376,9 @@ input[name='q']::placeholder {
 }
 
 /* ----------- Forms and check button */
-.form-check-input {
+.form-check-input,
+#id_rating,
+#id_comment {
     border-color: #527F89;
 }
 
@@ -385,7 +387,9 @@ input[name='q']::placeholder {
     border-color: #527F89;
 }
 
-.form-check-input:focus {
+.form-check-input:focus,
+#id_rating:focus,
+#id_comment:focus {
     border-color: #527F89;
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(46, 125, 130, 0.6);
@@ -405,6 +409,8 @@ input[name='q']::placeholder {
 .order-table-body {
     font-size: 0.8rem;
 }
+
+
 
 /* ------------- Bootstrap toasts ------------- */
 .message-container {
