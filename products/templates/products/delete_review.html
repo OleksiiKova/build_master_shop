@@ -18,7 +18,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     <div class="d-flex justify-content-between mt-4">
-                        <a href="{% url 'product_detail_by_sku' review.product.sku %}"
+                        <a href="{% if next == 'my_reviews' %}{% url 'user_reviews' %}{% else %}{% url 'product_detail_by_sku' review.product.sku %}{% endif %}"
                             class="btn btn-secondary">Cancel</a>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </div>

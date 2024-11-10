@@ -297,27 +297,34 @@ def edit_review(request, review_id):
     review = get_object_or_404(Review, id=review_id, user=request.user)
     form = ReviewForm(request.POST or None, instance=review)
 
+    next_page = request.GET.get('next', 'product_detail_by_sku')
+
     if form.is_valid():
         review = form.save(commit=False)
         review.is_updated = True
         review.save()
         messages.success(request, 'Your review was updated successfully!')
+        if next_page == 'my_reviews':
+            return redirect('user_reviews')
         return redirect('product_detail_by_sku', sku=review.product.sku)
 
-    context = {'form': form, 'review': review}
+    context = {'form': form, 'review': review, 'next': next_page}
     return render(request, 'products/edit_review.html', context)
 
 
 @login_required
 def delete_review(request, review_id):
     review = get_object_or_404(Review, id=review_id, user=request.user)
+    next_page = request.GET.get('next', 'product_detail_by_sku')
     if request.method == "POST":
         product_sku = review.product.sku
         review.delete()
         messages.success(request, 'Your review was deleted successfully!')
+        if next_page == 'my_reviews':
+            return redirect('user_reviews')
         return redirect('product_detail_by_sku', sku=product_sku)
 
-    context = {'review': review}
+    context = {'review': review, 'next': next_page}
     return render(request, 'products/delete_review.html', context)
 
 
