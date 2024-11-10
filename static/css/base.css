@@ -51,7 +51,8 @@ p {
 }
 
 /* ----------------- Navigation ------------------ */
-header {
+header,
+.mobile-header {
     background-color: #F8F9FA;
 }
 
