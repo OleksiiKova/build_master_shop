@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-<div class="container flex-grow-1 mb-2 mb-md-4">
-    <h1 class="text-center my-4">All Blog Posts</h1>
+<div class="container mt-2 mb-4 my-md-4">
+    <h1 class="text-center">Blog Posts</h1>
     <div class="row">
         {% for post in posts %}
         <div class="col-sm-6 col-lg-4">
@@ -16,7 +16,7 @@
                     {% endif %}
                 </a>
                 <div class="card-body px-0">
-                    <h5 class="card-blog-title">{{ post.title }}</h5>
+                    <h2 class="card-blog-title h5">{{ post.title }}</h2>
                     <p class="text-muted small card-blog-text m-0">Published on: {{ post.published_date }}</p>
                     <p class="text-muted small card-blog-text m-0">Views: {{ post.views }} <i
                             class="bi bi-eye-fill"></i></p>

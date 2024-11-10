@@ -6,11 +6,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="container flex-grow-1 mt-5 mb-4 my-md-4">
+<div class="container mt-2 mb-4 my-md-4">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 text-center">
-            <h2 class="mb-4">Thank You for Your Order!</h2>
-            <p>Your order details are below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.
+            <h1>Thank You for Your Order!</h1>
+            <p class="m-0">Your order details are below. A confirmation email will be sent to
+                <strong>{{ order.email }}</strong>.
             </p>
         </div>
     </div>
@@ -19,7 +20,7 @@
         <div class="col-lg-8 offset-lg-2">
             <div class="card shadow-sm p-4 border-0">
                 <div class="card-header bg-light text-center">
-                    <h3 class="text-uppercase text-muted h4">Order Details</h3>
+                    <h2 class="text-uppercase text-muted h4">Order Details</h2>
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">

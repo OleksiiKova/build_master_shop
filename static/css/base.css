@@ -256,7 +256,6 @@ a:not(.btn):hover {
     text-overflow: ellipsis;
 }
 
-
 .card-image-container {
     position: relative;
     height: 200px;
@@ -377,19 +376,16 @@ input[name='q']::placeholder {
 
 /* ----------- Forms and check button */
 .form-check-input,
-#id_rating,
-#id_comment,
-#id_title,
-#id_content,
-#id_image {
+.form-control,
+.form-select {
     border-color: #527F89;
 }
 
 .border-dark-cyan,
-.input-group {
+.input-group-text {
     border: 1px solid;
     border-color: #527F89;
-    border-radius: 5px;
+    border-radius: 0.375rem;
 }
 
 .form-check-input:checked {
@@ -398,14 +394,14 @@ input[name='q']::placeholder {
 }
 
 .form-check-input:focus,
-#id_rating:focus,
-#id_comment:focus,
-#id_title:focus,
-#id_content:focus,
-#id_image:focus {
+.form-check-input:active,
+.form-control:focus,
+.form-control:active,
+.form-select:focus,
+.form-select:active {
     border-color: #527F89;
     outline: 0;
-    box-shadow: 0 0 0 .25rem rgba(46, 125, 130, 0.6);
+    box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
 }
 
 .profile-form-input {
@@ -413,17 +409,25 @@ input[name='q']::placeholder {
     border-color: #527F89;
 }
 
-.profile-form-input:focus,
-.profile-form-input:active {
-  box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
-  border-color: #527F89;
-}
 
 .order-table-body {
     font-size: 0.8rem;
 }
 
+#quantity- {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
+.btn:disabled {
+    border: none;
+}
+
+.increment-qty,
+.decrement-qty {
+    color: #000;
+    font-weight: bold;
+}
 
 /* ------------- Bootstrap toasts ------------- */
 .message-container {
@@ -625,10 +629,10 @@ input[name='q']::placeholder {
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 96px;
+        padding-top: 91.19px;
     }
     body {
-        height: calc(100vh - 96px);
+        height: calc(100vh - 91.19px);
     }
     .navbar-toggler {
         padding: .6rem .6rem;
@@ -646,9 +650,3 @@ input[name='q']::placeholder {
         width: 280px;
     }
 }
-
-
-
-
-
-

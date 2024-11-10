@@ -3,7 +3,7 @@
 {% load cart_tools %}
 
 {% block content %}
-<div class="container flex-grow-1 mt-2 mb-4 my-md-4">
+<div class="container mt-2 mb-4 my-md-4">
     <div class="row">
         <div class="col">
             <h1 class="text-center">Your basket</h1>
@@ -59,7 +59,7 @@
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-sm decrement-qty_{{ item.sku }}"
                                                 data-item_sku="{{ item.sku }}" aria-label="Decrease quantity">
-                                                <span>
+                                                <span class="font-weight-bold">
                                                     <i class="bi bi-dash-circle"></i>
                                                 </span>
                                             </button>
@@ -72,7 +72,7 @@
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-sm increment-qty_{{ item.sku }}"
                                                 data-item_sku="{{ item.sku }}" aria-label="Increase quantity">
-                                                <span>
+                                                <span class="font-weight-bold">
                                                     <i class="bi bi-plus-circle"></i>
                                                 </span>
                                             </button>
