@@ -1,9 +1,18 @@
-from django.db import models
 import random
+from django.db import models
 
 
 class FirstLevelCategory(models.Model):
+    """
+    A category representing the first level in a hierarchy of product
+    categories.
+    Categories in this level are the broadest classification for products.
 
+    Attributes:
+        name (str): The name of the first-level category.
+        friendly_name (str): A more user-friendly name for the category,
+        optional.
+    """
     class Meta:
         verbose_name_plural = 'First Level Categories'
 
@@ -14,11 +23,28 @@ class FirstLevelCategory(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """
+        Returns the friendly name of the category.
+
+        Returns:
+            str: The friendly name of the category.
+        """
         return self.friendly_name
 
 
 class SecondLevelCategory(models.Model):
+    """
+    A category representing the second level in a hierarchy of product
+    categories. This category is associated with the first-level category
+    and represents a more specific classification.
 
+    Attributes:
+        name (str): The name of the second-level category.
+        friendly_name (str): A more user-friendly name for the category,
+        optional.
+        first_level_category (ForeignKey): The related first-level category
+        to which this belongs.
+    """
     class Meta:
         verbose_name_plural = 'Second Level Categories'
 
@@ -33,11 +59,30 @@ class SecondLevelCategory(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """
+        Returns the friendly name of the second-level category.
+
+        Returns:
+            str: The friendly name of the second-level category.
+        """
         return self.friendly_name
 
 
 class ThirdLevelCategory(models.Model):
+    """
+    A category representing the third level in a hierarchy of product
+    categories.
+    This category is associated with a second-level category and represents
+    the most
+    specific classification.
 
+    Attributes:
+        name (str): The name of the third-level category.
+        friendly_name (str): A more user-friendly name for the category,
+        optional.
+        second_level_category (ForeignKey): The related second-level category
+        to which this belongs.
+    """
     class Meta:
         verbose_name_plural = 'Third Level Categories'
 
@@ -52,10 +97,21 @@ class ThirdLevelCategory(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """
+        Returns the friendly name of the third-level category.
+
+        Returns:
+            str: The friendly name of the third-level category.
+        """
         return self.friendly_name
 
 
 class Product(models.Model):
+    """
+    A product available for purchase, potentially associated with a category
+    hierarchy (first-level, second-level, and third-level categories).
+    This model includes attributes like price, stock, SKU, and image.
+    """
     name = models.CharField(max_length=255)
     description = models.TextField()
     first_level_category = models.ForeignKey(
@@ -84,6 +140,14 @@ class Product(models.Model):
         return self.name
 
     def get_category_hierarchy(self):
+        """
+        Returns a list of categories associated with the product in
+        hierarchical order.
+
+        Returns:
+            list: A list containing the categories (first, second, third
+            level) associated with the product.
+        """
         categories = []
         if self.first_level_category:
             categories.append(self.first_level_category)
@@ -94,6 +158,11 @@ class Product(models.Model):
         return categories
 
     def save(self, *args, **kwargs):
+        """
+        Override the save method to set the second-level and third-level
+        categories based on the related category fields. Also generates a
+        unique SKU if none exists.
+        """
         if self.third_level_category:
             self.second_level_category = (
                 self.third_level_category.second_level_category
@@ -108,6 +177,14 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
     def generate_sku(self):
+        """
+        Generates a unique SKU for the product. The SKU starts with a prefix
+        and is followed by a random 7-digit number. Ensures the SKU is unique
+        in the database.
+
+        Returns:
+            str: A unique SKU for the product.
+        """
         prefix = "bm-"
         while True:
             random_number = ''.join(random.choices('0123456789', k=7))
@@ -117,6 +194,10 @@ class Product(models.Model):
 
 
 class ProductVariant(models.Model):
+    """
+    Represents a specific variation of a product, such as size or color. Each
+    variant has its own price, stock, and SKU.
+    """
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='variants')
     size = models.CharField(max_length=64, blank=True, null=True)
@@ -126,11 +207,23 @@ class ProductVariant(models.Model):
     sku = models.CharField(max_length=64, blank=True, null=True, unique=True)
 
     def save(self, *args, **kwargs):
+        """
+        Override the save method to generate a unique SKU for the variant based
+        on the product's SKU and its size. If no SKU is provided, it is
+        generated.
+        """
         if not self.sku and self.product and self.product.sku:
             self.sku = self.generate_variant_sku()
         super().save(*args, **kwargs)
 
     def generate_variant_sku(self):
+        """
+        Generates a unique SKU for the product variant by combining the
+        product's SKU with the variant's size. Ensures the SKU is unique.
+
+        Returns:
+            str: A unique SKU for the product variant.
+        """
         base_sku = self.product.sku
         parts = [base_sku]
 
@@ -142,6 +235,16 @@ class ProductVariant(models.Model):
         return self.ensure_unique_sku(new_sku)
 
     def ensure_unique_sku(self, sku):
+        """
+        Ensures that the SKU is unique by checking if it already exists in the
+        ProductVariant model. If it does, appends a counter to the SKU.
+
+        Args:
+            sku (str): The SKU to be checked.
+
+        Returns:
+            str: A unique SKU.
+        """
         original_sku = sku
         counter = 1
 
