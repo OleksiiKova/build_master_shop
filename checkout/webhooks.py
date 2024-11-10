@@ -11,7 +11,32 @@ import stripe
 @require_POST
 @csrf_exempt
 def webhook(request):
-    """Listen for webhooks from Stripe"""
+    """
+    Listen for webhooks from Stripe and handle the events.
+
+    This function listens for incoming webhook requests from Stripe and
+    verifies the signature to ensure that the request is from Stripe. If the
+    signature is valid, the relevant handler for the event is executed based
+    on the event type.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing the webhook
+        data.
+
+    Returns:
+        HttpResponse: A response indicating whether the webhook was processed
+        successfully
+                      or if there were errors.
+
+    Notes:
+        - This view should only accept POST requests, and the CSRF protection
+        is disabled
+          due to the nature of Stripe's webhook system.
+        - The webhook secret (`STRIPE_WH_SECRET`) must be set in the settings
+        for security.
+        - The Stripe API key (`STRIPE_SECRET_KEY`) should also be configured
+        in the settings.
+    """
     # Setup
     wh_secret = settings.STRIPE_WH_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY

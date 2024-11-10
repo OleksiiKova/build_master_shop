@@ -5,7 +5,6 @@ import string
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-
 from django_countries.fields import CountryField
 
 from products.models import Product, ProductVariant
@@ -13,6 +12,10 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    Order model to handle customer orders, storing details like customer info,
+    delivery method, and total costs.
+    """
     DELIVERY_CHOICES = [
         ('standard', 'Standard Delivery'),
         ('express', 'Express Delivery'),
@@ -61,7 +64,11 @@ class Order(models.Model):
     def _generate_order_number(self):
         """
         Generate a random, unique order number starting with 'ORD-'
-        and 10 characters long
+        and 10 characters long. The order number must be unique in the
+        database.
+
+        Returns:
+            str: The generated unique order number.
         """
         prefix = "ORD-"
         while True:  # Loop until a unique order number is generated
@@ -78,8 +85,13 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
-        accounting for delivery costs based on the selected delivery method.
+        Update the order's total, delivery cost, and grand total whenever
+        a line item is added. The method calculates the total cost of the items
+        in the order, adds the appropriate delivery cost based on the order's
+        total, and calculates the grand total.
+
+        This method must be called whenever the line items change or the
+        delivery method is updated.
         """
         # Calculate order total
         self.order_total = self.lineitems.aggregate(
@@ -101,18 +113,31 @@ class Order(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the order number
-        if it hasn't been set already.
+        Override the original save method to ensure the order number is set
+        before the order is saved in the database.
+
+        If the order number has not been set, generate a new unique order
+        number before saving the order.
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        Return the order number as the string representation of the Order
+        object.
+        """
         return self.order_number
 
 
 class OrderLineItem(models.Model):
+    """
+    A line item represents an individual product or product variant within
+    an order.
+    It links the product (or variant) to an order, records the quantity,
+    and calculates the total price for that item in the order.
+    """
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
@@ -130,13 +155,19 @@ class OrderLineItem(models.Model):
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
-        and update the order total.
+        and update the SKU and lineitem total price before saving the object.
+        If the line item is based on a variant, the variant's price is used;
+        otherwise, the product's price is used.
         """
+        # Set the SKU: if a variant is present, use its SKU; otherwise, use
+        # the product's SKU.
         if self.variant:
             self.sku = self.variant.sku
         else:
             self.sku = self.product.sku
 
+        # Calculate the line item total: quantity * price of the
+        # product/variant.
         if self.variant:
             self.lineitem_total = self.variant.price * self.quantity
         else:
@@ -145,6 +176,11 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        Return a human-readable string representation of the line item.
+        The string will include the SKU and whether it is a variant or just
+        a product and the order number it belongs to.
+        """
         if self.variant:
             return f'SKU {self.variant.sku} (variant) on order '
             f'{self.order.order_number}'

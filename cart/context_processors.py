@@ -4,7 +4,36 @@ from products.models import Product, ProductVariant
 
 
 def cart_contents(request):
+    """
+    Retrieve and calculate details of the shopping cart contents.
 
+    This function computes the total cost, delivery cost, and other cart
+    details.
+    It manages cart items in session storage, verifies if each product or
+    variant exists,
+    and removes non-existing items with a warning message.
+
+    Attributes:
+        request (HttpRequest): The HTTP request object, which contains
+        session data.
+
+    Returns:
+        dict: A dictionary with the cart details, including:
+            - cart_items (list): List of items in the cart with details on
+            product, variant, quantity, etc.
+            - total_cost (Decimal): Total cost of all products in the cart.
+            - delivery_cost (Decimal): Cost of delivery based on selected
+            delivery method and cart total.
+            - free_delivery_threshold (Decimal): The minimum total cost
+            required for free delivery.
+            - free_delivery_delta (Decimal): Amount left to reach the free
+            delivery threshold.
+            - grand_total (Decimal): Final total including delivery cost.
+            - selected_delivery_method (str): The selected delivery method
+            ('standard' or 'express').
+            - product_count (int): Total count of individual products in the
+            cart.
+    """
     cart_items = []
     total_cost = 0
     product_count = 0
