@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/mailchimp.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -276,9 +276,6 @@
         }(jQuery));
         var $mcj = jQuery.noConflict(true);
     </script>
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
-
     <!-- <script>
         $(document).ready(function () {
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

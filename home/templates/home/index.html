@@ -128,10 +128,10 @@
                                 <!-- Displaying only the latest post -->
                                 {% if latest_posts.0.image %}
                                 <img src="{{ latest_posts.0.image.url }}" class="card-img-top"
-                                    alt="{{ latest_posts.0.title }}" width="100%" height="auto">
+                                    alt="{{ latest_posts.0.title }}">
                                 {% else %}
                                 <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
-                                    alt="Default Image" width="100%" height="auto">
+                                    alt="Default Image">
                                 {% endif %}
                             </a>
                             <div class="card-body">
@@ -153,11 +153,10 @@
                                 <div class="card">
                                     <a href="{% url 'blog_post' post.slug %}">
                                         {% if post.image %}
-                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}"
-                                            width="100%" height="auto">
+                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
                                         {% else %}
                                         <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
-                                            alt="Default Image" width="100%" height="auto">
+                                            alt="Default Image">
                                         {% endif %}
                                     </a>
                                     <div class="card-body">
@@ -181,11 +180,10 @@
                                 <div class="card">
                                     <a href="{% url 'blog_post' post.slug %}">
                                         {% if post.image %}
-                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}"
-                                            width="100%" height="auto">
+                                        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
                                         {% else %}
                                         <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
-                                            alt="Default Image" width="100%" height="auto">
+                                            alt="Default Image">
                                         {% endif %}
                                     </a>
                                     <div class="card-body px-0">
