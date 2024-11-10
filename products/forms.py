@@ -26,13 +26,13 @@ class ProductVariantForm(forms.ModelForm):
     Form for creating and updating ProductVariant instances.
 
     This form allows you to input information about product variants, such as
-    the size, price, stock quantity, and additional attributes. Each variant
+    the size, price and stock quantity. Each variant
     represents a specific variation of a product (e.g., different sizes or
     colors).
     """
     class Meta:
         model = ProductVariant
-        fields = ['size', 'price', 'stock', 'additional_attributes']
+        fields = ['size', 'price', 'stock']
 
 
 ProductVariantFormSet = inlineformset_factory(

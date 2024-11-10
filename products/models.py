@@ -195,13 +195,12 @@ class Product(models.Model):
 
 class ProductVariant(models.Model):
     """
-    Represents a specific variation of a product, such as size or color. Each
+    Represents a specific variation of a product, such as size. Each
     variant has its own price, stock, and SKU.
     """
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='variants')
     size = models.CharField(max_length=64, blank=True, null=True)
-    additional_attributes = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
     sku = models.CharField(max_length=64, blank=True, null=True, unique=True)

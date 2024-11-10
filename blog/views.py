@@ -38,7 +38,7 @@ def all_blog_posts(request):
     Returns:
         HttpResponse: The rendered HTML page displaying all blog posts.
     """
-    posts = BlogPost.objects.all()
+    posts = BlogPost.objects.all().order_by('-published_date')
     return render(request, 'blog/all_blog_posts.html', {'posts': posts})
 
 
