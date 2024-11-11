@@ -1,18 +1,17 @@
-import time
-import json
-
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 
-import stripe
-
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product, ProductVariant
 from profiles.models import UserProfile
+
+import stripe
+import time
+import json
 
 
 class StripeWH_Handler:
@@ -160,4 +159,12 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: '
             f'Created order in webhook',
+            status=200)
+
+    def handle_payment_intent_payment_failed(self, event):
+        """
+        Handle the payment_intent.payment_failed webhook from Stripe
+        """
+        return HttpResponse(
+            content=f'Webhook received: {event["type"]}',
             status=200)
