@@ -137,6 +137,26 @@ def adjust_cart(request, sku):
     product_name = cart[sku]['product_name']
     selected_size = cart[sku].get('size')
 
+    product = Product.objects.filter(sku=sku).first()
+    variant = None
+    if not product:
+        variant = ProductVariant.objects.filter(sku=sku).first()
+        if variant:
+            product = variant.product
+    
+    if not product:
+        messages.error(request, f"Product with SKU {sku} not found.")
+        return redirect(reverse('view_cart'))
+
+    available_stock = variant.stock if variant else product.stock
+
+    if quantity > available_stock:
+        messages.error(
+            request,
+            f"Only {available_stock} item(s) of {product_name} are available in stock."
+        )
+        return redirect(reverse('view_cart'))
+
     if quantity > 0:
         # Update the quantity of the item in the cart
         cart[sku]['quantity'] = quantity
