@@ -45,6 +45,23 @@ class StripeWH_Handler:
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
+    def _update_user_profile(self, username, shipping_details, save_info):
+        """Update the user profile if save_info is checked"""
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_full_name = shipping_details.name
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                profile.save()
+            return profile
+        return None
+
     def handle_payment_intent_succeeded(self, event):
         """
         Handle the payment_intent.succeeded webhook from Stripe
@@ -69,24 +86,7 @@ class StripeWH_Handler:
                 shipping_details.address[field] = None
 
         # Update profile information if save_info was checked
-        profile = None
-        username = intent.metadata.username
-        if username != 'AnonymousUser':
-            profile = UserProfile.objects.get(user__username=username)
-            if save_info:
-                profile.default_full_name = shipping_details.name
-                profile.default_phone_number = shipping_details.phone
-                profile.default_country = shipping_details.address.country
-                profile.default_postcode = shipping_details.address.postal_code
-                profile.default_city = shipping_details.address.city
-                profile.default_street_address1 = (
-                    shipping_details.address.line1
-                )
-                profile.default_street_address2 = (
-                    shipping_details.address.line2
-                )
-                profile.default_county = shipping_details.address.state
-                profile.save()
+        profile = self._update_user_profile(intent.metadata.username, shipping_details, save_info)
 
         order_exists = False
         attempt = 1
@@ -138,13 +138,18 @@ class StripeWH_Handler:
                     variant = ProductVariant.objects.filter(sku=sku).first()
                     if variant:
                         product = variant.product
-                    else:
-                        product = get_object_or_404(Product, sku=sku)
-
-                    if variant:
-                        if variant.stock_quantity >= item_data['quantity']:
-                            variant.stock_quantity -= item_data['quantity']
+                        # Decrease stock for the product variant
+                        if variant.stock >= item_data['quantity']:
+                            variant.stock -= item_data['quantity']
                             variant.save()
+                        else:
+                            raise ValueError(f"Not enough stock for {product.name} variant")
+                    else:
+                        # If no variant exists, find the product and decrease stock for the product
+                        product = get_object_or_404(Product, sku=sku)
+                        if product.stock >= item_data['quantity']:
+                            product.stock -= item_data['quantity']
+                            product.save()
                         else:
                             raise ValueError(f"Not enough stock for {product.name}")
 
@@ -165,6 +170,7 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
+
         self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: '
