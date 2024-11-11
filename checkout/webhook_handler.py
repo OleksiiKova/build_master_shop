@@ -55,8 +55,12 @@ class StripeWH_Handler:
                 profile.default_country = shipping_details.address.country
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.default_city = shipping_details.address.city
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_street_address1 = (
+                    shipping_details.address.line1
+                )
+                profile.default_street_address2 = (
+                    shipping_details.address.line2
+                )
                 profile.default_county = shipping_details.address.state
                 profile.save()
             return profile
@@ -86,7 +90,8 @@ class StripeWH_Handler:
                 shipping_details.address[field] = None
 
         # Update profile information if save_info was checked
-        profile = self._update_user_profile(intent.metadata.username, shipping_details, save_info)
+        profile = self._update_user_profile(
+            intent.metadata.username, shipping_details, save_info)
 
         order_exists = False
         attempt = 1
@@ -143,15 +148,18 @@ class StripeWH_Handler:
                             variant.stock -= item_data['quantity']
                             variant.save()
                         else:
-                            raise ValueError(f"Not enough stock for {product.name} variant")
+                            raise ValueError(
+                                f"Not enough stock for {product.name} variant")
                     else:
-                        # If no variant exists, find the product and decrease stock for the product
+                        # If no variant exists, find the product and decrease
+                        # stock for the product
                         product = get_object_or_404(Product, sku=sku)
                         if product.stock >= item_data['quantity']:
                             product.stock -= item_data['quantity']
                             product.save()
                         else:
-                            raise ValueError(f"Not enough stock for {product.name}")
+                            raise ValueError(
+                                f"Not enough stock for {product.name}")
 
                     order_line_item = OrderLineItem(
                         order=order,
@@ -161,8 +169,6 @@ class StripeWH_Handler:
                         sku=sku,
                     )
                     order_line_item.save()
-                
-                self._clear_cart(intent.metadata.username, cart)
 
             except Exception as e:
                 if order:
@@ -184,14 +190,3 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
-
-    def _clear_cart(self, username, cart):
-        """
-        Clear the user's cart, typically from the session.
-        Here, we clear it using the cart data from the webhook.
-        """
-        if username != 'AnonymousUser':
-            self.request.session['cart'] = {}
-        else:
-            self.request.session['cart'] = {}
-        print(f"Cart cleared for {username}")

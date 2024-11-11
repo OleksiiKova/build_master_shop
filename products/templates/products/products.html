@@ -78,8 +78,12 @@
                                 <img class="card-img-top img-fluid card-body-image" src="{{ product.image.url }}"
                                     alt="{{ product.name }}">
                                 {% else %}
+
                                 <img class="card-img-top img-fluid card-body-image" src="{{ MEDIA_URL }}noimage.png"
                                     alt="{{ product.name }}">
+                                {% endif %}
+                                {% if product.out_of_stock %}
+                                <div class="out-of-stock-label">Out of Stock</div>
                                 {% endif %}
                             </div>
                             <div class="card-body pb-0 px-0">

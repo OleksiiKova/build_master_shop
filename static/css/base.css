@@ -651,3 +651,39 @@ input[name='q']::placeholder {
         width: 280px;
     }
 }
+
+.out-of-stock-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+}
+
+.out-of-stock {
+    background-color: #f8d7da;
+    color: #721c24;
+    text-decoration: line-through;
+}
+
+.btn-light.out-of-stock {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.selected-out-of-stock {
+    background-color: #e2e2e2;
+    color: #6c757d;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}

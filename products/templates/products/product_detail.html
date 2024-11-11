@@ -41,6 +41,9 @@
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
+                {% if is_out_of_stock %}
+                <div class="out-of-stock-label">Out of Stock</div>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -127,8 +130,14 @@
                             <p><strong>Available Sizes:</strong></p>
                             <div class="sizes">
                                 {% for variant in product.variants.all %}
-                                <a href="{% url 'product_detail_by_sku' variant.sku %}"
-                                    class="btn {% if selected_variant and selected_variant.sku == variant.sku %}btn-secondary{% else %}btn-light{% endif %} me-2">
+                                <a href="{% url 'product_detail_by_sku' variant.sku %}" class="btn 
+                                {% if selected_variant and selected_variant.sku == variant.sku %}
+                                    {% if variant.stock == 0 %}btn-secondary out-of-stock selected-out-of-stock{% else %}btn-secondary{% endif %}
+                                {% elif variant.stock == 0 %}
+                                    btn-light out-of-stock
+                                {% else %}
+                                    btn-light
+                                {% endif %} me-2">
                                     {{ variant.size }}
                                 </a>
                                 {% endfor %}
@@ -186,7 +195,11 @@
                                     </span>
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
+                                {% if not is_out_of_stock %}
                                 <input type="submit" class="btn btn-primary text-uppercase mt-4" value="Add to Bag">
+                                {% else %}
+                                <button class="btn btn-secondary text-uppercase mt-4" disabled>Out of Stock</button>
+                                {% endif %}
                             </div>
                         </div>
 

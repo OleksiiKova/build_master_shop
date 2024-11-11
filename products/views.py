@@ -159,6 +159,14 @@ def product_list(request):
         - Searching products by name or description based on a query string.
     """
     products = Product.objects.all()
+
+    for product in products:
+        # Проверяем наличие товара на складе
+        if product.stock == 0:
+            product.out_of_stock = True
+        else:
+            product.out_of_stock = False
+
     category_hierarchy = []
 
     # Get sorted products
@@ -321,6 +329,12 @@ def product_detail_by_sku(request, sku):
     # Handle review submission
     form_review = handle_review_submission(request, product)
 
+    # Check stock availability
+    if selected_variant:
+        is_out_of_stock = selected_variant.stock == 0
+    else:
+        is_out_of_stock = product.stock == 0
+
     context = {
         'product': product,
         'reviews': reviews,
@@ -330,6 +344,7 @@ def product_detail_by_sku(request, sku):
         'is_verified_user': is_verified_user,
         'selected_variant': selected_variant,
         'current_sku': current_sku,
+        'is_out_of_stock': is_out_of_stock,
     }
 
     return render(request, 'products/product_detail.html', context)
