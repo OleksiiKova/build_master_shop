@@ -162,7 +162,7 @@ class StripeWH_Handler:
                     )
                     order_line_item.save()
                 
-                self._clear_cart(intent.metadata.username)
+                self._clear_cart(intent.metadata.username, cart)
 
             except Exception as e:
                 if order:
@@ -185,19 +185,13 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]}',
             status=200)
 
-    def _clear_cart(self, username):
+    def _clear_cart(self, username, cart):
         """
         Clear the user's cart, typically from the session.
+        Here, we clear it using the cart data from the webhook.
         """
-        # Debugging the username and cart
-        print(f"Clearing cart for user: {username}")
-        
         if username != 'AnonymousUser':
-            # Assuming cart is stored in the session
-            if 'cart' in self.request.session:
-                print("Cart found in session, clearing it.")
-                del self.request.session['cart']
-            else:
-                print("No cart found in session.")
+            self.request.session['cart'] = {}
         else:
-            print("Anonymous user, not clearing cart.")
+            self.request.session['cart'] = {}
+        print(f"Cart cleared for {username}")
