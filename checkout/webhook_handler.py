@@ -266,6 +266,17 @@ class StripeWH_Handler:
                         event["type"]} | ERROR: {error}',
                     status=500)
 
+            for line_item in order.lineitems.all():
+                if line_item.variant:
+                    line_item.variant.stock -= line_item.quantity
+                    line_item.variant.save()
+                else:
+                    line_item.product.stock -= line_item.quantity
+                    line_item.product.save()
+                    
+            self.request.session['cart'] = {}
+            self.request.session.modified = True
+
         self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: '

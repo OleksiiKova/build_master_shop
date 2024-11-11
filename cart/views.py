@@ -55,6 +55,14 @@ def add_to_cart(request, sku):
     selected_size = request.POST.get('size')
     redirect_url = request.POST.get('redirect_url', '/')
 
+    stock = variant.stock if variant else product.stock
+    if quantity > stock:
+        messages.error(
+            request,
+            f'Only {stock} units of {product.name} (SKU: {sku}) are available in stock.',
+        )
+        return redirect(redirect_url)
+
     cart = request.session.get('cart', {})
 
     item_sku = variant.sku if variant else product.sku
