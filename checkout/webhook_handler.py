@@ -141,6 +141,13 @@ class StripeWH_Handler:
                     else:
                         product = get_object_or_404(Product, sku=sku)
 
+                    if variant:
+                        if variant.stock_quantity >= item_data['quantity']:
+                            variant.stock_quantity -= item_data['quantity']
+                            variant.save()
+                        else:
+                            raise ValueError(f"Not enough stock for {product.name}")
+
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
@@ -149,6 +156,9 @@ class StripeWH_Handler:
                         sku=sku,
                     )
                     order_line_item.save()
+                
+                self._clear_cart(intent.metadata.username)
+                
             except Exception as e:
                 if order:
                     order.delete()
