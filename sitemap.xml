@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/accounts/login/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/cart/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=power_tools</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=power_tools&amp;third_level=angle_grinders</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=power_tools&amp;third_level=drills</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=power_tools&amp;third_level=multi_tools</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=power_tools&amp;third_level=saws</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=hand_tools</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=hand_tools&amp;third_level=hammers</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=hand_tools&amp;third_level=sawing_cutting</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=measuring_tools</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools&amp;second_level=tool_accessories</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=tools</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=fasteners&amp;second_level=screws_nails</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=fasteners&amp;second_level=bolts_nuts</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=fasteners&amp;second_level=anchors</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=fasteners</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?second_level=safety_clothing</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=safety_equipment&amp;second_level=safety_clothing&amp;third_level=hi_vis_vests</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=safety_equipment&amp;second_level=safety_clothing&amp;third_level=work_gloves</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=safety_equipment&amp;second_level=eye_ear_protection</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=safety_equipment&amp;second_level=respirators_masks</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=safety_equipment</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=workwear&amp;second_level=work_boots</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=workwear&amp;second_level=work_jackets</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=workwear&amp;second_level=work_trousers</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=workwear</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/blog/m/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/blog/how-to-choose-a-drill-corded-vs-battery-powered/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/blog/essential-hand-tools-choosing-the-right-ones-for-y/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/blog/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/contact-us/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/privacy-policy/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/terms-of-service/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8174416/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-1077016/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8777016/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-5494206/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8146016/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8156016/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8177016/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9455853/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9265807/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-5184952/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/?first_level=safety_equipment&amp;second_level=safety_clothing</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8214728/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-2098889/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-3955329/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9977016/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-4446712/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8220111/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9997016/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/blog/stay-safe-the-importance-of-using-safety-equipment/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/blog/keep-your-tools-sharp-essential-maintenance-tips-f/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8214728-9/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-2098889-8/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-2098889-9/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-2098889-10/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-2098889-11/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-3955329-9/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-3955329-10/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-3955329-11/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9977016-46/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9977016-48/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-4446712-30/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-4446712-32/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-4446712-34/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-4446712-36/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-4446712-38/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8220111-30/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8220111-32/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8220111-34/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8220111-36/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-8220111-40/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9997016-32/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9997016-34/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://build-master-shop-84761d123763.herokuapp.com/products/bm-9997016-36/</loc>
+  <lastmod>2024-11-12T20:39:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

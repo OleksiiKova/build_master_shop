@@ -111,9 +111,9 @@ a:not(.btn):hover {
     border-color: #527F89;
 }
 
-#delivery-banner {
+.banner {
     background-color: #FFE5B4;
-    color: #8B4513;
+    color: #9E3D21;
 }
 
 .card {
