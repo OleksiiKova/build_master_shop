@@ -1,0 +1,102 @@
+<header class="container-fluid fixed-top">
+    <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+        <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
+            <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <h2 class="logo-font my-0"><strong>Build</strong>Master</h2>
+            </a>
+        </div>
+        <div class="col-lg-4 my-auto py-1 py-lg-0">
+            <form method="GET" action="{% url 'products' %}">
+                <div class="input-group w-100">
+                    <input id="search-input" class="form-control border" type="text" name="q"
+                        placeholder="Search our site">
+                    <div class="input-group-append">
+                        <button class="form-control btn border" id="search-icon" type="submit" aria-label="Search">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 my-auto py-1 py-lg-0">
+            <ul class="list-inline list-unstyled text-center text-lg-end my-0">
+                {% if request.user.is_authenticated %}
+                <li class="list-inline-item dropdown">
+                    <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="bi bi-person"></i></div>
+                            My Account
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <li><a href="{% url 'profile' %}" class="dropdown-item">My Profile</a></li>
+                        <li><a href="{% url 'user_reviews' %}" class="dropdown-item">My Reviews</a></li>
+                        <li><a href="{% url 'wishlist' %}" class="dropdown-item">My Wishlist</a></li>
+                        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li class="list-inline-item">
+                    <div class="text-center">
+                        <a class="nav-link" href="{% url 'account_login' %}">
+                            <div><i class="bi bi-person"></i></div>
+                            Login / Register
+                        </a>
+                    </div>
+                </li>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                <li class="list-inline-item dropdown">
+                    <a class="nav-link" href="#" id="management-options" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="bi bi-kanban"></i></div>
+                            Management
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="management-options">
+                        <li><a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a></li>
+                        <li><a href="{% url 'add_blog_post' %}" class="dropdown-item">Add Post</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endif %}
+                <li class="list-inline-item">
+                    <a class="nav-link {% if total_cost > 0 %}has-items{% endif %}" href="{% url 'view_cart' %}">
+                        <div class="text-center">
+                            <div class="position-relative"><i class="bi bi-cart"></i>
+                                {% if product_count > 0 %}
+                                <span class="badge bg-cart-items">
+                                    {{ product_count }}
+                                </span>
+                            </div>
+                            {% endif %}
+                            {% if total_cost %}
+                            €{{ total_cost|floatformat:2 }}
+                            {% else %}
+                            €0.00
+                            {% endif %}
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mobile-header">
+        <nav class="navbar navbar-expand-lg w-100">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% include 'includes/mobile-top-header.html' %}
+            {% include 'includes/main-nav.html' %}
+        </nav>
+    </div>
+    <div id="delivery-banner" class="row text-center banner">
+        <div class="col" style="white-space: nowrap;">
+            <h2 class="h6 m-0 py-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h2>
+        </div>
+    </div>
+</header>

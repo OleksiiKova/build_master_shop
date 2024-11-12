@@ -45,102 +45,9 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <header class="container-fluid fixed-top">
-        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-            <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font my-0"><strong>Build</strong>Master</h2>
-                </a>
-            </div>
-            <div class="col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
-                        <input id="search-input" class="form-control border" type="text" name="q"
-                            placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="form-control btn border" id="search-icon" type="submit" aria-label="Search">
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-end my-0">
-                    {% if request.user.is_authenticated %}
-                    <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="bi bi-person"></i></div>
-                                My Account
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu border-0" aria-labelledby="user-options">
-                            <li><a href="{% url 'profile' %}" class="dropdown-item">My Profile</a></li>
-                            <li><a href="{% url 'user_reviews' %}" class="dropdown-item">My Reviews</a></li>
-                            <li><a href="{% url 'wishlist' %}" class="dropdown-item">My Wishlist</a></li>
-                            <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
-                        </ul>
-                    </li>
-                    {% else %}
-                    <li class="list-inline-item">
-                        <div class="text-center">
-                            <a class="nav-link" href="{% url 'account_login' %}">
-                                <div><i class="bi bi-person"></i></div>
-                                Login / Register
-                            </a>
-                        </div>
-                    </li>
-                    {% endif %}
-                    {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                    <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="#" id="management-options" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="bi bi-kanban"></i></div>
-                                Management
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu border-0" aria-labelledby="management-options">
-                            <li><a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a></li>
-                            <li><a href="{% url 'add_blog_post' %}" class="dropdown-item">Add Post</a></li>
-                        </ul>
-                    </li>
-                    {% endif %}
-                    {% endif %}
-                    <li class="list-inline-item">
-                        <a class="nav-link {% if total_cost > 0 %}has-items{% endif %}" href="{% url 'view_cart' %}">
-                            <div class="text-center">
-                                <div><i class="bi bi-cart"></i></div>
-                                {% if total_cost %}
-                                €{{ total_cost|floatformat:2 }}
-                                {% else %}
-                                €0.00
-                                {% endif %}
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mobile-header">
-            <nav class="navbar navbar-expand-lg w-100">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
-            </nav>
-        </div>
-        <div id="delivery-banner" class="row text-center banner">
-            <div class="col" style="white-space: nowrap;">
-                <h2 class="h6 m-0 py-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h2>
-            </div>
-        </div>
-    </header>
+    {% block header %}
+    {% include "includes/header.html" %}
+    {% endblock header %}
 
     {% if messages %}
     <div class="message-container">
@@ -175,79 +82,9 @@
         {% endblock %}
     </main>
 
-    <footer class="footer">
-        <div class="container-fluid px-md-4">
-            <div class="row">
-                <div class="col-lg-3 text-center text-lg-start">
-                    <h2 class="h5">Contact Information</h2>
-                    <p>
-                        <strong>Phone:</strong> +353 1 2312 3123<br>
-                        <strong>Email:</strong> buildmaster@example.com<br>
-                        <a href="{% url 'contact_us' %}">Contact us</a><br>
-                    </p>
-                </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="h5">Stay Connected</h2>
-                    <ul class="list-unstyled d-flex justify-content-around">
-                        <li>
-                            <a href="https://www.facebook.com/profile.php?id=61568320523905" target="_blank"
-                                rel="noopener noreferrer" aria-label="Visit our Facebook page (opens in a new tab)">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </li>
-                        <!-- <li>
-                            <a href="https://www.twitter.com/YourPage" target="_blank" rel="noopener noreferrer">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/YourPage" target="_blank" rel="noopener noreferrer">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        </li> -->
-                    </ul>
-                </div>
-                <div class="col-lg-3 text-center">
-                    <h2 class="h5">Policies</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="https://www.termsfeed.com/live/e92715b8-edde-4374-bc0f-97ff667ede0f"
-                                target="_blank">Privacy Policy-link</a></li>
-
-                        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
-                        <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 text-center text-lg-end d-flex justify-content-center d-lg-block">
-                    <div id="mc_embed_shell">
-                        <div id="mc_embed_signup">
-                            <form
-                                action="https://herokuapp.us17.list-manage.com/subscribe/post?u=e3659d00cab8fee39e602266c&amp;id=dbdf50c9d2&amp;f_id=0015a0e0f0"
-                                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                                class="validate" target="_blank">
-                                <div id="mc_embed_signup_scroll">
-                                    <h2 class="text-center text-lg-end">Subscribe to Us</h2>
-                                    <div class="mc-field-group"><input type="email" name="EMAIL" class="required email"
-                                            id="mce-EMAIL" required="" value="" placeholder="Email Address"></div>
-                                    <div id="mce-responses" class="clear foot">
-                                        <div class="response" id="mce-error-response" style="display: none;"></div>
-                                        <div class="response" id="mce-success-response" style="display: none;"></div>
-                                    </div>
-                                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                                        /* real people should not fill this in and expect good things - do not remove
-                                        this or risk form bot signups */
-                                        <input type="text" name="b_e3659d00cab8fee39e602266c_dbdf50c9d2" tabindex="-1"
-                                            value="">
-                                    </div>
-                                    <input type="submit" name="subscribe" id="mc-embedded-subscribe"
-                                        class="btn btn-sm btn-primary w-100 m-0" value="Subscribe">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% block footer %}
+    {% include "includes/footer.html" %}
+    {% endblock footer %}
 
     {% block corejs %}
     <!-- JavaScript Libraries and Files -->

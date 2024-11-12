@@ -687,3 +687,10 @@ input[name='q']::placeholder {
     text-decoration: line-through;
     cursor: not-allowed;
 }
+
+.bg-cart-items {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    background-color: #9E3D21;
+}

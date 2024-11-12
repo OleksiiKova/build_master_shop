@@ -47,7 +47,13 @@
 
 <a class="nav-link d-block d-lg-none {% if total_cost > 0 %}has-items{% endif %}" href="{% url 'view_cart' %}">
     <div class="text-center me-1">
-        <div><i class="bi bi-cart"></i></div>
+        <div class="position-relative"><i class="bi bi-cart"></i>
+            {% if product_count > 0 %}
+            <span class="badge bg-cart-items">
+                {{ product_count }}
+            </span>
+        </div>
+        {% endif %}
         {% if total_cost %}
         €{{ total_cost|floatformat:2 }}
         {% else %}
