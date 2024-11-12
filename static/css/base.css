@@ -410,6 +410,13 @@ input[name='q']::placeholder {
     border-radius: 0.2rem;
 }
 
+.custom-select-border:focus-visible,
+.custom-select-border-selected:focus-visible {
+    border-color: #527F89;
+    border-radius: 0.2rem;
+    outline: 3px solid #527F89;
+}
+
 .custom-select-border-selected {
     border-color: #527F89;
     border-radius: 0.2rem;
@@ -520,8 +527,8 @@ input[name='q']::placeholder {
 /* ------------ Mailchimp ------------*/
 #mc_embed_signup {
     background: #fff;
-    clear: left;
-    font: 14px Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat';
+    font-weight: 400;
 }
 
 #mc_embed_signup form {
@@ -563,6 +570,27 @@ input[name='q']::placeholder {
     margin-bottom: .5rem;
     font-size: 1.25rem;
     }
+
+#mc_embed_signup {
+
+}
+
+#mc_embed_signup input {
+    border: 1px solid #527F89;
+    border-radius: 0.375rem;
+}
+
+#mc_embed_signup input:focus,
+#mc_embed_signup input:focus-visible {
+    border: 1px solid #527F89;
+    box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
+}
+
+#mc_embed_signup input:focus-visible {
+    border-color: #527F89;
+    border-radius: 0.2rem;
+    outline: 3px solid #527F89;
+}
 
 @media (max-width: 768px) {
     .table thead {
