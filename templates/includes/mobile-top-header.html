@@ -52,8 +52,8 @@
             <span class="badge bg-cart-items">
                 {{ product_count }}
             </span>
+            {% endif %}
         </div>
-        {% endif %}
         {% if total_cost %}
         €{{ total_cost|floatformat:2 }}
         {% else %}

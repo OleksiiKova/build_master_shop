@@ -1,17 +1,14 @@
-<footer class="footer">
+<footer class="footer pb-2">
     <div class="container-fluid px-md-4">
         <div class="row">
-            <div class="col-lg-3 text-center text-lg-start">
+            <div class="col-lg-3 text-center">
                 <h2 class="h5">Contact Information</h2>
-                <p>
+                <p class="mb-2">
                     <strong>Phone:</strong> +353 1 2312 3123<br>
                     <strong>Email:</strong> buildmaster@example.com<br>
-                    <a href="{% url 'contact_us' %}">Contact us</a><br>
                 </p>
-            </div>
-            <div class="col-lg-3 text-center">
                 <h2 class="h5">Stay Connected</h2>
-                <ul class="list-unstyled d-flex justify-content-around mb-1">
+                <ul class="list-unstyled mb-2 d-flex justify-content-around">
                     <li>
                         <a href="https://www.facebook.com/profile.php?id=61568320523905" target="_blank"
                             rel="noopener noreferrer" aria-label="Visit our Facebook page (opens in a new tab)">
@@ -19,9 +16,20 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+            <div class="col-lg-3 text-center">
+                <h2 class="h5">Our Links</h2>
+                <ul class="list-unstyled mb-2">
+                    <li>
+                        <a href="{% url 'all_blog_posts' %}">Blog Posts</a><br>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact_us' %}">Contact us</a><br>
+                    </li>
+                </ul>
                 <h2 class="h5">Useful links</h2>
                 <ul class="list-unstyled d-flex justify-content-around mb-0">
-                    <li>
+                    <li class="list-unstyled mb-2">
                         <a href="https://www.hsa.ie/eng/" target="_blank" rel="noopener noreferrer"
                             aria-label="Visit Health and Safety Authority (opens in a new tab)">
                             Health and Safety Authority (HSA)
@@ -31,12 +39,15 @@
             </div>
             <div class="col-lg-3 text-center">
                 <h2 class="h5">Policies</h2>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled mb-2">
                     <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
                     <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+                    <li>
+
+                    </li>
                 </ul>
             </div>
-            <div class="col-lg-3 text-center text-lg-end d-flex justify-content-center d-lg-block">
+            <div class="col-lg-3 text-center text-lg-end d-flex justify-content-center d-lg-block mb-2">
                 <div id="mc_embed_shell">
                     <div id="mc_embed_signup">
                         <form
@@ -44,7 +55,7 @@
                             method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
                             class="validate" target="_blank">
                             <div id="mc_embed_signup_scroll">
-                                <h2 class="text-center text-lg-end h5">Subscribe to Us</h2>
+                                <h2 class="text-center h5">Subscribe to Us</h2>
                                 <div class="mc-field-group"><input type="email" name="EMAIL" class="required email"
                                         id="mce-EMAIL" required="" value="" placeholder="Email Address"></div>
                                 <div id="mce-responses" class="clear foot">
@@ -61,6 +72,11 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <p class="mb-0 text-center">&copy; 2024 BuildMaster - For educational purposes</p>
             </div>
         </div>
     </div>
