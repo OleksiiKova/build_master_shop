@@ -16,7 +16,7 @@
     <meta name="description"
         content="Build Master Shop offers high-quality power tools, durable workwear, and safety equipment for professionals and DIY enthusiasts. Discover reliable tools and protective gear designed for construction, woodworking, and industrial work.">
     <meta name="keywords"
-        content="power tools, hand tools, durable workwear, safety equipment, construction gear, cordless drills, heavy-duty tools, professional-grade tools, high-visibility clothing">
+        content="power tools, hand tools, durable workwear, safety equipment, construction gear, top-rated cordless drills for contractors, heavy-duty tools, professional-grade tools, high-visibility clothing">
     <meta name="author" content="Oleksii Kovalenko">
     {% endblock %}
 
@@ -145,9 +145,25 @@
                 toast.show();
             }
         });
-        $('.btt-link').click(function (e) {
-            window.scrollTo(0, 0)
-        })
+
+        // To Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
     {% endblock %}
 

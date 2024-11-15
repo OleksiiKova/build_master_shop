@@ -34,11 +34,13 @@
             <div class="image-container my-2">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid custom-img" src="{{ product.image.url }}"
+                        alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid custom-img" src="{{ MEDIA_URL }}noimage.png"
+                        alt="{{ product.name }}">
                 </a>
                 {% endif %}
                 {% if is_out_of_stock %}
@@ -98,27 +100,6 @@
                     <a class="text-danger ms-2" href="{% url 'delete_product' product.sku %}">Delete</a>
                 </small>
                 {% endif %}
-                <!-- <p class="small mt-1 mb-0">
-                    {% if product.first_level_category %}
-
-                    <a class="text-muted"
-                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}">
-                        <i class="bi bi-tag me-1"></i>{{ product.first_level_category.friendly_name }}
-                    </a> /
-                    {% endif %}
-                    {% if product.second_level_category %}
-                    <a class="text-muted"
-                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}">
-                        <i class="bi bi-tag me-1"></i>{{ product.second_level_category.friendly_name }}
-                    </a> /
-                    {% endif %}
-                    {% if product.third_level_category %}
-                    <a class="text-muted"
-                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}&third_level={{ product.third_level_category.name }}">
-                        <i class="bi bi-tag me-1"></i>{{ product.third_level_category.friendly_name }}
-                    </a>
-                    {% endif %}
-                </p> -->
                 <p class="mt-3">{{ product.description }}</p>
                 <p class="mt-3">{{ product.additional_attributes }}</p>
 

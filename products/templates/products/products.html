@@ -62,9 +62,9 @@
                 </div>
                 <div class="col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-start">
-                        <!-- {% if search_term or current_categories or current_sorting != 'None_None' %}
-                        <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
-                        {% endif %} -->
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
+                        {% endif %}
                         {{ products|length }} Products{% if search_term %} found for
                         <strong>"{{ search_term }}"</strong>{% endif %}
                     </p>
@@ -76,12 +76,6 @@
 
                     <div class="card h-100">
                         <a href="{% url 'product_detail_by_sku' product.sku %}" class="text-decoration-none d-block">
-                            <!-- {% if product.variants.exists %}
-                            {% url 'product_detail_by_sku' product.variants.first.sku %}
-                            {% else %}
-                            {% url 'product_detail_by_sku' product.sku %}
-                            {% endif %} -->
-
                             <div class="card-image-container">
                                 {% if product.image %}
                                 <img class="card-img-top img-fluid card-body-image" src="{{ product.image.url }}"
@@ -96,26 +90,6 @@
                                 {% endif %}
                             </div>
                             <div class="card-body pb-0 px-0">
-                                <!-- <p class="small mt-1 mb-0">
-                                    {% if product.first_level_category %}
-                                    <a class="text-muted"
-                                        href="{% url 'products' %}?category={{ product.first_level_category.name }}">
-                                        <i class="bi bi-tag me-1"></i>{{ product.first_level_category.friendly_name }}
-                                    </a> /
-                                    {% endif %}
-                                    {% if product.second_level_category %}
-                                    <a class="text-muted"
-                                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}">
-                                        {{ product.second_level_category.friendly_name }}
-                                    </a> /
-                                    {% endif %}
-                                    {% if product.third_level_category %}
-                                    <a class="text-muted"
-                                        href="{% url 'products' %}?first_level={{ product.first_level_category.name }}&second_level={{ product.second_level_category.name }}&third_level={{ product.third_level_category.name }}">
-                                        {{ product.third_level_category.friendly_name }}
-                                    </a>
-                                    {% endif %}
-                                </p> -->
                                 <p id="card-body-name" class="mb-0">{{ product.name }}</p>
                                 {% if product.rating %}
                                 <div class="rating-star">
@@ -175,8 +149,8 @@
         </div>
     </div>
 </div>
-<div class="btt-button shadow-sm border">
-    <a href="" class="btt-link d-flex h-100" aria-label="Back to Top">
+<div class="btt-button shadow-sm border" id="backToTop">
+    <a href="#" class="btt-link d-flex h-100" aria-label="Back to Top">
         <i class="bi bi-arrow-up mx-auto my-auto"></i>
     </a>
 </div>

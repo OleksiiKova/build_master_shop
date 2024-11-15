@@ -411,6 +411,21 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#backToTop.show {
+    display: block;
+    opacity: 1;
+}
+
 /* ----------- Forms and check button */
 .form-check-input,
 .form-control,
@@ -719,4 +734,10 @@ input[name='q']::placeholder {
     #mc_embed_signup {
         width: 280px;
     }
+}
+
+.custom-img {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
 }

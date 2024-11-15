@@ -160,13 +160,6 @@ def product_list(request):
     """
     products = Product.objects.all()
 
-    for product in products:
-        # Проверяем наличие товара на складе
-        if product.stock == 0:
-            product.out_of_stock = True
-        else:
-            product.out_of_stock = False
-
     category_hierarchy = []
 
     # Get sorted products
@@ -177,6 +170,12 @@ def product_list(request):
      third_level) = filter_by_category(
         request, products)
 
+    for product in products:
+        if product.stock == 0:
+            product.out_of_stock = True
+        else:
+            product.out_of_stock = False
+            
     # Search products by query
     products, query = search_products(request, products)
 
@@ -290,7 +289,7 @@ def handle_review_submission(request, product):
                         request,
                         'There was an error submitting your review.')
             return redirect(request.path)
-    return ReviewForm()  # Return an empty form if not POST
+    return ReviewForm()
 
 
 def product_detail_by_sku(request, sku):
@@ -441,7 +440,7 @@ def add_product(request):
     """
     permission_check = check_superuser_permission(request)
     if permission_check:
-        return permission_check  # Early exit if not a superuser
+        return permission_check
 
     if request.method == 'POST':
         product_form = ProductForm(request.POST, request.FILES)
@@ -497,8 +496,7 @@ def edit_product(request, sku):
     """
     permission_check = check_superuser_permission(request)
     if permission_check:
-        return permission_check  # Early exit if not a superuser
-
+        return permission_check
     product = get_object_or_404(Product, sku=sku)
 
     if request.method == 'POST':
@@ -555,7 +553,7 @@ def delete_product(request, sku):
     """
     permission_check = check_superuser_permission(request)
     if permission_check:
-        return permission_check  # Early exit if not a superuser
+        return permission_check
 
     product = get_object_or_404(Product, sku=sku)
     if request.method == 'POST':
