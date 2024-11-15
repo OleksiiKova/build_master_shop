@@ -126,10 +126,12 @@ Call to Action (CTA) Placement: Key CTAs are strategically placed to drive conve
 
 The footer of the Build Master Shop website offers users easy access to essential information, including contact details (phone and email), policy links, and social media channels. The Contact Information section provides users with a phone number and email address for quick support. The Stay Connected area includes a link to our Facebook page, allowing customers to stay updated and engaged with the brand on social media. For easy navigation, the Our Links section contains direct links to key pages like the Blog and Contact Us pages, giving users quick access to content and support resources. There’s also a Useful Links section, featuring external resources like the Health and Safety Authority (HSA), which provides additional industry-related information. The Policies section includes links to our Privacy Policy and Terms of Service, promoting transparency and ensuring users can conveniently access important legal information. Finally, a Subscribe form allows users to sign up for updates, offering an opportunity to stay informed about new products, promotions, and company news. This organized and informative footer supports user convenience and trust, enhancing their overall experience on the site.
 
+### Skeleton
+
 #### Wireframes
 
 The website is designed to be clear and simple. To create the wireframe I used Balsamiq software. During the design phase, some elements were modified to enhance the user experience.
-PDF file with my wireframe you cand find [here](static/images/readme_images/car_rental.pdf).
+PDF file with my wireframe you cand find [here](static/images/readme_images/balsamiq-build-master.pdf).
 
 #### Database structure
 After deciding on the project's features, I used Lucidchart to plan the database structure. The diagram below serves as an initial guide, illustrating the types of data and their relationships.
@@ -717,7 +719,7 @@ The Verified Purchase label is displayed next to reviews to indicate that the re
 
 The Stock Availability Check ensures that products are available in stock before being added to the shopping cart and again just before checkout. This prevents customers from purchasing items that have gone out of stock between adding them to the cart and completing the purchase.
 
-** How it Works:**
+How it Works:
 - Before Adding to Cart:
    - When a customer attempts to add a product to the shopping cart, the system checks if the item is in stock.
    - If the product is out of stock, the customer is notified with a message, and the item is not added to the cart.

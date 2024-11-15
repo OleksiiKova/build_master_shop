@@ -90,7 +90,7 @@
                                 {% endif %}
                             </div>
                             <div class="card-body pb-0 px-0">
-                                <p id="card-body-name" class="mb-0">{{ product.name }}</p>
+                                <p class="mb-0 card-body-name">{{ product.name }}</p>
                                 {% if product.rating %}
                                 <div class="rating-star">
                                     <span title="{{ product.rating }}/5">
@@ -159,7 +159,7 @@
 {% block postloadjs %}
 {{  block.super }}
 
-<script type="text/javascript">
+<script>
     $('#sort-selector').change(function () {
         console.log('start');
 

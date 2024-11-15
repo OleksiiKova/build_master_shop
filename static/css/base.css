@@ -98,7 +98,7 @@ a:not(.btn):hover {
     border-color: #527F89;
 }
 
-#search-icon {
+.search-icon {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-color: #527F89;
@@ -239,7 +239,7 @@ a:not(.btn):hover {
 }
 
 /* -------------- Products Page ---------------- */
-#card-body-name {
+.card-body-name {
     font-size: 0.8rem;
     height: 40px;
     display: -webkit-box;
