@@ -281,19 +281,5 @@
 {{ block.super }}
 
 {% include 'products/includes/quantity_input_script.html' %}
-<script>
-    const selectedVariantInput = document.getElementById('selected_variant');
-    const addToWishlistBtn = document.getElementById('add_to_wishlist_btn');
-
-    function updateAddToWishlistLink() {
-        const currentSku = selectedVariantInput.value.trim();
-        if (currentSku) {
-            const wishlistUrl = `/add-to-wishlist/${currentSku}/`;
-            addToWishlistBtn.setAttribute('href', wishlistUrl);
-        }
-    }
-
-    updateAddToWishlistLink();
-</script>
 
 {% endblock %}
