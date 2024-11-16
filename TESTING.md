@@ -238,10 +238,13 @@ To enhance quality and increase confidence in the correctness of the application
 
 All HTML pages were validated using the W3C HTML Validator, and no errors were detected.
 
-| Page                | Result                |
+| Page                | Result (Click the links below to be redirected to the W3C HTML Validator)                |
 |---------------------|-----------------------|
 | Home                | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2F) |
 | My Profile        |  [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2F) |
+| My Reviews        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fuser-reviews%2F) |
+| Edit a Review        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Freview%2Fedit%2F1%2F%3Fnext%3Dmy_reviews) |
+| Delete a Review        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Freview%2Fdelete%2F1%2F%3Fnext%3Dmy_reviews) |
 | My Reviews        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fuser-reviews%2F) |
 | My Wishlist        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fwishlist%2F) |
 | Products        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fproducts%2F) |
@@ -255,78 +258,41 @@ All HTML pages were validated using the W3C HTML Validator, and no errors were d
 | Add a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fadd_blog_post%2F) |
 | Edit a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fedit%2Fessential-hand-tools-choosing-the-right-ones-for-y%2F) |
 | Delete a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fdelete%2Fhow-to-choose-a-drill-corded-vs-battery-powered%2F) |
-| Contact Us        | [✅ No errors or warnings]() |
+| Contact Us        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fcontact-us%2F) |
 | All Blog Posts        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2F) |
-| Contact Us        | [✅ No errors or warnings]() |
-| Contact Us        | [✅ No errors or warnings]() |
-| Contact Us        | [✅ No errors or warnings]() |
-| Contact Us        | [✅ No errors or warnings]() |
-| Contact Us        | [✅ No errors or warnings]() |
-
-
-
-<!-- All HTML pages were validated using the [W3C HTML Validator](https://validator.w3.org/), and no errors were detected.
-| Page                                                                                                                                     | Result              |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>Home</summary><img src="static/images/readme_images/testing/html_validations/home.png"></details>                      | <mark>PASS</mark>   |
-| <details><summary>Booking</summary><img src="static/images/readme_images/testing/html_validations/booking.png"></details>                | <mark>PASS</mark>   |
-| <details><summary>Booking Form</summary><img src="static/images/readme_images/testing/html_validations/booking-form.png"></details>      | <mark>PASS</mark>   |
-| <details><summary>Locations</summary><img src="static/images/readme_images/testing/html_validations/locations.png"></details>            | <mark>PASS</mark>   |
-| <details><summary>Contact Us</summary><img src="static/images/readme_images/testing/html_validations/contact-us.png"></details>          | <mark>PASS</mark>   |
-| <details><summary>My profile</summary><img src="static/images/readme_images/testing/html_validations/my-profile.png"></details>          | <mark>PASS</mark>   |
-| <details><summary>My bookings</summary><img src="static/images/readme_images/testing/html_validations/my-bookings.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>Edit Booking</summary><img src="static/images/readme_images/testing/html_validations/edit-booking.png"></details>      | <mark>PASS</mark>   |
-| <details><summary>Delete Booking</summary><img src="static/images/readme_images/testing/html_validations/delete-booking.png"></details>  | <mark>PASS</mark>   |
-| <details><summary>Leave Review</summary><img src="static/images/readme_images/testing/html_validations/leave-review.png"></details>      | <mark>PASS</mark>   |
-| <details><summary>All Reviews</summary><img src="static/images/readme_images/testing/html_validations/all-reviews.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>My Reviews</summary><img src="static/images/readme_images/testing/html_validations/my-reviews.png"></details>          | <mark>PASS</mark>   |
-| <details><summary>Edit Review</summary><img src="static/images/readme_images/testing/html_validations/edit-review.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>Delete Review</summary><img src="static/images/readme_images/testing/html_validations/delete-review.png"></details>    | <mark>PASS</mark>   |
-| <details><summary>Sign In</summary><img src="static/images/readme_images/testing/html_validations/login.png"></details>                  | <mark>PASS</mark>   |
-| <details><summary>Sign Up</summary><img src="static/images/readme_images/testing/html_validations/signup.png"></details>                 | <mark>PASS</mark>   |
-| <details><summary>Log Out</summary><img src="static/images/readme_images/testing/html_validations/logout.png"></details>                 | <mark>PASS</mark>   |
-| <details><summary>Reset Password</summary><img src="static/images/readme_images/testing/html_validations/password-reset.png"></details>  | <mark>PASS</mark>   |
-| <details><summary>Change Password</summary><img src="static/images/readme_images/testing/html_validations/change-password.png"></details>| <mark>PASS</mark>   | -->
+| Blog Post        | [✅ No errors or warnings]() |
+| Privacy Policy        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprivacy-policy%2F) |
+| Terms of Service        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fterms-of-service%2F) |
+| Sign In        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Flogin%2F) |
+| Sign Up        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Fsignup%2F) |
+| Sign Out        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Flogout%2F) |
+| Password Reset        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Fpassword%2Freset%2F) |
+| Password Reset        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Fpassword%2Freset%2F) |
 
 ### CSS
 
-During the CSS validation process for this project, a couple of issues were identified that are related to the external CSS resource provided by Leaflet. Specifically:
+The [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) tool, provided by the W3C, enables to validate and verify the correctness of CSS code. It ensures that your web pages adhere to W3C standards, promoting interoperability and accessibility.
 
-- Mix-blend-mode Value: The plus-lighter value used in the Leaflet CSS file is not recognized as a valid mix-blend-mode value.
-- Behavior Property: The behavior property with the value url(#default#VML) is not supported.
-These issues are due to the external Leaflet CSS file hosted at https://unpkg.com/leaflet@1.9.4/dist/leaflet.css, and not from the custom CSS within this project. As such, they cannot be resolved directly within this project.
+All CSS files validated using the W3C Jigsaw, and no errors were detected.
 
-If you encounter validation issues or errors related to these external resources, please be aware that they originate from the external library and not from the project's own CSS.
-
-![](static/images/readme_images/testing/css_validations.png)
+| File Name                                                                                                                                              | Result              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| <details><summary>base.css</summary><img src="static/images/readme_images/testing/css/base-css.png"></details>        | PASS   |
+| <details><summary>checkout.css</summary><img src="static/images/readme_images/testing/css/checkout-css.png"></details>        | PASS   |
+| <details><summary>mailchimp.css</summary><img src="static/images/readme_images/testing/css/mailchimp-css.png"></details>               | PASS   |
 
 ### JavaScript
 
-| File JS                                                                                                                                              | Result              |
+| File Name                                                                                                                                              | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>script.js</summary><img src="static/images/readme_images/testing/js_validations/main-script.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>rating.js</summary><img src="static/images/readme_images/testing/js_validations/rating-script.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>Embedded within the Home Page</summary><img src="static/images/readme_images/testing/js_validations/home.png"></details>               | <mark>PASS</mark>   |
-| <details><summary>Embedded within the Locations Page</summary><img src="static/images/readme_images/testing/js_validations/locations.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>Embedded within the My Bookings Page</summary><img src="static/images/readme_images/testing/js_validations/my-bookings.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>Embedded within the Edit Review Page</summary><img src="static/images/readme_images/testing/js_validations/edit-review.png"></details>        | <mark>PASS</mark>   |
-
-
-Some of the JavaScript files in this project include Django template variables. When these files are validated using JSHint or similar tools, errors may occur due to the validator not recognizing these Django variables.
-For instance, you might encounter errors like:
-- 2	Expected '}' to match '{' from line 2 and instead saw '{'.
-- 2	Missing semicolon.
-- 2	Expected an assignment or function call and instead saw an expression.
-- 2	Missing semicolon.
-- 2	Unrecoverable syntax error. (2% scanned).
-
-This error occurs because the validator doesn't interpret the Django template syntax correctly. When the Django variables are removed, the validation errors disappear.
-
-| File JS                                                                                                                                              | Result              |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>Embedded within the Booking-form Page</summary><img src="static/images/readme_images/testing/js_validations/has-variable-booking-form.png"></details>        | <mark>ERROR</mark>   |
-| <details><summary>Embedded within the Car Search Page</summary><img src="static/images/readme_images/testing/js_validations/has-variable-car-search.png"></details>        | <mark>ERROR</mark>   |
-| <details><summary>Embedded within the Edit Booking Page</summary><img src="static/images/readme_images/testing/js_validations/has-variable-edit-booking.png"></details>        | <mark>ERROR</mark>   |
+| <details><summary>base.js</summary><img src="static/images/readme_images/testing/js/base-js.png"></details>        | PASS   |
+| <details><summary>Add Product Page</summary><img src="static/images/readme_images/testing/js/add-product-js.png"></details>        | PASS   |
+| <details><summary>Cart Page</summary><img src="static/images/readme_images/testing/js/cart-js.png"></details>        | PASS   |
+| <details><summary>Product Detail Page</summary><img src="static/images/readme_images/testing/js/product-detail-js.png"></details>        | PASS   |
+| <details><summary>Products Page</summary><img src="static/images/readme_images/testing/js/products-js.png"></details>        | PASS   |
+| <details><summary>Profile Page</summary><img src="static/images/readme_images/testing/js/profile-js.png"></details>        | PASS   |
+| <details><summary>quantity-input.js</summary><img src="static/images/readme_images/testing/js/quantity-input-js.png"></details>        | PASS   |
+| <details><summary>stripe-elements.js</summary><img src="static/images/readme_images/testing/js/stripe-elements-js.png"></details>        | PASS   |
 
 ### Python
 
