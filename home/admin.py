@@ -14,4 +14,4 @@ class ContactMessageAdmin(admin.ModelAdmin):
     Attributes:
         list_display (tuple): Fields to display in the admin list view.
     """
-    list_display = ('message', 'read',)
+    list_display = ('name', 'message', 'read',)

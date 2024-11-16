@@ -236,19 +236,30 @@ To enhance quality and increase confidence in the correctness of the application
 
 ### HTML
 
+All HTML pages were validated using the W3C HTML Validator, and no errors were detected.
+
 | Page                | Result                |
 |---------------------|-----------------------|
 | Home                | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2F) |
 | My Profile        |  [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2F) |
+| My Reviews        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fuser-reviews%2F) |
+| My Wishlist        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fwishlist%2F) |
 | Products        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fproducts%2F) |
 | Product Detail        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fproducts%2Fbm-8220111%2F) |
-| Cart        | [✅ No errors or warnings]() |
+| Cart        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fcart%2F) |
 | Checkout        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fcheckout%2F) |
 | Checkout Success        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fcheckout%2Fcheckout_success%2FORD-BB6DVUSS) |
 | Add a Product        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Flogin%2F%3Fnext%3D%2Fproducts%2Fadd%2F) |
 | Edit a Product       | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fproducts%2Fedit%2Fbm-8777016%2F) |
-| Checkout        | [✅ No errors or warnings]() |
-| Checkout        | [✅ No errors or warnings]() |
+| Delete a Product        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fproducts%2Fdelete%2Fbm-8777016%2F) |
+| Add a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fadd_blog_post%2F) |
+| Edit a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fedit%2Fessential-hand-tools-choosing-the-right-ones-for-y%2F) |
+| Delete a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fdelete%2Fhow-to-choose-a-drill-corded-vs-battery-powered%2F) |
+
+
+| Add a Post        | [✅ No errors or warnings]() |
+| Add a Post        | [✅ No errors or warnings]() |
+
 
 
 

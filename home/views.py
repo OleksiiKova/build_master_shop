@@ -74,6 +74,4 @@ def contact_us(request):
         'on_profile_page': True
     }
 
-    print("Context:", pprint.pformat(context))
-
     return render(request, template, context)
