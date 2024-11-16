@@ -3,8 +3,8 @@
 
 {% block content %}
 <div class="container mt-2 mb-4 my-md-4">
-    <h1 class="text-center">{{ post.title }}</h1>
     <article class="blog-post row">
+        <h1 class="text-center">{{ post.title }}</h1>
         <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-0 mt-3">
             {% if post.image %}
             <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded" style="max-width: 100%;">

@@ -255,11 +255,13 @@ All HTML pages were validated using the W3C HTML Validator, and no errors were d
 | Add a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fadd_blog_post%2F) |
 | Edit a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fedit%2Fessential-hand-tools-choosing-the-right-ones-for-y%2F) |
 | Delete a Post        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2Fdelete%2Fhow-to-choose-a-drill-corded-vs-battery-powered%2F) |
-
-
-| Add a Post        | [✅ No errors or warnings]() |
-| Add a Post        | [✅ No errors or warnings]() |
-
+| Contact Us        | [✅ No errors or warnings]() |
+| All Blog Posts        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fblog%2F) |
+| Contact Us        | [✅ No errors or warnings]() |
+| Contact Us        | [✅ No errors or warnings]() |
+| Contact Us        | [✅ No errors or warnings]() |
+| Contact Us        | [✅ No errors or warnings]() |
+| Contact Us        | [✅ No errors or warnings]() |
 
 
 
