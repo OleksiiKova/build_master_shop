@@ -1,20 +1,34 @@
-// Back-to-Top Button: Show/hide button based on scroll position and scroll to top on click
-const backToTopButton = document.getElementById('backToTop');
-
-window.addEventListener('scroll', function () {
-    if (window.scrollY > 100) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
+// Bootstrap Toast: Show toast notification on page load if present
+document.addEventListener('DOMContentLoaded', function () {
+    var toastEl = document.querySelector('.toast');
+    if (toastEl) {
+        var toast = new bootstrap.Toast(toastEl);
+        toast.show();
     }
 });
 
-backToTopButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+// Back-to-Top Button: Show/hide button based on scroll position and scroll to top on click
+document.addEventListener('DOMContentLoaded', function () {
+    const backToTopButton = document.getElementById('backToTop');
+
+    // Проверяем, существует ли элемент
+    if (backToTopButton) {
+        backToTopButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+    }
 });
 
 // Dropdown Submenu: Toggle visibility for mobile and desktop devices
@@ -56,12 +70,3 @@ $(document).ready(function () {
     ftypes[6] = 'text';
 }(jQuery));
 var $mcj = jQuery.noConflict(true);
-
-// Bootstrap Toast: Show toast notification on page load if present
-document.addEventListener('DOMContentLoaded', function () {
-    var toastEl = document.querySelector('.toast');
-    if (toastEl) {
-        var toast = new bootstrap.Toast(toastEl);
-        toast.show();
-    }
-});
