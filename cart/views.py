@@ -59,7 +59,8 @@ def add_to_cart(request, sku):
     if quantity > stock:
         messages.error(
             request,
-            f'Only {stock} units of {product.name} (SKU: {sku}) are available in stock.',
+            f'Only {stock} units of {product.name} (SKU: {sku})'
+            ' are available in stock.',
         )
         return redirect(redirect_url)
 
@@ -143,7 +144,7 @@ def adjust_cart(request, sku):
         variant = ProductVariant.objects.filter(sku=sku).first()
         if variant:
             product = variant.product
-    
+
     if not product:
         messages.error(request, f"Product with SKU {sku} not found.")
         return redirect(reverse('view_cart'))
@@ -153,7 +154,8 @@ def adjust_cart(request, sku):
     if quantity > available_stock:
         messages.error(
             request,
-            f"Only {available_stock} item(s) of {product_name} are available in stock."
+            f'Only {available_stock} item(s) of {product_name} '
+            'are available in stock.'
         )
         return redirect(reverse('view_cart'))
 

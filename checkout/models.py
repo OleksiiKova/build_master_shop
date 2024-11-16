@@ -100,10 +100,10 @@ class Order(models.Model):
         # Calculate delivery cost based on the chosen method
 
         if self.order_total > 0:
-            if self.order_total < 50:  # Orders below 50 EUR
-                self.delivery_cost = 7  # Fixed 7 EUR for standard delivery
+            if self.order_total < 50:
+                self.delivery_cost = 7
             else:
-                self.delivery_cost = 0  # Free delivery for orders over 50 EUR
+                self.delivery_cost = 0
         else:
             self.delivery_cost = 0
 

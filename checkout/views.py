@@ -233,7 +233,7 @@ def check_cart_stock(cart):
     Returns:
         bool: True if sufficient stock is available, False otherwise.
     """
-    for sku, item_data in cart.items():  # Directly iterate over the cart dictionary
+    for sku, item_data in cart.items():
         # Check if the product variant exists
         variant = ProductVariant.objects.filter(sku=sku).first()
         if variant:
@@ -274,7 +274,10 @@ def checkout(request):
             return redirect(reverse('products'))
 
         if not check_cart_stock(cart):
-            messages.error(request, "One or more items in your cart are out of stock.")
+            messages.error(
+                request,
+                "One or more items in your cart are out of stock."
+            )
             return redirect(reverse('view_cart'))
 
         order = create_order_from_form(request, cart)

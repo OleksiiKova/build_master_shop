@@ -149,28 +149,6 @@ a:not(.btn):hover {
     color: #495057;
 }
 
-.footer h3 {
-    color: #2E7D82;
-    margin-bottom: 20px;
-}
-
-.footer a {
-    color: #2E7D82;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    color: #3A9198;
-}
-
-.footer .form-control {
-    border: 1px solid #ced4da;
-}
-
-.footer .btn-primary, .footer .btn-secondary {
-    margin-top: 10px;
-}
-
 /*----------------- Home page------------------ */
 .welcome-section,
 .why-choose-section,
@@ -193,7 +171,7 @@ a:not(.btn):hover {
 
 .why-choose-section .card {
     background: #ffffff;
-    border-radius: 8px;
+    border-radius: 5px;
     transition: transform 0.3s;
 }
 
@@ -211,7 +189,6 @@ a:not(.btn):hover {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    line-clamp: 2;
     height: 48px;
 }
 
@@ -221,20 +198,15 @@ a:not(.btn):hover {
     overflow-y: auto;
 } 
 
-.profile-form-input .form-control {
-    color: #000;
-}
-
-.profile-form-input::placeholder {
-    color: #aab7c4;
-}
-
+.profile-form-input .form-control,
 #id_default_country,
 #id_default_country option:not(:first-child) {
     color: #000;
 }
 
-#id_default_country option:first-child {
+.profile-form-input::placeholder,
+#id_default_country option:first-child,
+input[name='q']::placeholder {
     color: #aab7c4;
 }
 
@@ -244,7 +216,6 @@ a:not(.btn):hover {
     height: 40px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -344,31 +315,10 @@ color: #9E3D21;
     background-color: #9E3D21;
 }
 
-/* ------------- Product Form Page ------------*/
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.custom-checkbox .custom-control-label::before {
-    border-radius: 0;
-    border-color: #dc3545;
-}
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 0;
+.custom-img {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
 }
 
 /* ------------ Rating block --------------- */
@@ -405,10 +355,6 @@ color: #9E3D21;
 .update-link,
 .remove-item {
     cursor: pointer;
-}
-
-input[name='q']::placeholder {
-    color: #aab7c4;
 }
 
 #backToTop {
@@ -478,7 +424,6 @@ input[name='q']::placeholder {
     color: #000;
     border-color: #527F89;
 }
-
 
 .order-table-body {
     font-size: 0.8rem;
@@ -579,72 +524,6 @@ input[name='q']::placeholder {
     border-color: #222;
 }
 
-/* ------------ Mailchimp ------------*/
-#mc_embed_signup {
-    background: #fff;
-    font-family: 'Montserrat';
-    font-weight: 400;
-}
-
-#mc_embed_signup form {
-    margin: 0;
-    background-color: #f8f9fa;
-}
-
-#mc_embed_signup .mc-field-group {
-    width: 100%;
-}
-
-#mc_embed_signup .mc-field-group label {
-    font-family: 'Montserrat';
-}
-
-#mc_embed_signup div#mce-responses {
-    width: 100%;
-    margin: 0;
-}
-
-#mc_embed_signup div.response {
-    width: 100%;
-    padding: .5em .5em .5em 0;
-}
-
-#mc_embed_signup #mce-success-response {
-    color: #5F9EA0;
-    display: none;
-}
-
-#mc-embedded-subscribe::placeholder {
-    color: #aab7c4;
-}
-
-#mc_embed_signup h2 {
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
-    margin-bottom: .5rem;
-    font-size: 1.25rem;
-    line-height: 1.2;
-    font-family: 'Montserrat';
-}
-
-#mc_embed_signup input {
-    border: 1px solid #527F89;
-    border-radius: 0.375rem;
-}
-
-#mc_embed_signup input:focus,
-#mc_embed_signup input:focus-visible {
-    border: 1px solid #527F89;
-    box-shadow: 0 0 0 3px rgba(46, 125, 130, 0.6);
-}
-
-#mc_embed_signup input:focus-visible {
-    border-color: #527F89;
-    border-radius: 0.2rem;
-    outline: 3px solid #527F89;
-}
-
 @media (max-width: 768px) {
     .table thead {
         display: none;
@@ -734,10 +613,4 @@ input[name='q']::placeholder {
     #mc_embed_signup {
         width: 280px;
     }
-}
-
-.custom-img {
-    width: 80%;
-    margin: 0 auto;
-    display: block;
 }

@@ -175,7 +175,7 @@ def product_list(request):
             product.out_of_stock = True
         else:
             product.out_of_stock = False
-            
+
     # Search products by query
     products, query = search_products(request, products)
 

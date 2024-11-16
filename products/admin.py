@@ -7,9 +7,9 @@ from .models import (
 
 class ProductVariantInline(admin.TabularInline):
     """
-    Inline model for ProductVariant, which allows managing variants 
+    Inline model for ProductVariant, which allows managing variants
     directly from the Product's admin page.
-    
+
     Attributes:
         model: The model to be included in the inline (ProductVariant).
         extra: Number of empty forms to display for adding new ProductVariants.
@@ -24,7 +24,7 @@ class ProductVariantInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     """
     Custom admin configuration for the Product model.
-    
+
     Attributes:
         list_display: Fields to display in the list view of Products.
         ordering: Default ordering of products based on the first level
@@ -53,7 +53,7 @@ class ProductAdmin(admin.ModelAdmin):
 class ProductVariantAdmin(admin.ModelAdmin):
     """
     Custom admin configuration for the ProductVariant model.
-    
+
     Attributes:
         list_display: Fields to display in the list view of ProductVariants.
         ordering: Default ordering of ProductVariants based on the Product.
@@ -73,7 +73,7 @@ class ProductVariantAdmin(admin.ModelAdmin):
 class FirstLevelCategoryAdmin(admin.ModelAdmin):
     """
     Custom admin configuration for the FirstLevelCategory model.
-    
+
     Attributes:
         list_display: Fields to display in the list view of
         FirstLevelCategory.
@@ -89,7 +89,7 @@ class FirstLevelCategoryAdmin(admin.ModelAdmin):
 class SecondLevelCategoryAdmin(admin.ModelAdmin):
     """
     Custom admin configuration for the SecondLevelCategory model.
-    
+
     Attributes:
         list_display: Fields to display in the list view of
         SecondLevelCategory.
@@ -106,7 +106,7 @@ class SecondLevelCategoryAdmin(admin.ModelAdmin):
 class ThirdLevelCategoryAdmin(admin.ModelAdmin):
     """
     Custom admin configuration for the ThirdLevelCategory model.
-    
+
     Attributes:
         list_display: Fields to display in the list view of ThirdLevelCategory.
         ordering: Default ordering by the second level category.
