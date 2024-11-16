@@ -9,7 +9,6 @@
   - [Python](#python)
 - [Responsiveness and Device Testing](#responsiveness-and-device-testing)
 - [Browser Testing](#browser-testing)
-- [Accessibility](#accessibility)
 - [Lighthouse Testing](#lighthouse-testing)
 - [User Story Testing](#user-story-testing)
 - [Bugs](#bugs)
@@ -298,63 +297,83 @@ All CSS files validated using the W3C Jigsaw, and no errors were detected.
 
 All Python files were processed using the [CI Python Linter](https://pep8ci.herokuapp.com/), and no errors were found.
 
-#### Bookings app
+#### Blog app
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/admin.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/apps.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>cron.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/cron.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/forms.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/models.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>test_forms.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/test-forms.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>test_views.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/test-views.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/urls.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/python_validations/bookings_app/views.png"></details>        | <mark>PASS</mark>   |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/blog/admin.png"></details>        | PASS   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/blog/apps.png"></details>        | PASS   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/blog/forms.png"></details>        | PASS   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/blog/models.png"></details>        | PASS   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/blog/urls.png"></details>        | PASS   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/blog/views.png"></details>        | PASS   |
 
-#### Cars app
-| Python File                                                                                                                                               | Result              |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/python_validations/car_app/admin.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/python_validations/car_app/apps.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/python_validations/car_app/models.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>test_views.py</summary><img src="static/images/readme_images/testing/python_validations/car_app/test-views.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/python_validations/car_app/urls.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/python_validations/car_app/views.png"></details>        | <mark>PASS</mark>   |
-
-#### Offices app
-| Python File                                                                                                                                               | Result              |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/python_validations/offices_app/admin.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/python_validations/offices_app/apps.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/python_validations/offices_app/models.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>test_views.py</summary><img src="static/images/readme_images/testing/python_validations/offices_app/test-views.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/python_validations/offices_app/urls.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/python_validations/offices_app/views.png"></details>        | <mark>PASS</mark>   |
-
-#### Userprofile app
+#### Build Master
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/admin.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/apps.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/forms.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/models.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>signal.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/signal.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>test_data.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/test-data.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>test_forms.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/test-forms.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>test_views.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/test-views.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/urls.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/python_validations/userprofile_app/views.png"></details>        | <mark>PASS</mark>   |
+| <details><summary>settings.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/settings.png"></details>        | PASS   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/urls.png"></details>        | PASS   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/views.png"></details>        | PASS   |
+| <details><summary>wsgi.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/wsgi.png"></details>        | PASS   |
 
-#### Car rental project
+#### Cart app
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>asgi.py</summary><img src="static/images/readme_images/testing/python_validations/project/asgi.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>settings.py</summary><img src="static/images/readme_images/testing/python_validations/project/settings.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/python_validations/project/urls.png"></details>        | <mark>PASS</mark>   |
-| <details><summary>wsgi.py</summary><img src="static/images/readme_images/testing/python_validations/project/wsgi.png"></details>        | <mark>PASS</mark>   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/cart/apps.png"></details>        | PASS   |
+| <details><summary>cart_tool.py</summary><img src="static/images/readme_images/testing/py-linter/cart/cart_tool.png"></details>        | PASS   |
+| <details><summary>context-processors.py</summary><img src="static/images/readme_images/testing/py-linter/cart/context-processors.png"></details>        | PASS   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/cart/urls.png"></details>        | PASS   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/cart/views.png"></details>        | PASS   |
+
+#### Checkout app
+
+| Python File                                                                                                                                               | Result              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/admin.png"></details>        | PASS   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/apps.png"></details>        | PASS   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/forms.png"></details>        | PASS   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/models.png"></details>        | PASS   |
+| <details><summary>signals.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/signals.png"></details>        | PASS   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/urls.png"></details>        | PASS   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/views.png"></details>        | PASS   |
+| <details><summary>webhook_handler.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/webhook_handler.png"></details>        | PASS   |
+| <details><summary>webhooks</summary><img src="static/images/readme_images/testing/py-linter/checkout/webhooks.png"></details>        | PASS   |
+
+#### Home app
+
+| Python File                                                                                                                                               | Result              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/home/admin.png"></details>        | PASS   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/home/apps.png"></details>        | PASS   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/home/forms.png"></details>        | PASS   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/home/models.png"></details>        | PASS   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/home/urls.png"></details>        | PASS   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/home/views.png"></details>        | PASS   |
+
+#### Products app
+
+| Python File                                                                                                                                               | Result              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/products/admin.png"></details>        | PASS   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/products/apps.png"></details>        | PASS   |
+| <details><summary>custom_filters.py</summary><img src="static/images/readme_images/testing/py-linter/products/custom_filters.png"></details>        | PASS   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/products/forms.png"></details>        | PASS   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/products/models.png"></details>        | PASS   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/products/urls.png"></details>        | PASS   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/products/views.png"></details>        | PASS   |
+
+#### Profiles app
+
+| Python File                                                                                                                                               | Result              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/admin.png"></details>        | PASS   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/apps.png"></details>        | PASS   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/forms.png"></details>        | PASS   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/models.png"></details>        | PASS   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/urls.png"></details>        | PASS   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/views.png"></details>        | PASS   |
 
 [Back To Top](#table-of-contents)
 
@@ -367,21 +386,6 @@ Throughout the development process, the website was rigorously tested across a r
 ## Browser Testing
 
 The website was tested across Google Chrome, Safari, and Microsoft Edge, and no issues were found.
-
-[Back To Top](#table-of-contents)
-
-## Accessibility
-
-Using the Wave Accessibility tool for continuous development and final testing involves the following checks:
-
-- Ensure all forms are equipped with proper labels or aria-labels.
-- Verify that color contrast ratios comply with the WCAG 2.1 Contrast Guidelines.
-- Check that heading levels are correctly used to represent content hierarchy.
-- Confirm that content is structured within landmarks to facilitate navigation with assistive technology.
-- Provide descriptive alternative text or titles for non-text elements.
-- Set the lang attribute for HTML pages.
-- Implement ARIA properties following WCAG 2.1 best practices.
-- Adhere to established coding standards for WCAG 2.1 compliance.
 
 [Back To Top](#table-of-contents)
 

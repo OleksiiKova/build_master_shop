@@ -327,6 +327,9 @@ def product_detail_by_sku(request, sku):
 
     # Handle review submission
     form_review = handle_review_submission(request, product)
+    user_review = product.reviews.filter(
+        user=request.user).first() if request.user.is_authenticated else None
+    user_has_reviewed = user_review is not None
 
     # Check stock availability
     if selected_variant:
