@@ -1160,7 +1160,7 @@ By integrating Gmail, BuildMaster can send secure and reliable emails for accoun
  
 ### Media
 
-- Images: All images for the website were created using [OpenArt](https://openart.ai/) and [DeepAI](deepai.org)
+- Images: All images for the website were either generated using [OpenArt](https://openart.ai/) and [DeepAI](https://deepai.org/) or sourced from [Pixabay](https://pixabay.com/).
 - Logo: The logo for the website was created using [Design.com](www.design.com).
 - Transparent Backgrounds: To ensure consistency, transparent backgrounds for products were created using [Insmind](https://www.insmind.com/).
 

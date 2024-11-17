@@ -1,6 +1,5 @@
 # Table of Contents
 
-<!-- - [Automated Testing](#automated-testing) -->
 - [Manual Testing](#manual-testing)
 - [Code Validation](#code-validation)
   - [HTML](#html)
@@ -15,42 +14,7 @@
 
 Return back to the [README.md](README.md) file.
 
-<!-- ## Automated Testing
-
-To ensure the robustness and reliability of the application, a comprehensive testing strategy was employed, combining both manual and automated testing methods.
-
-Leveraging Django's built-in testing framework, automated tests were written to cover critical aspects of the application's functionality. This includes tests for views and forms to verify that the application behaves as expected under various conditions.
-
-To run the tests, I executed the following command in the terminal:
-
-`python3 manage.py test`
-
-Total Count of Automated Tests: 41
-
-![screenshot](static/images/readme_images/testing/automated_testing/screen-terminal.png)  
-
-To create the coverage report, I run the following commands:
-
-`coverage run --source=name-of-app manage.py test`
-
-`coverage report`
-
-Below are the reports on automated tests.
-
-| App                                   | Screenshot                                   | 
-| ------------------------------------- | -------------------------------------------- | 
-| Bookings  | ![screenshot](static/images/readme_images/testing/automated_testing/report-bookings.png)   |
-| Car rental  | ![screenshot](static/images/readme_images/testing/automated_testing/report-car-rental.png)   |
-| Cars  | ![screenshot](static/images/readme_images/testing/automated_testing/report-cars.png)   |
-| Offices  | ![screenshot](static/images/readme_images/testing/automated_testing/report-offices.png)   |
-| Userprofile  | ![screenshot](static/images/readme_images/testing/automated_testing/report-userprofile.png)   |
-
-[Back To Top](#table-of-contents) -->
-
 ## Manual Testing
-
-To enhance quality and increase confidence in the correctness of the application, I conducted manual testing in addition to automated tests. This manual testing targeted areas not covered by the automated tests, ensuring comprehensive validation.
-
 
 | Page                              | User Action                                                | Expected Result                                                              | Pass/Fail |
 |-----------------------------------|------------------------------------------------------------|------------------------------------------------------------------------------|-----------|

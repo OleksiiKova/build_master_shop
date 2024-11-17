@@ -8,7 +8,7 @@
             <h1 class="text-center">Products</h1>
         </div>
     </div>
-    <div class="product-container col-10 offset-1">
+    <div class="product-container col-10 offset-1 text-center text-sm-start">
         <p class="small mt-1 mb-0">
             {% for category in category_hierarchy %}
             {% if forloop.first %}
@@ -34,7 +34,16 @@
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
-                <div class="col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                <div class="col-sm-6">
+                    <p class="text-muted my-1 my-sm-3 text-center text-sm-start">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for
+                        <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+                <div class="col-sm-6 my-1 my-sm-3 d-flex justify-content-center justify-content-sm-end">
                     <div class="sort-select-wrapper">
                         <label for="sort-selector" class="sr-only">Sort by:</label>
                         <select id="sort-selector"
@@ -59,15 +68,6 @@
                                 {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
                         </select>
                     </div>
-                </div>
-                <div class="col-md-6 order-md-first">
-                    <p class="text-muted mt-3 text-center text-md-start">
-                        {% if search_term or current_categories or current_sorting != 'None_None' %}
-                        <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
-                        {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for
-                        <strong>"{{ search_term }}"</strong>{% endif %}
-                    </p>
                 </div>
             </div>
             <div class="row">
