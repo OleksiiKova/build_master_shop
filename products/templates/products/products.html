@@ -8,6 +8,8 @@
             <h1 class="text-center">Products</h1>
         </div>
     </div>
+
+    <!-- Category hierarchy display -->
     <div class="product-container col-10 offset-1 text-center text-sm-start">
         <p class="small mt-1 mb-0">
             {% for category in category_hierarchy %}
@@ -31,6 +33,8 @@
             {% endfor %}
         </p>
     </div>
+
+    <!-- Product filters and sorting options -->
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
@@ -44,6 +48,7 @@
                     </p>
                 </div>
                 <div class="col-sm-6 my-1 my-sm-3 d-flex justify-content-center justify-content-sm-end">
+                    <!-- Sort options dropdown -->
                     <div class="sort-select-wrapper">
                         <label for="sort-selector" class="sr-only">Sort by:</label>
                         <select id="sort-selector"
@@ -70,12 +75,15 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Product list -->
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-
+                    <!-- Product card -->
                     <div class="card h-100">
                         <a href="{% url 'product_detail_by_sku' product.sku %}" class="text-decoration-none d-block">
+                            <!-- Product image -->
                             <div class="card-image-container">
                                 {% if product.image %}
                                 <img class="card-img-top img-fluid card-body-image" src="{{ product.image.url }}"
@@ -85,12 +93,14 @@
                                 <img class="card-img-top img-fluid card-body-image" src="{{ MEDIA_URL }}noimage.png"
                                     alt="{{ product.name }}">
                                 {% endif %}
+                                <!-- Out of stock label -->
                                 {% if product.out_of_stock %}
                                 <div class="out-of-stock-label">Out of Stock</div>
                                 {% endif %}
                             </div>
                             <div class="card-body pb-0 px-0">
                                 <p class="mb-0 card-body-name">{{ product.name }}</p>
+                                <!-- Product rating -->
                                 {% if product.rating %}
                                 <div class="rating-star">
                                     <span title="{{ product.rating }}/5">
@@ -108,6 +118,7 @@
                                     <span class="text-small">({{ product.rating|floatformat:1 }} / 5)</span>
                                 </div>
                                 {% else %}
+                                <!-- Default star rating if none exists -->
                                 <div class="rating-star">
                                     <i class="bi bi-star text-muted" aria-hidden="true"></i>
                                     <i class="bi bi-star text-muted" aria-hidden="true"></i>
@@ -118,6 +129,7 @@
                                 {% endif %}
                                 <p class="lead mb-0 text-start font-weight-bold">€{{ product.price }}</p>
 
+                                <!-- Admin options to edit or delete product -->
                                 {% if request.user.is_superuser %}
                                 <small>
                                     <a href="{% url 'edit_product' product.sku %}">Edit</a>
@@ -128,6 +140,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- Breaks for responsive grid -->
                 {% if forloop.counter|divisibleby:1 %}
                 <div class="col-12 d-sm-none mb-5">
                 </div>
@@ -149,6 +162,8 @@
         </div>
     </div>
 </div>
+
+<!-- Back to top button -->
 <div class="btt-button shadow-sm border" id="backToTop">
     <a href="#" class="btt-link d-flex h-100" aria-label="Back to Top">
         <i class="bi bi-arrow-up mx-auto my-auto"></i>
@@ -160,6 +175,7 @@
 {{  block.super }}
 
 <script>
+    // Sorting functionality for products
     $('#sort-selector').change(function () {
         console.log('start');
 

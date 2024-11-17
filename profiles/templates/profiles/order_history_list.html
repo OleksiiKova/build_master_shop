@@ -10,6 +10,7 @@
     </div>
     <div class="row">
         <div class="col">
+            <!-- Table for desktop display showing order history -->
             {% if orders %}
             <div class="order-history table-responsive d-none d-md-block">
                 <table class=" table table-sm table-borderless">
@@ -24,6 +25,7 @@
                     <tbody class="order-table-body">
                         {% for order in orders %}
                         <tr>
+                            <!-- Order number linking to order details -->
                             <td>
                                 <div class="order-table-body">
                                     <a href="{% url 'order_history' order.order_number %}"
@@ -32,7 +34,9 @@
                                     </a>
                                 </div>
                             </td>
+                            <!-- Order date -->
                             <td>{{ order.order_date }}</td>
+                            <!-- Items in the order (only visible on medium screens and above) -->
                             <td class="d-none d-md-table-cell">
                                 <ul class="list-unstyled">
                                     {% for item in order.lineitems.all %}
@@ -44,6 +48,7 @@
                                     {% endfor %}
                                 </ul>
                             </td>
+                            <!-- Total amount of the order -->
                             <td>€{{ order.grand_total }}</td>
                         </tr>
                         {% endfor %}
@@ -51,6 +56,7 @@
                 </table>
             </div>
 
+            <!-- Mobile-friendly view showing order history -->
             <div class="d-md-none">
                 {% for order in orders %}
                 <div class="card mb-3">
@@ -75,6 +81,7 @@
                 {% endfor %}
             </div>
             {% else %}
+            <!-- Message for users with no orders yet -->
             <div class="text-center">
                 <p class="text-center mt-4">You have no orders yet.</p>
                 <a href="{% url 'products' %}" class="shop-now-button btn btn-primary btn-lg text-uppercase px-4 py-2">
@@ -85,5 +92,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

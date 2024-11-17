@@ -9,12 +9,14 @@
         <div class="col-sm-6 col-lg-4">
             <div class="card">
                 <a href="{% url 'blog_post' post.slug %}">
+                    <!-- Display the blog post image if it exists, otherwise show a default image -->
                     {% if post.image %}
                     <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
                     {% else %}
                     <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top" alt="Default Image">
                     {% endif %}
 
+                    <!-- Blog post details -->
                     <div class="card-body px-0">
                         <h2 class="card-blog-title h5">{{ post.title }}</h2>
                         <p class="text-muted small card-blog-text m-0">Published on: {{ post.published_date }}</p>
@@ -22,16 +24,18 @@
                                 class="bi bi-eye-fill"></i></p>
                     </div>
                 </a>
-                {% if request.user.is_superuser %}
 
+                <!-- Admin-only options: Edit and Delete buttons -->
+                {% if request.user.is_superuser %}
                 <div class="d-flex justify-content-end">
                     <a href="{% url 'edit_blog_post' post.slug %}">Edit</a>
                     <a class="text-danger ms-3" href="{% url 'delete_blog_post' post.slug %}">Delete</a>
-
                 </div>
                 {% endif %}
             </div>
         </div>
+
+        <!-- Adjust layout with extra spacing for responsive design -->
         {% if forloop.counter|divisibleby:1 %}
         <div class="col-12 d-sm-none mb-3">
         </div>
@@ -49,6 +53,8 @@
             <p>No blog posts available.</p>
         </div>
         {% endfor %}
+
+        <!-- Navigation buttons at the bottom -->
         <div class="d-flex justify-content-between mt-4">
             <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
             <a href="{% url 'products' %}" class="btn btn-primary">Shop Now</a>

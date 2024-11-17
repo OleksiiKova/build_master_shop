@@ -9,14 +9,15 @@
             <h1 class="text-center">Your basket</h1>
         </div>
     </div>
-
     <div class="row">
         <div class="col">
             {% if cart_items %}
+            <!-- If the cart is not empty, display the cart items -->
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="">
                         <tr class="bg-white">
+                            <!-- Table headers -->
                             <th scope="col" class="col-md-2">Item Info</th>
                             <th scope="col" class="col-md-3"></th>
                             <th scope="col" class="col-md-2 text-center">Item Price</th>
@@ -26,11 +27,12 @@
                         </tr>
                     </thead>
 
+                    <!-- Loop through cart items -->
                     {% for item in cart_items %}
                     <tr class="d-flex flex-column bg-white d-md-table-row align-items-start border p-3 mb-3 rounded">
+                        <!-- Product image -->
                         <td class="col-md-2 py-0">
                             {% if item.product.image %}
-
                             <img class="img-fluid rounded" src="{{ item.product.image.url }}"
                                 alt="{{ item.product.name }}">
                             {% else %}
@@ -38,6 +40,8 @@
                                 alt="{{ item.product.name }}">
                             {% endif %}
                         </td>
+
+                        <!-- Product details -->
                         <td class="col-md-3 py-0">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0">
@@ -48,9 +52,13 @@
                             </p>
                             <p class="my-0 sku-card">SKU: {{ item.sku }}</p>
                         </td>
+
+                        <!-- Product price -->
                         <td class="col-md-2  py-0 text-center" data-label="Item Price:">
                             <p class="my-0">€{{ item.product.price }}</p>
                         </td>
+
+                        <!-- Quantity adjustment -->
                         <td class="col-md-2  py-0 text-center" data-label="Quantity:">
                             <form action="{% url 'adjust_cart' item.sku %}" class="form update-form mt-1" method="post">
                                 {% csrf_token %}
@@ -82,16 +90,21 @@
                             </form>
                             <a class="btn btn-secondary update-link mt-md-1 col-md-12 ms-3 ms-md-0"
                                 id="update-link">Update</a>
-
                         </td>
+
+                        <!-- Item total cost -->
                         <td class="col-md-2  py-0 text-center" data-label="Item Total:">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
+
+                        <!-- Remove item -->
                         <td class="col-md-1  py-0 text-center" data-label="Remove:">
                             <a class="remove-item" id="remove_{{ item.sku}}"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
+
+                    <!-- Totals section -->
                     <tr class="bg-white">
                         <td colspan="6" class="pt-md-5 text-center text-md-end">
                             <p class="h6">Cart Total: €{{ total_cost|floatformat:2 }}</p>
@@ -106,6 +119,8 @@
                             {% endif %}
                         </td>
                     </tr>
+
+                    <!-- Navigation buttons -->
                     <tr class="bg-white">
                         <td colspan="6">
                             <div class="d-flex flex-column flex-md-row justify-content-between">
@@ -123,6 +138,8 @@
                 </table>
             </div>
             {% else %}
+
+            <!-- If the cart is empty -->
             <p class="lead my-4 text-center">Your basket is empty.</p>
             <div class="text-center">
                 <a href="{% url 'products' %}" class="btn btn-secondary btn-lg">

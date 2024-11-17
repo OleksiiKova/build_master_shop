@@ -4,18 +4,22 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row h-100">
+
+        <!-- Welcome Section -->
         <section class="welcome-section text-center py-3 py-md-5 bg-light">
             <div class="container">
                 <h1 class="display-4 fw-bold mb-3">Welcome to Build Master Shop</h1>
                 <p class="lead text-muted mb-4">Discover high-quality power tools, durable workwear, and reliable safety
                     equipment for professionals and DIY enthusiasts. We provide trusted products built to the highest
                     quality standards.</p>
+                <!-- Call-to-action button that links to the products page -->
                 <a href="{% url 'products' %}" class="shop-now-button btn btn-primary btn-lg text-uppercase px-4 py-2">
                     Shop Now
                 </a>
             </div>
         </section>
 
+        <!-- Popular Categories Section -->
         <section class="popular-categories-section py-3 py-md-5">
             <div class="container">
                 <h2 class="text-center mb-4">Popular Categories</h2>
@@ -27,10 +31,8 @@
                                 class="text-decoration-none">
                                 <div class="row g-0 flex-row flex-md-column">
                                     <div class="col-4 col-md-12">
-
                                         <img src="{% static 'images/power-tools.webp' %}" alt="Power Tools"
                                             class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
-
                                     </div>
                                     <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
                                         <h3 class="card-title mb-1 h5">Power Tools for Construction</h3>
@@ -81,12 +83,12 @@
             </div>
         </section>
 
+        <!-- Why Choose Us Section -->
         <section class="why-choose-section py-3 py-md-5">
             <div class="container text-center">
                 <h2 class="mb-4">Why Choose Build Master Shop?</h2>
                 <p class="lead">We offer top-quality power tools, professional-grade workwear, and reliable safety
                     equipment tailored to your needs. Our commitment to quality and service sets us apart.</p>
-
                 <div class="row mt-md-5">
                     <!-- Quality Guarantee Card -->
                     <div class="col-md-4 mb-4">
@@ -117,10 +119,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
+        <!-- Blog Section with Latest Posts -->
         <section class="blog-posts-section py-3 py-md-5">
             <div class="container">
                 <h2 class="text-center mb-4">Latest Blog Posts</h2>
@@ -218,6 +220,8 @@
                 </div>
             </div>
         </section>
+
+        <!-- About Us Section -->
         <section class="about-us-section py-3 py-md-5">
             <div class="container">
                 <h2 class="text-center">About Us</h2>

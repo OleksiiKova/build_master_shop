@@ -8,7 +8,10 @@
             <h1>Product Management</h1>
             <h2 class="text-muted h5">Delete a Product</h2>
 
+            <!-- Ask for confirmation to delete the product -->
             <p>Are you sure you want to delete <strong>{{ product.name }}</strong>?</p>
+
+            <!-- Display product image if available -->
             {% if product.image %}
             <a href="{{ product.image.url }}" target="_blank">
                 <img class="img-thumbnail w-50" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -19,9 +22,11 @@
             </a>
             {% endif %}
 
+            <!-- Form to confirm deletion -->
             <div class="m-2">
                 <form method="post" action="{% url 'delete_product' product.sku %}">
                     {% csrf_token %}
+                    <!-- Cancel or delete buttons -->
                     <div class="d-flex justify-content-between mt-4">
                         <a href="{% url 'product_detail_by_sku' product.sku %}" class="btn btn-secondary">Cancel</a>
                         <button type="submit" class="btn btn-danger">Delete</button>

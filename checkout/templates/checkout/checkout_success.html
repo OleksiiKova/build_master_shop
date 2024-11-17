@@ -7,6 +7,7 @@
 
 {% block content %}
 <div class="container mt-2 mb-4 my-md-4">
+    <!-- Order confirmation message -->
     <div class="row">
         <div class="col-lg-8 offset-lg-2 text-center">
             <h1>Thank You for Your Order!</h1>
@@ -16,6 +17,7 @@
         </div>
     </div>
 
+    <!-- Order details section -->
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
             <div class="card shadow-sm p-4 border-0">
@@ -23,6 +25,8 @@
                     <h2 class="text-uppercase text-muted h4">Order Details</h2>
                 </div>
                 <div class="card-body">
+
+                    <!-- Order number and date -->
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <strong>Order Number:</strong>
@@ -34,6 +38,7 @@
                         </div>
                     </div>
 
+                    <!-- List of items in the order -->
                     <div class="mb-4">
                         <strong>Order Items:</strong>
                         {% for item in order.lineitems.all %}
@@ -50,6 +55,7 @@
                         {% endfor %}
                     </div>
 
+                    <!-- Customer details -->
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <strong>Full Name:</strong>
@@ -61,6 +67,7 @@
                         </div>
                     </div>
 
+                    <!-- Shipping address -->
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <strong>Address:</strong>
@@ -73,6 +80,7 @@
                         </div>
                     </div>
 
+                    <!-- Pricing details -->
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <strong>Cart Total:</strong>
@@ -84,6 +92,7 @@
                         </div>
                     </div>
 
+                    <!-- Grand total -->
                     <div class="row mb-4">
                         <div class="text-md-end">
                             <strong>Grand Total:</strong>
@@ -91,6 +100,7 @@
                         </div>
                     </div>
 
+                    <!-- Navigation buttons -->
                     <div class="text-center">
                         {% if from_order_history_list %}
                         <a href="{% url 'order_history_list' %}" class="btn btn-secondary py-2 px-4">

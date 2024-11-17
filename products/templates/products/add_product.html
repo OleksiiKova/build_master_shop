@@ -7,32 +7,39 @@
         <div class="col-md-8 col-md-6">
             <h1 class="text-center">Product Management</h1>
             <h2 class="text-center text-muted h5">Add a Product</h2>
+
+            <!-- Form to add a new product -->
             <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ product_form | crispy }}
 
+                <!-- Section for adding product variants -->
                 <h3>Product Variants</h3>
                 <div id="variant-forms">
                     {{ variant_formset.management_form }}
 
                     {% for form in variant_formset %}
                     <div class="variant-form">
+                        <!-- Loop through and render each variant form -->
                         {{ form | crispy }}
+
                         {% if form.instance.pk %}
+                        <!-- If the form has a primary key, show a delete checkbox -->
                         <label for="{{ form.prefix }}-DELETE">Delete:</label> {{ form.DELETE }}
                         {% endif %}
                     </div>
-
                     {% endfor %}
-
                 </div>
+
+                <!-- Button to add a new variant -->
                 <button id="add-variant" class="btn btn-secondary btn-sm">Add Variant</button>
+
+                <!-- Buttons to submit the form or cancel -->
                 <div class="d-flex justify-content-between mt-3">
                     <a class="btn btn-secondary" href="{% url 'products' %}">Cancel</a>
                     <button class="btn btn-primary" type="submit">Add Product</button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>

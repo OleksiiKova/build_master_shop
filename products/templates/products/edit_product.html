@@ -7,32 +7,38 @@
         <div class="col-md-8 col-md-6">
             <h1 class="text-center">Product Management</h1>
             <h2 class="text-center text-muted h5">Edit a Product</h2>
+
+            <!-- Form for editing the product -->
             <form method="post" action="{% url 'edit_product' product.sku %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ product_form | crispy }}
 
                 <h3>Product Variants</h3>
                 <div id="variant-forms">
+                    <!-- Management form for product variants -->
                     {{ variant_formset.management_form }}
 
                     {% for form in variant_formset %}
                     <div class="variant-form">
                         {{ form | crispy }}
+
+                        <!-- If the form has an existing instance (product variant), show a delete option -->
                         {% if form.instance.pk %}
                         <label for="{{ form.prefix }}-DELETE">Delete:</label> {{ form.DELETE }}
                         {% endif %}
                     </div>
-
                     {% endfor %}
-
                 </div>
+
+                <!-- Button to add new variant -->
                 <button id="add-variant" class="btn btn-secondary btn-sm">Add Variant</button>
+
+                <!-- Cancel and submit buttons for the form -->
                 <div class="d-flex justify-content-between mt-3">
                     <a class="btn btn-secondary" href="{% url 'products' %}">Cancel</a>
                     <button class="btn btn-primary" type="submit">Update Product</button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>

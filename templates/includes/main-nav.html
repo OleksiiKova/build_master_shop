@@ -1,10 +1,13 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
+        <!-- Home Link (only visible on mobile) -->
         <li class="nav-item d-block d-md-none">
             <a class="nav-link" href="{% url 'home' %}" id="home-link">
                 Home
             </a>
         </li>
+
+        <!-- Tools Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="tools-link" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -12,6 +15,7 @@
             </a>
 
             <ul class="dropdown-menu border-0" aria-labelledby="tools-link">
+                <!-- Power Tools Category -->
                 <li class="dropdown-submenu">
                     <a class="dropdown-item"
                         href="{% url 'products' %}?first_level=tools&second_level=power_tools">Power
@@ -29,6 +33,8 @@
                         </li>
                     </ul>
                 </li>
+
+                <!-- Hand Tools Category -->
                 <li class="dropdown-submenu">
                     <a class="dropdown-item" href="{% url 'products' %}?first_level=tools&second_level=hand_tools">Hand
                         Tools</a>
@@ -41,16 +47,23 @@
                                 &amp; Cutting</a></li>
                     </ul>
                 </li>
+
+                <!-- Measuring Tools Category -->
                 <li><a class="dropdown-item"
                         href="{% url 'products' %}?first_level=tools&second_level=measuring_tools">Measuring
                         Tools</a></li>
+
+                <!-- Tool Accessories Category -->
                 <li><a class="dropdown-item"
                         href="{% url 'products' %}?first_level=tools&second_level=tool_accessories">Tool
                         Accessories</a></li>
+
+                <!-- Link to All Tools -->
                 <li><a class="dropdown-item" href="{% url 'products' %}?first_level=tools">All Tools</a></li>
             </ul>
         </li>
 
+        <!-- Fasteners Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="fasteners-link" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -65,12 +78,14 @@
             </div>
         </li>
 
+        <!-- Safety Equipment Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="equipment-link" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 Safety Equipment
             </a>
             <ul class="dropdown-menu border-0" aria-labelledby="equipment-link">
+                <!-- Safety Clothing Category -->
                 <li class="dropdown-submenu">
                     <a href="{% url 'products' %}?second_level=safety_clothing" class="dropdown-item">Safety
                         Clothing</a>
@@ -85,18 +100,22 @@
 
                     </ul>
                 </li>
+                <!-- Eye & Ear Protection Category -->
                 <li><a href="{% url 'products' %}?first_level=safety_equipment&second_level=eye_ear_protection"
                         class="dropdown-item">Eye &amp; Ear
                         Protection</a></li>
+                <!-- Respirators & Masks Category -->
                 <li><a href="{% url 'products' %}?first_level=safety_equipment&second_level=respirators_masks"
                         class="dropdown-item">Respirators
                         &amp;
                         Masks</a></li>
+                <!-- Link to All Safety Equipment -->
                 <li> <a href="{% url 'products' %}?first_level=safety_equipment" class="dropdown-item">All Safety
                         Clothing</a></li>
             </ul>
         </li>
 
+        <!-- Workwear Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="workwear-link" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -113,6 +132,7 @@
             </div>
         </li>
 
+        <!-- Link to All Products -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="{% url 'products' %}" id="all-products-link" aria-expanded="false">
                 All Products

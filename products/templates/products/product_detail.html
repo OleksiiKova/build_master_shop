@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-md-6 col-lg-4 offset-lg-2">
             <p class="small">
+                <!-- Display product categories as breadcrumbs -->
                 <i class="bi bi-tag me-1"></i>
                 {% for category in product.get_category_hierarchy %}
                 {% if forloop.first %}
@@ -32,6 +33,7 @@
     <div class="row">
         <div class="col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-2">
+                <!-- Display product image or a default image if none exists -->
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
                     <img class="card-img-top img-fluid custom-img" src="{{ product.image.url }}"
@@ -43,6 +45,7 @@
                         alt="{{ product.name }}">
                 </a>
                 {% endif %}
+                <!-- Show 'Out of Stock' label if the product is out of stock -->
                 {% if is_out_of_stock %}
                 <div class="out-of-stock-label">Out of Stock</div>
                 {% endif %}
@@ -50,6 +53,7 @@
         </div>
         <div class="col-md-6 col-lg-4">
             <div class="product-details-container mb-5 mt-md-2">
+                <!-- Display product name and price -->
                 <h1 class="h5">{{ product.name }}</h1>
                 <div class="lead">
                     {% if selected_variant %}
@@ -59,6 +63,7 @@
                     {% endif %}
                 </div>
                 <div>
+                    <!-- Display product rating as stars -->
                     {% if product.rating %}
                     <div class="rating-star">
                         <span title="{{ product.rating }}/5">
@@ -85,24 +90,29 @@
                     </div>
                     {% endif %}
                 </div>
+
+                <!-- Wishlist button to add product to wishlist -->
                 <form action="{% url 'add_to_wishlist' %}" method="POST">
                     {% csrf_token %}
-
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-
                     <button type="submit" class="btn btn-primary add-wishlist-btn p-1 my-2">
                         Add to Wishlist
                     </button>
                 </form>
+
+                <!-- Admin options to edit or delete product -->
                 {% if request.user.is_superuser %}
                 <small class="">
                     <a href="{% url 'edit_product' product.sku %}">Edit</a>
                     <a class="text-danger ms-2" href="{% url 'delete_product' product.sku %}">Delete</a>
                 </small>
                 {% endif %}
+
+                <!-- Display product description and additional attributes -->
                 <p class="mt-3">{{ product.description|linebreaks  }}</p>
                 <p class="mt-3">{{ product.additional_attributes|linebreaks }}</p>
 
+                <!-- Add to cart form -->
                 <form class="form" action="{% url 'add_to_cart' current_sku %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
@@ -110,6 +120,7 @@
                         <div class="col product-variants mt-4">
                             <p><strong>Available Sizes:</strong></p>
                             <div class="sizes">
+                                <!-- Display available sizes of product variants -->
                                 {% for variant in product.variants.all %}
                                 <a href="{% url 'product_detail_by_sku' variant.sku %}" class="btn 
                                 {% if selected_variant and selected_variant.sku == variant.sku %}
@@ -124,7 +135,6 @@
                                 {% endfor %}
                             </div>
                         </div>
-
                         <div class="col-12 mt-3">
                             <p><strong>Selected Size: </strong><span
                                     id="selected_size">{% if selected_variant %}{{ selected_variant.size }}{% else %}None{% endif %}</span>
@@ -137,7 +147,7 @@
                         <p class="m-0"><strong>SKU: </strong><span id="selected_sku" class="sku">{{current_sku}}</span>
                         </p>
                         {% endif %}
-
+                        <!-- Quantity input and buttons -->
                         <div class="col-12">
                             <label for="quantity-input-{{ current_sku }}"></label>
                             <p class=""><strong>Quantity:</strong></p>
@@ -166,7 +176,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Button to go back to the product listing or add the item to the cart -->
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <div class="d-flex justify-content-between flex-wrap">
                                 <a href="{% url 'products' %}" class="btn btn-secondary mt-4">
@@ -182,32 +192,33 @@
                                 {% endif %}
                             </div>
                         </div>
-
+                        <!-- Hidden form fields to store additional information -->
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         <input type="hidden" name="size" value="{{ selected_variant.size }}">
                         <input type="hidden" id="selected_variant" name="variant"
                             value="{% if selected_variant %}{{ selected_variant.sku }}{% endif %}">
                     </div>
                 </form>
-
             </div>
-
         </div>
-
     </div>
+
+    <!-- Section for displaying customer reviews -->
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 product-reviews order-2 order-md-1">
                 <div class="col-lg-10 mx-auto">
                     <h3 class="text-center">Customer Reviews</h3>
                     {% if reviews %}
+                    <!-- Loop through all the reviews and display them -->
                     {% for review in reviews %}
                     <div class="review mb-3 p-2 border-bottom">
                         <strong>{{ review.user.username }}</strong>
-
+                        <!-- If the review is from a verified user, display "Verified Purchase" -->
                         {% if is_verified_user %}
                         <small class="ms-2 verified-purchase-label">Verified Purchase</small>
                         {% endif %}
+                        <!-- Review date and star rating -->
                         <div class="d-flex justify-content-between">
                             <small>{{ review.created_at|date:"M j, Y, g:i A" }}</small>
                             <div class="rating text-warning text-end">
@@ -216,19 +227,23 @@
                                 {% endfor %}
                             </div>
                         </div>
+                        <!-- Display update information if the review was updated -->
                         {% if review.is_updated %}
                         <small class="fst-italic text-muted">(updated on
                             {{ review.updated_at|date:"M j, Y, g:i A" }})</small>
                         {% endif %}
+                        <!-- Display the review comment -->
                         <p class="review-comment bg-white mt-2 p-2 rounded">{{ review.comment }}</p>
                     </div>
                     {% endfor %}
                     {% else %}
+                    <!-- Message when there are no reviews -->
                     <p class="text-center">No reviews yet. Be the first to write one!</p>
                     {% endif %}
                 </div>
             </div>
 
+            <!-- Section for writing or editing a user review -->
             <div class="col-md-6 order-1 order-md-2 mb-4">
                 <div class="col-lg-10 mx-auto">
                     {% if request.user.is_authenticated %}
@@ -245,11 +260,13 @@
                                     {% endfor %}
                                 </div>
                             </div>
+                            <!-- Display updated review information if applicable -->
                             {% if user_review.is_updated %}
                             <small class="fst-italic text-muted">(updated on
                                 {{ user_review.updated_at|date:"M j, Y, g:i A" }})</small>
                             {% endif %}
                             <p class="review-comment bg-white p-2 rounded mt-2">{{ user_review.comment }}</p>
+                            <!-- Links to edit or delete the user's review -->
                             <div class="mt-3 text-end">
                                 <a href="{% url 'edit_review' user_review.id %}" class="">Edit</a>
                                 <a href="{% url 'delete_review' user_review.id %}" class="ms-2">Delete</a>
@@ -257,6 +274,7 @@
                         </div>
                     </div>
                     {% else %}
+                    <!-- Form to allow the user to write a new review -->
                     <div class="review-form p-3 border rounded">
                         <h3 class="text-center">Write a Review</h3>
                         <form method="POST">
@@ -267,6 +285,7 @@
                     </div>
                     {% endif %}
                     {% else %}
+                    <!-- Message prompting the user to log in before they can write a review -->
                     <h3 class="text-center">Your Review</h3>
                     <p class="mt-4"><a href="{% url 'account_login' %}">Log in</a> to write a review.</p>
                     {% endif %}

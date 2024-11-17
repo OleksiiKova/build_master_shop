@@ -15,8 +15,11 @@
         </div>
     </div>
     <div class="row">
+        <!-- Order Summary Section -->
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <p class="text-muted">Order Summary ({{ product_count }})</p>
+
+            <!-- Order items header -->
             <div class="row">
                 <div class="col-7 offset-2">
                     <p class="mb-1 mt-0 small text-muted">Item</p>
@@ -25,18 +28,20 @@
                     <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                 </div>
             </div>
+
+            <!-- Loop through the cart items and display details -->
             {% for item in cart_items %}
             <div class="row">
                 <div class="col-2 mb-1">
-
+                    <!-- Product image -->
                     {% if item.product.image %}
                     <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                     {% else %}
                     <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                     {% endif %}
-
                 </div>
                 <div class="col-7">
+                    <!-- Product name, size, SKU, and quantity -->
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                     <p class="my-0 small text-muted">
                         {% if item.size %}
@@ -48,11 +53,14 @@
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-end">
+                    <!-- Subtotal for the item -->
                     <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                 </div>
             </div>
             {% endfor %}
             <hr class="my-0">
+
+            <!-- Pricing summary -->
             <div class="row text-end">
                 <div class="col-7 offset-2">
                     <p class="my-0">Cart Total:</p>
@@ -66,16 +74,22 @@
                 </div>
             </div>
         </div>
+
+        <!-- Checkout Form Section -->
         <div class="col-lg-6">
             <p class="text-muted">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
+
+                <!-- Personal details form section -->
                 <fieldset class="rounded px-3 mb-2 mb-md-4">
                     <legend class="fieldset-label small px-2 w-auto">Details</legend>
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                     {{ order_form.phone_number | as_crispy_field }}
                 </fieldset>
+
+                <!-- Delivery address form section -->
                 <fieldset class="rounded px-3 mb-2 mb-md-4">
                     <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
                     {{ order_form.street_address1 | as_crispy_field }}
@@ -84,6 +98,8 @@
                     {{ order_form.county | as_crispy_field }}
                     {{ order_form.country | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
+
+                    <!-- Save delivery info option -->
                     <div class="form-check form-check-inline float-end me-0">
                         {% if user.is_authenticated %}
                         <label class="form-check-label" for="id-save-info">Save this delivery information to my
@@ -98,6 +114,8 @@
                         {% endif %}
                     </div>
                 </fieldset>
+
+                <!-- Payment details form section -->
                 <fieldset class="px-3">
                     <legend class="fieldset-label small px-2 w-auto">Payment</legend>
                     <div class="mb-3" id="card-element"></div>
@@ -105,6 +123,7 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
 
+                <!-- Submit section with action buttons -->
                 <div class="submit-button text-end mt-5 mb-2">
                     <a href="{% url 'view_cart' %}" class="btn btn-secondary">
                         <i class="bi bi-chevron-left"></i>
@@ -125,6 +144,8 @@
         </div>
     </div>
 </div>
+
+<!-- Loading overlay for Stripe -->
 <div id="loading-overlay">
     <h2 class="text-light loading-spinner">
         <span class="icon rotate">

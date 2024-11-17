@@ -6,19 +6,30 @@
     <h1 class="text-center">Your Wishlist</h1>
     {% if wishlist_items %}
     <div class="row">
+        <!-- Loop through each item in the wishlist -->
         {% for item in wishlist_items %}
         <div class="col-md-4 mb-4">
             <div class="card h-100">
+                <!-- Image container for the product -->
                 <div class="card-image-container">
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
-                        class="card-img-top img-fluid card-body-image">
+                    {% if product.image %}
+                    <img class="card-img-top img-fluid card-body-image" src="{{ item.product.image.url }}"
+                        alt="{{ item.product.name }}">
+                    {% else %}
+                    <img class="card-img-top img-fluid card-body-image" src="{{ MEDIA_URL }}noimage.png"
+                        alt="{{ product.name }}">
+                    {% endif %}
                 </div>
                 <div class="card-body d-flex flex-column">
+                    <!-- Display product price -->
                     <p class="card-text">€{{ item.product.price }}</p>
+                    <!-- Display product name -->
                     <h2 class="card-title h5">{{ item.product.name }}</h2>
                     <div class="mt-auto">
+                        <!-- Link to view product details -->
                         <a href="{% url 'product_detail_by_sku' sku=item.product.sku %}"
                             class="btn btn-primary btn-sm w-100 mb-2">View Product</a>
+                        <!-- Form to remove the item from the wishlist -->
                         <form action="{% url 'remove_from_wishlist' item.id %}" method="POST">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger btn-sm w-100">Remove</button>
@@ -30,6 +41,7 @@
         {% endfor %}
     </div>
     {% else %}
+    <!-- Message displayed when the wishlist is empty -->
     <p class="text-center mt-4">Your wishlist is empty.</p>
     {% endif %}
 </div>

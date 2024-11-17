@@ -1,3 +1,4 @@
+<!-- Mobile Search Button: Triggers a dropdown with the search input form -->
 <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true"
     aria-expanded="false">
     <div class="text-center">
@@ -5,6 +6,7 @@
         <div class="my-0">Search</div>
     </div>
 </a>
+<!-- Dropdown containing the search form -->
 <div class="dropdown-menu border-0 w-100 p-3 my-0" aria-labelledby="mobile-search">
     <form class="form" method="GET" action="{% url 'products' %}">
         <div class="input-group w-100">
@@ -19,7 +21,7 @@
         </div>
     </form>
 </div>
-
+<!-- Mobile My Account Button: Triggers a dropdown for account options -->
 <a class="nav-link d-block d-lg-none" href="#" id="user-options-mob" data-bs-toggle="dropdown" aria-haspopup="true"
     aria-expanded="false">
     <div class="text-center">
@@ -27,25 +29,28 @@
         <div class="my-0">My Account</div>
     </div>
 </a>
+<!-- Dropdown with user account options -->
 <div class="dropdown-menu border-0 w-100 text-center" aria-labelledby="user-options-mob">
     {% if request.user.is_authenticated %}
+    <!-- Superuser/admin options -->
     {% if request.user.is_superuser %}
     <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
     <a href="{% url 'add_blog_post' %}" class="dropdown-item">Add Post</a>
     <hr>
     {% endif %}
+    <!-- Common authenticated user options -->
     <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
     <a href="{% url 'order_history_list' %}" class="dropdown-item">My Orders</a>
     <a href="{% url 'user_reviews' %}" class="dropdown-item">My Reviews</a>
     <a href="{% url 'wishlist' %}" class="dropdown-item">My Wishlist</a>
     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
     {% else %}
+    <!-- Options for unauthenticated users -->
     <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
     <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
     {% endif %}
 </div>
-
-
+<!-- Mobile Cart Button: Displays cart icon and total cost with item count -->
 <a class="nav-link d-block d-lg-none {% if total_cost > 0 %}has-items{% endif %}" href="{% url 'view_cart' %}">
     <div class="text-center me-1">
         <div class="position-relative"><i class="bi bi-cart"></i>

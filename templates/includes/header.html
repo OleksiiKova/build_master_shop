@@ -1,11 +1,14 @@
 <header class="container-fluid fixed-top">
+    <!-- Top Navigation Bar for larger screens -->
     <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
         <div class="col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
+            <!-- Logo and Home Link -->
             <a href="{% url 'home' %}" class="nav-link main-logo-link">
                 <h2 class="logo-font my-0"><strong>Build</strong>Master</h2>
             </a>
         </div>
         <div class="col-lg-4 my-auto py-1 py-lg-0">
+            <!-- Search Form -->
             <form method="GET" action="{% url 'products' %}">
                 <div class="input-group w-100">
                     <input id="search-input" class="form-control" type="text" name="q" placeholder="Search our site">
@@ -18,8 +21,10 @@
             </form>
         </div>
         <div class="col-lg-4 my-auto py-1 py-lg-0">
+            <!-- User Account Options and Cart -->
             <ul class="list-inline list-unstyled text-center text-lg-end my-0">
                 {% if request.user.is_authenticated %}
+                <!-- Authenticated User Dropdown -->
                 <li class="list-inline-item dropdown">
                     <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -37,6 +42,7 @@
                     </ul>
                 </li>
                 {% else %}
+                <!-- Not Authenticated: Login/Register Link -->
                 <li class="list-inline-item">
                     <div class="text-center">
                         <a class="nav-link" href="{% url 'account_login' %}">
@@ -47,6 +53,7 @@
                 </li>
                 {% endif %}
                 {% if request.user.is_authenticated %}
+                <!-- Admin Management Options (if user is superuser) -->
                 {% if request.user.is_superuser %}
                 <li class="list-inline-item dropdown">
                     <a class="nav-link" href="#" id="management-options" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -63,16 +70,19 @@
                 </li>
                 {% endif %}
                 {% endif %}
+                <!-- Shopping Cart Link -->
                 <li class="list-inline-item">
                     <a class="nav-link {% if total_cost > 0 %}has-items{% endif %}" href="{% url 'view_cart' %}">
                         <div class="text-center">
                             <div class="position-relative"><i class="bi bi-cart"></i>
+                                <!-- Display Product Count Badge -->
                                 {% if product_count > 0 %}
                                 <span class="badge bg-cart-items">
                                     {{ product_count }}
                                 </span>
                                 {% endif %}
                             </div>
+                            <!-- Display Total Cost or €0.00 if no items -->
                             {% if total_cost %}
                             €{{ total_cost|floatformat:2 }}
                             {% else %}
@@ -84,6 +94,8 @@
             </ul>
         </div>
     </div>
+
+    <!-- Mobile Header Section -->
     <div class="row mobile-header">
         <nav class="navbar navbar-expand-lg w-100">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
@@ -94,6 +106,8 @@
             {% include 'includes/main-nav.html' %}
         </nav>
     </div>
+
+    <!-- Delivery Banner -->
     <div id="delivery-banner" class="row text-center banner">
         <div class="col" style="white-space: nowrap;">
             <h2 class="h6 m-0 py-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h2>
