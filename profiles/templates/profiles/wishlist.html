@@ -12,7 +12,7 @@
             <div class="card h-100">
                 <!-- Image container for the product -->
                 <div class="card-image-container">
-                    {% if product.image %}
+                    {% if item.product.image %}
                     <img class="card-img-top img-fluid card-body-image" src="{{ item.product.image.url }}"
                         alt="{{ item.product.name }}">
                     {% else %}
