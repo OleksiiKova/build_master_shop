@@ -56,7 +56,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                            <h5>Order #{{ order.order_number }}</h5>
+                            <h2 class="h5">Order #{{ order.order_number }}</h2>
                             <p>Date: {{ order.order_date }}</p>
                             <p>Items:</p>
                             <ul>
