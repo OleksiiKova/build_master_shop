@@ -10,6 +10,7 @@
     </div>
     <div class="row">
         <div class="col">
+            {% if orders %}
             <div class="order-history table-responsive d-none d-md-block">
                 <table class=" table table-sm table-borderless">
                     <thead>
@@ -73,6 +74,14 @@
                 </div>
                 {% endfor %}
             </div>
+            {% else %}
+            <div class="text-center">
+                <p class="text-center mt-4">You have no orders yet.</p>
+                <a href="{% url 'products' %}" class="shop-now-button btn btn-primary btn-lg text-uppercase px-4 py-2">
+                    Shop Now
+                </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
