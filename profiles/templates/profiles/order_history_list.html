@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-2 mb-4 my-md-4">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="text-center">Order History</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="order-history table-responsive d-none d-md-block">
+                <table class=" table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th class="d-none d-md-table-cell">Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="order-table-body">
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <div class="order-table-body">
+                                    <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}">
+                                        {{ order.order_number }}
+                                    </a>
+                                </div>
+                            </td>
+                            <td>{{ order.order_date }}</td>
+                            <td class="d-none d-md-table-cell">
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                    <li>
+                                        {{ item.product.name }} {% if item.variant %} Size
+                                        {{ item.variant.size }}{% endif %}
+                                        x {{ item.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>€{{ order.grand_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-md-none">
+                {% for order in orders %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                            <h5>Order #{{ order.order_number }}</h5>
+                            <p>Date: {{ order.order_date }}</p>
+                            <p>Items:</p>
+                            <ul>
+                                {% for item in order.lineitems.all %}
+                                <li>
+                                    {{ item.product.name }} {% if item.variant %} Size
+                                    {{ item.variant.size }}{% endif %}
+                                    x {{ item.quantity }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <p>Total: €{{ order.grand_total }}</p>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

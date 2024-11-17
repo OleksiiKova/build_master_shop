@@ -19,179 +19,178 @@ Return back to the [README.md](README.md) file.
 | Page                              | User Action                                                | Expected Result                                                              | Pass/Fail |
 |-----------------------------------|------------------------------------------------------------|------------------------------------------------------------------------------|-----------|
 | Navigation (Desktop)              |                                                            |                                                                              |           |
-|                                   | Click on the "BuildMaster" logo                           | Redirection to Home page                                                     | Pass      |
-|                                   | Click on "Home" link in the navbar                        | Redirection to Home page                                                     | Pass      |
-|                                   | Click on "Tools" dropdown in the navbar                   | Display a list of tools categories, including Power Tools, Hand Tools, etc.   | Pass      |
-|                                   | Click on "Power Tools" in the "Tools" dropdown            | Redirection to Products page with "Power Tools" category selected            | Pass      |
-|                                   | Click on "Screws & Nails" in the "Fasteners" dropdown     | Redirection to Products page with "Screws & Nails" category selected         | Pass      |
-|                                   | Click on "Safety Equipment" in the navbar                 | Redirection to Products page with "Safety Equipment" category selected       | Pass      |
-|                                   | Click on "Workwear" in the navbar                         | Redirection to Products page with "Workwear" category selected               | Pass      |
-|                                   | Click on "All Products" link in the navbar                | Redirection to Products page showing all available products                  | Pass      |
-|                                   | Click on "My Account" in the navbar (Authenticated user) | Dropdown menu appears with options: "My Profile", "My Reviews", etc.         | Pass      |
-|                                   | Click on "Login / Register" in the navbar (Unauthenticated)| Redirection to Login or Register page                                        | Pass      |
-|                                   | Click on "My Account" in the mobile menu (Authenticated)  | Dropdown menu appears with options: "My Profile", "My Reviews", etc.         | Pass      |
-|                                   | Click on "Login / Register" in the mobile menu (Unauthenticated) | Dropdown menu shows "Register" and "Login" options                           | Pass      |
+|                                   | Click on the "BuildMaster" logo                           | Redirection to Home page                                                     | ✅ Pass      |
+|                                   | Click on "Home" link in the navbar                        | Redirection to Home page                                                     | ✅ Pass      |
+|                                   | Click on "Tools" dropdown in the navbar                   | Display a list of tools categories, including Power Tools, Hand Tools, etc.   | ✅ Pass      |
+|                                   | Click on "Power Tools" in the "Tools" dropdown            | Redirection to Products page with "Power Tools" category selected            | ✅ Pass      |
+|                                   | Click on "Screws & Nails" in the "Fasteners" dropdown     | Redirection to Products page with "Screws & Nails" category selected         | ✅ Pass      |
+|                                   | Click on "Safety Equipment" in the navbar                 | Redirection to Products page with "Safety Equipment" category selected       | ✅ Pass      |
+|                                   | Click on "Workwear" in the navbar                         | Redirection to Products page with "Workwear" category selected               | ✅ Pass      |
+|                                   | Click on "All Products" link in the navbar                | Redirection to Products page showing all available products                  | ✅ Pass      |
+|                                   | Click on "My Account" in the navbar (Authenticated user) | Dropdown menu appears with options: "My Profile", "My Reviews", etc.         | ✅ Pass      |
+|                                   | Click on "Login / Register" in the navbar (Unauthenticated)| Redirection to Login or Register page                                        | ✅ Pass      |
+|                                   | Click on "My Account" in the mobile menu (Authenticated)  | Dropdown menu appears with options: "My Profile", "My Reviews", etc.         | ✅ Pass      |
+|                                   | Click on "Login / Register" in the mobile menu (Unauthenticated) | Dropdown menu shows "Register" and "Login" options                           | ✅ Pass      |
 | Search Section                    |                                                            |                                                                              |           |
-|                                   | Enter text in the "Search" input field                    | Search input is accepted. The search icon changes to active.                 | Pass      |
-|                                   | Enter nothing in the "Search" input field and click "Search" | A message is displayed: "You didn't enter any search criteria!"              | Pass      |
-|                                   | Click on the "Search" button in the desktop search form   | Redirection to the Products page with search results based on query          | Pass      |
-|                                   | Click on the "Search" icon in the mobile search form      | Redirection to the Products page with search results based on query          | Pass      |
+|                                   | Enter text in the "Search" input field                    | Search input is accepted. The search icon changes to active.                 | ✅ Pass      |
+|                                   | Enter nothing in the "Search" input field and click "Search" | A message is displayed: "You didn't enter any search criteria!"              | ✅ Pass      |
+|                                   | Click on the "Search" button in the desktop search form   | Redirection to the Products page with search results based on query          | ✅ Pass      |
+|                                   | Click on the "Search" icon in the mobile search form      | Redirection to the Products page with search results based on query          | ✅ Pass      |
 | Cart                               |                                                            |                                                                              |           |
-|                                   | Click on the shopping cart icon                           | Redirection to the "View Cart" page, showing items in the cart if present   | Pass      |
-|                                   | Check the cart icon for item count                        | The item count badge on the cart icon displays the correct quantity          | Pass      |
-|                                   | Check the cart icon for total cost                        | The total cost is displayed in the cart icon in the format "€0.00" or similar| Pass      |
+|                                   | Click on the shopping cart icon                           | Redirection to the "View Cart" page, showing items in the cart if present   | ✅ Pass      |
+|                                   | Check the cart icon for item count                        | The item count badge on the cart icon displays the correct quantity          | ✅ Pass      |
+|                                   | Check the cart icon for total cost                        | The total cost is displayed in the cart icon in the format "€0.00" or similar| ✅ Pass      |
 | Mobile Navigation                 |                                                            |                                                                              |           |
-|                                   | Click on the "Search" icon in the mobile menu             | Dropdown search form is displayed with an input field and search button      | Pass      |
-|                                   | Click on "My Account" in the mobile menu                  | Dropdown menu appears with options: "Login", "Register", etc.                | Pass      |
-|                                   | Click on "View Cart" in the mobile menu                   | Redirection to the "View Cart" page, showing items in the cart if present   | Pass      |
-|                                   | Click on "Login / Register" in the mobile menu (Unauthenticated) | Dropdown menu shows "Register" and "Login" options                           | Pass      |
+|                                   | Click on the "Search" icon in the mobile menu             | Dropdown search form is displayed with an input field and search button      | ✅ Pass      |
+|                                   | Click on "My Account" in the mobile menu                  | Dropdown menu appears with options: "Login", "Register", etc.                | ✅ Pass      |
+|                                   | Click on "View Cart" in the mobile menu                   | Redirection to the "View Cart" page, showing items in the cart if present   | ✅ Pass      |
+|                                   | Click on "Login / Register" in the mobile menu (Unauthenticated) | Dropdown menu shows "Register" and "Login" options                           | ✅ Pass      |
 | Footer                            |                                                            |                                                                              |           |
-|                                   | Click on "Facebook" link                                   | Opens Facebook page in a new tab                                              | Pass      |
-|                                   | Click on "Blog Posts" link                                  | Redirection to Blog Posts page                                                | Pass      |
-|                                   | Click on "Contact us" link                                  | Redirection to Contact Us page                                                | Pass      |
-|                                   | Click on "Health and Safety Authority" link                 | Opens HSA website in a new tab                                               | Pass      |
-|                                   | Click on "Privacy Policy" link                              | Redirection to Privacy Policy page                                           | Pass      |
-|                                   | Click on "Terms of Service" link                            | Redirection to Terms of Service page                                         | Pass      |
-|                                   | Click on "Subscribe" button in the newsletter form          | Subscription to the newsletter with the provided email                      | Pass      |
-|                                   | Submit email address in subscription form                  | Success or error message displayed depending on email validity               | Pass      |
-|                                   | View footer at the bottom of the page                      | Footer should always be visible on all pages                                  | Pass      |
-|                                   | Test footer responsiveness (desktop to mobile view)        | Footer layout should adapt correctly from desktop to mobile view             | Pass      |
-|                                   | Click on the subscribe button in mobile view               | Newsletter form is accessible and functional on mobile                       | Pass      |
+|                                   | Click on "Facebook" link                                   | Opens Facebook page in a new tab                                              | ✅ Pass      |
+|                                   | Click on "Blog Posts" link                                  | Redirection to Blog Posts page                                                | ✅ Pass      |
+|                                   | Click on "Contact us" link                                  | Redirection to Contact Us page                                                | ✅ Pass      |
+|                                   | Click on "Health and Safety Authority" link                 | Opens HSA website in a new tab                                               | ✅ Pass      |
+|                                   | Click on "Privacy Policy" link                              | Redirection to Privacy Policy page                                           | ✅ Pass      |
+|                                   | Click on "Terms of Service" link                            | Redirection to Terms of Service page                                         | ✅ Pass      |
+|                                   | Click on "Subscribe" button in the newsletter form          | Subscription to the newsletter with the provided email                      | ✅ Pass      |
+|                                   | Submit email address in subscription form                  | Success or error message displayed depending on email validity               | ✅ Pass      |
+|                                   | View footer at the bottom of the page                      | Footer should always be visible on all pages                                  | ✅ Pass      |
+|                                   | Test footer responsiveness (desktop to mobile view)        | Footer layout should adapt correctly from desktop to mobile view             | ✅ Pass      |
+|                                   | Click on the subscribe button in mobile view               | Newsletter form is accessible and functional on mobile                       | ✅ Pass      |
 | **Home Page**                     |                                                            |                                                                              |           |
 | Welcome Section                   |                                                            |                                                                              |           |
-|                                   | Click on "Shop Now" button                                 | Redirects to the Products page                                               | Pass      |
+|                                   | Click on "Shop Now" button                                 | Redirects to the Products page                                               | ✅ Pass      |
 | Popular Categories Section        |                                                            |                                                                              |           |
-|                                   | Click on "Power Tools" card                                | Redirects to the Products page with the Power Tools category selected        | Pass      |
-|                                   | Click on "Workwear" card                                   | Redirects to the Products page with the Workwear category selected           | Pass      |
-|                                   | Click on "Safety Equipment" card                          | Redirects to the Products page with the Safety Equipment category selected   | Pass      |
+|                                   | Click on "Power Tools" card                                | Redirects to the Products page with the Power Tools category selected        | ✅ Pass      |
+|                                   | Click on "Workwear" card                                   | Redirects to the Products page with the Workwear category selected           | ✅ Pass      |
+|                                   | Click on "Safety Equipment" card                          | Redirects to the Products page with the Safety Equipment category selected   | ✅ Pass      |
 | Blog Posts Section                |                                                            |                                                                              |           |
-|                                   | View blog post cards (desktop: 3, tablet: 2, mobile: 1)    | Cards are displayed in the correct layout for each viewport                  | Pass      |
-|                                   | Click on a blog post card                                  | Redirects to the correct blog post page                                      | Pass      |
-|                                   | Click on "View All Blog Posts" button                     | Redirects to the All Blog Posts page                                         | Pass      |
+|                                   | View blog post cards (desktop: 3, tablet: 2, mobile: 1)    | Cards are displayed in the correct layout for each viewport                  | ✅ Pass      |
+|                                   | Click on a blog post card                                  | Redirects to the correct blog post page                                      | ✅ Pass      |
+|                                   | Click on "View All Blog Posts" button                     | Redirects to the All Blog Posts page                                         | ✅ Pass      |
 | General                           |                                                            |                                                                              |           |
-|                                   | Check responsiveness (desktop, tablet, mobile)            | Layout adjusts properly across all screen sizes                              | Pass      |
-|                                   | Check for broken images or links                          | All images and links load correctly                                          | Pass      |
-|                                   | Verify page performance                                    | Page loads quickly and assets are optimized                                  | Pass      |
+|                                   | Check responsiveness (desktop, tablet, mobile)            | Layout adjusts properly across all screen sizes                              | ✅ Pass      |
+|                                   | Check for broken images or links                          | All images and links load correctly                                          | ✅ Pass      |
+|                                   | Verify page performance                                    | Page loads quickly and assets are optimized                                  | ✅ Pass      |
 | **My Profile Page**               |                                                            |                                                                              |           |
-|                                   | Click on "Change Password" link                           | Redirects to the Change Password page                                       | Pass      |
-| Default Information Section       |                                                            |                                                                              |           |
-|                                   | Update profile information and click "Update Information" button | Profile information is successfully updated, with a success message         | Pass      |
-|                                   | Leave form fields empty and submit                        | Form submits successfully without errors, as fields are optional       | Pass      |
-| Order History Section             |                                                            |                                                                              |           |
-|                                   | Check if orders are displayed in a table format           | Order table is displayed with correct headings and data                     | Pass      |
-|                                   | Click on an order number link                             | Redirects to the specific order history page                                | Pass      |
-|                                   | Check that "Order Date" column displays correct dates     | Dates are formatted correctly and align with order history                  | Pass      |
-|                                   | Check "Items" column for detailed order items (desktop)   | Item names, quantities, and variants are displayed in a list                | Pass      |
-|                                   | Check "Order Total" column for correct amounts            | Total amounts match order history                                           | Pass      |
-|                                   | View order history table on smaller screens               | Table adjusts correctly; "Items" column is hidden as intended               | Pass      |
-| General                           |                                                            |                                                                              |           |
-|                                   | Verify responsiveness of the page                         | Layout adjusts properly across desktop, tablet, and mobile devices          | Pass      |
+|                                   | Click on "Change ✅ Password" link                           | Redirects to the Change ✅ Password page                                       | ✅ Pass      |
+|                                   | Update profile information and click "Update Information" button | Profile information is successfully updated, with a success message         | ✅ Pass      |
+|                                   | Leave form fields empty and submit                        | Form submits successfully without errors, as fields are optional       | ✅ Pass      |
+|                                   | Verify responsiveness of the page                         | Layout adjusts properly across desktop, tablet, and mobile devices          | ✅ Pass      |
+| **My Order History Page**         |                                                            |                                                                              |           |
+|                                   | Check if orders are displayed in a table format           | Order table is displayed with correct headings and data                     | ✅ Pass      |
+|                                   | Click on an order number link                             | Redirects to the specific order history page                                | ✅ Pass      |
+|                                   | Check that "Order Date" column displays correct dates     | Dates are formatted correctly and align with order history                  | ✅ Pass      |
+|                                   | Check "Items" column for detailed order items (desktop)   | Item names, quantities, and variants are displayed in a list                | ✅ Pass      |
+|                                   | Check "Order Total" column for correct amounts            | Total amounts match order history                                           | ✅ Pass      |
+|                                   | View order history table on smaller screens               | Table adjusts correctly; "Items" column is hidden as intended               | ✅ Pass      |
+|                                   | Verify responsiveness of the page                         | Layout adjusts properly across desktop, tablet, and mobile devices          | ✅ Pass      |
 | **Products Page**                 |                                                            |                                                                              |           |
-|                                   | Verify breadcrumb navigation                               | Breadcrumb links update correctly based on selected categories              | Pass      |
-|                                   | Interact with "Sort By" dropdown                           | Dropdown options change the product order on the page                       | Pass      |
-|                                   | Select "Sort By" in "Sort By" dropdown                     | Page reloads, displaying the default product order                          | Pass      |
+|                                   | Verify breadcrumb navigation                               | Breadcrumb links update correctly based on selected categories              | ✅ Pass      |
+|                                   | Interact with "Sort By" dropdown                           | Dropdown options change the product order on the page                       | ✅ Pass      |
+|                                   | Select "Sort By" in "Sort By" dropdown                     | Page reloads, displaying the default product order                          | ✅ Pass      |
 | Product List                      |                                                            |                                                                              |           |
-|                                   | View product cards                                         | Cards display product image, name, price, and rating (if available)         | Pass      |
-|                                   | Click on a product name or image                           | Redirects to the detailed product page                                      | Pass      |
-|                                   | Check "Out of Stock" label visibility                      | Label is displayed only for products with zero stock                        | Pass      |
-|                                   | Test responsiveness of product grid                       | Grid adjusts appropriately for various screen sizes                         | Pass      |
-|                                   | Verify product rating display                             | Stars align correctly with product rating values                            | Pass      |
-|                                   | View price format for products                             | Prices are displayed in the correct currency format (e.g., €xx.xx)          | Pass      |
+|                                   | View product cards                                         | Cards display product image, name, price, and rating (if available)         | ✅ Pass      |
+|                                   | Click on a product name or image                           | Redirects to the detailed product page                                      | ✅ Pass      |
+|                                   | Check "Out of Stock" label visibility                      | Label is displayed only for products with zero stock                        | ✅ Pass      |
+|                                   | Test responsiveness of product grid                       | Grid adjusts appropriately for various screen sizes                         | ✅ Pass      |
+|                                   | Verify product rating display                             | Stars align correctly with product rating values                            | ✅ Pass      |
+|                                   | View price format for products                             | Prices are displayed in the correct currency format (e.g., €xx.xx)          | ✅ Pass      |
 | Filtering                         |                                                            |                                                                              |           |
-|                                   | Navigate to a specific category via breadcrumb            | Filters products to match the selected category                             | Pass      |
-|                                   | Test category filtering                                    | Filters update URL with correct query parameters                            | Pass      |
-|                                   | Check empty category result                                | Displays "No products found" message when category is empty                 | Pass      |
+|                                   | Navigate to a specific category via breadcrumb            | Filters products to match the selected category                             | ✅ Pass      |
+|                                   | Test category filtering                                    | Filters update URL with correct query parameters                            | ✅ Pass      |
+|                                   | Check empty category result                                | Displays "No products found" message when category is empty                 | ✅ Pass      |
 | General                           |                                                            |                                                                              |           |
-|                                   | Verify responsiveness of the page                         | Layout adjusts properly across desktop, tablet, and mobile devices          | Pass      |
-|                                   | Check for broken links or images                          | All links and images are functioning properly                               | Pass      |
+|                                   | Verify responsiveness of the page                         | Layout adjusts properly across desktop, tablet, and mobile devices          | ✅ Pass      |
+|                                   | Check for broken links or images                          | All links and images are functioning properly                               | ✅ Pass      |
 | **Product Detail Page**           |                                                            |                                                                              |           |
-|                                   | View product name and price                                | Product name and price are displayed correctly                              | Pass      |
-|                                   | Check breadcrumb navigation                                | Breadcrumbs display correct hierarchy and link to the right categories      | Pass      |
-|                                   | Verify product image functionality                         | Image is displayed; clicking on it opens a larger view                      | Pass      |
-|                                   | View "Out of Stock" label visibility                       | Label appears only if the product is out of stock                           | Pass      |
-|                                   | Add product to Wishlist                                    | Clicking the "Add to Wishlist" button adds the product to the user's wishlist | Pass      |
+|                                   | View product name and price                                | Product name and price are displayed correctly                              | ✅ Pass      |
+|                                   | Check breadcrumb navigation                                | Breadcrumbs display correct hierarchy and link to the right categories      | ✅ Pass      |
+|                                   | Verify product image functionality                         | Image is displayed; clicking on it opens a larger view                      | ✅ Pass      |
+|                                   | View "Out of Stock" label visibility                       | Label appears only if the product is out of stock                           | ✅ Pass      |
+|                                   | Add product to Wishlist                                    | Clicking the "Add to Wishlist" button adds the product to the user's wishlist | ✅ Pass      |
 |   Product Variants                |                                                            |                                                                              |           |
-|                                   | View available sizes                                       | Sizes are displayed as clickable buttons                                    | Pass      |
-|                                   | Select a size                                              | The selected size is highlighted and details (e.g., SKU) are updated        | Pass      |
-|                                   | Verify unavailable sizes                                   | Unavailable sizes are grayed out and cannot be clicked                      | Pass      |
-|                                   | Check SKU update                                           | Selected size updates the SKU and associated product details                | Pass      |
+|                                   | View available sizes                                       | Sizes are displayed as clickable buttons                                    | ✅ Pass      |
+|                                   | Select a size                                              | The selected size is highlighted and details (e.g., SKU) are updated        | ✅ Pass      |
+|                                   | Verify unavailable sizes                                   | Unavailable sizes are grayed out and cannot be clicked                      | ✅ Pass      |
+|                                   | Check SKU update                                           | Selected size updates the SKU and associated product details                | ✅ Pass      |
 |   Quantity Selection              |                                                            |                                                                              |           |
-|                                   | Increment quantity                                         | Quantity increases within the allowed range                                 | Pass      |
-|                                   | Decrement quantity                                         | Quantity decreases within the allowed range                                 | Pass      |
-|                                   | Exceed maximum quantity                                    | Displays validation error or prevents further increase                      | Pass      |
-|                                   | Deactivate decrement button when quantity is 1            | The decrement button is disabled when the quantity is 1                      | Pass      |
+|                                   | Increment quantity                                         | Quantity increases within the allowed range                                 | ✅ Pass      |
+|                                   | Decrement quantity                                         | Quantity decreases within the allowed range                                 | ✅ Pass      |
+|                                   | Exceed maximum quantity                                    | Displays validation error or prevents further increase                      | ✅ Pass      |
+|                                   | Deactivate decrement button when quantity is 1            | The decrement button is disabled when the quantity is 1                      | ✅ Pass      |
 |   Add to Cart                     |                                                            |                                                                              |           |
-|                                   | Add in-stock product to cart                               | Product is added successfully, showing success message | Pass      |
-|                                   | Attempt to add out-of-stock product                       | "Out of Stock" button is disabled                                           | Pass      |
-|                                   | Add more products than in stock                            | Displays a message indicating only the available quantity can be added      | Pass      |
+|                                   | Add in-stock product to cart                               | Product is added successfully, showing success message | ✅ Pass      |
+|                                   | Attempt to add out-of-stock product                       | "Out of Stock" button is disabled                                           | ✅ Pass      |
+|                                   | Add more products than in stock                            | Displays a message indicating only the available quantity can be added      | ✅ Pass      |
 |   Customer Reviews                |                                                            |                                                                              |           |
-|                                   | View customer reviews                                      | Reviews are displayed with username, rating, and comment                    | Pass      |
-|                                   | Write a review (logged in)                                 | User can submit a review successfully                                       | Pass      |
-|                                   | Edit existing review                                       | User can edit their review, and changes are saved                           | Pass      |
-|                                   | Delete existing review                                     | User can delete their review successfully                                   | Pass      |
-|                                   | Attempt to write a review (not logged in)                 | Displays prompt to log in                                                   | Pass      |
+|                                   | View customer reviews                                      | Reviews are displayed with username, rating, and comment                    | ✅ Pass      |
+|                                   | Write a review (logged in)                                 | User can submit a review successfully                                       | ✅ Pass      |
+|                                   | Edit existing review                                       | User can edit their review, and changes are saved                           | ✅ Pass      |
+|                                   | Delete existing review                                     | User can delete their review successfully                                   | ✅ Pass      |
+|                                   | Attempt to write a review (not logged in)                 | Displays prompt to log in                                                   | ✅ Pass      |
 |   General                         |                                                            |                                                                              |           |
-|                                   | Test page responsiveness                                   | Page layout adjusts properly on desktop, tablet, and mobile                 | Pass      |
-|                                   | Verify image scaling                                       | Images scale appropriately across devices                                   | Pass      |
-|                                   | Verify page performance                                    | Page loads efficiently, and no broken links or errors are present           | Pass      |
+|                                   | Test page responsiveness                                   | Page layout adjusts properly on desktop, tablet, and mobile                 | ✅ Pass      |
+|                                   | Verify image scaling                                       | Images scale appropriately across devices                                   | ✅ Pass      |
+|                                   | Verify page performance                                    | Page loads efficiently, and no broken links or errors are present           | ✅ Pass      |
 |  **Cart Page**                   |                                                            |                                                                              |           |
-|                                    | Verify the cart page loads correctly                       | Page displays the correct list of cart items (product image, name, price, etc.) | Pass      |
-|                                    | Check for empty cart message                              | Displays "Your basket is empty" if there are no items in the cart             | Pass      |
-|                                    | Check the "Continue Shopping" button                       | Button redirects to the products page                                          | Pass      |
-|                                    | Check the "Checkout Now" button                           | Button redirects to the checkout page                                          | Pass      |
-|                                    | Verify cart total calculation                              | Total price of items is displayed correctly, including taxes and delivery     | Pass      |
-|                                    | Verify delivery cost display                              | Correct delivery cost is displayed based on conditions (standard or free)     | Pass      |
+|                                    | Verify the cart page loads correctly                       | Page displays the correct list of cart items (product image, name, price, etc.) | ✅ Pass      |
+|                                    | Check for empty cart message                              | Displays "Your basket is empty" if there are no items in the cart             | ✅ Pass      |
+|                                    | Check the "Continue Shopping" button                       | Button redirects to the products page                                          | ✅ Pass      |
+|                                    | Check the "Checkout Now" button                           | Button redirects to the checkout page                                          | ✅ Pass      |
+|                                    | Verify cart total calculation                              | Total price of items is displayed correctly, including taxes and delivery     | ✅ Pass      |
+|                                    | Verify delivery cost display                              | Correct delivery cost is displayed based on conditions (standard or free)     | ✅ Pass      |
 |  Item Display                      |                                                            |                                                                              |           |
-|                                    | Verify product details on cart                            | Displays correct product name, image, SKU, and size (if applicable)           | Pass      |
-|                                    | Verify item image visibility                              | Product image is displayed correctly for each item in the cart                | Pass      |
-|                                    | Check "Remove" button functionality                       | "Remove" button removes the item from the cart and updates the page            | Pass      |
+|                                    | Verify product details on cart                            | Displays correct product name, image, SKU, and size (if applicable)           | ✅ Pass      |
+|                                    | Verify item image visibility                              | Product image is displayed correctly for each item in the cart                | ✅ Pass      |
+|                                    | Check "Remove" button functionality                       | "Remove" button removes the item from the cart and updates the page            | ✅ Pass      |
 |   Quantity Update                  |                                                            |                                                                              |           |
-|                                    | Test quantity update form                                 | Input field allows quantity change, and updates cart totals accordingly       | Pass      |
-|                                    | Verify quantity increase and decrease buttons work         | Increase and decrease buttons adjust the item quantity and total price       | Pass      |
-|                                    | Verify "Update" button functionality                      | Clicking the "Update" button updates the cart with new quantities             | Pass      |
+|                                    | Test quantity update form                                 | Input field allows quantity change, and updates cart totals accordingly       | ✅ Pass      |
+|                                    | Verify quantity increase and decrease buttons work         | Increase and decrease buttons adjust the item quantity and total price       | ✅ Pass      |
+|                                    | Verify "Update" button functionality                      | Clicking the "Update" button updates the cart with new quantities             | ✅ Pass      |
 |   Cart Total                       |                                                            |                                                                              |           |
-|                                    | Verify cart total is correct after quantity change         | Cart total updates correctly after changing the quantity of any item          | Pass      |
-|                                    | Verify Grand Total calculation                            | Grand total, including delivery, is correct after quantity or removal changes | Pass      |
-|                                    | Test free delivery condition                              | Displays the free delivery message when the total exceeds the threshold      | Pass      |
+|                                    | Verify cart total is correct after quantity change         | Cart total updates correctly after changing the quantity of any item          | ✅ Pass      |
+|                                    | Verify Grand Total calculation                            | Grand total, including delivery, is correct after quantity or removal changes | ✅ Pass      |
+|                                    | Test free delivery condition                              | Displays the free delivery message when the total exceeds the threshold      | ✅ Pass      |
 |   **Chekout Page**                 |                                                            |                                                                              |           |
-|                                    | Verify checkout page loads correctly                       | The page should load the checkout form with correct sections for order summary, delivery, and payment | Pass      |
-|                                    | Verify order summary visibility                            | Displays correct order summary including item name, SKU, quantity, and price | Pass      |
-|                                    | Check that the "Adjust Cart" button works                  | Redirects to the cart page when clicked                                        | Pass      |
+|                                    | Verify checkout page loads correctly                       | The page should load the checkout form with correct sections for order summary, delivery, and payment | ✅ Pass      |
+|                                    | Verify order summary visibility                            | Displays correct order summary including item name, SKU, quantity, and price | ✅ Pass      |
+|                                    | Check that the "Adjust Cart" button works                  | Redirects to the cart page when clicked                                        | ✅ Pass      |
 |   Order Summary                    |                                                            |                                                                              |           |
-|                                    | Verify the product details in the order summary            | Displays the product image, name, size, SKU, quantity, and price per item    | Pass      |
-|                                    | Check cart totals (Subtotal, Delivery, Grand Total)        | The correct subtotal, delivery cost, and grand total are displayed            | Pass      |
-|                                    | Verify the grand total calculation                         | Grand total, including taxes and delivery, is accurate                        | Pass      |
+|                                    | Verify the product details in the order summary            | Displays the product image, name, size, SKU, quantity, and price per item    | ✅ Pass      |
+|                                    | Check cart totals (Subtotal, Delivery, Grand Total)        | The correct subtotal, delivery cost, and grand total are displayed            | ✅ Pass      |
+|                                    | Verify the grand total calculation                         | Grand total, including taxes and delivery, is accurate                        | ✅ Pass      |
 |   Form Fields (Details)            |                                                            |                                                                              |           |
-|                                    | Verify form fields for full name, email, and phone number  | Correct labels, field types, and error handling for each field                | Pass      |
-|                                    | Verify form field validations                              | All required fields should validate correctly (e.g., email format, phone number format) | Pass      |
+|                                    | Verify form fields for full name, email, and phone number  | Correct labels, field types, and error handling for each field                | ✅ Pass      |
+|                                    | Verify form field validations                              | All required fields should validate correctly (e.g., email format, phone number format) | ✅ Pass      |
 | Form Fields (Delivery)             |                                                            |                                                                              |           |
-|                                    | Verify form fields for address details                     | Correct labels and fields for street address, city, country, and postcode    | Pass      |
-|                                    | Verify "Save this delivery information" checkbox visibility | Checkbox allows the user to save their address if authenticated              | Pass      |
-|                                    | Check the links for account creation or login              | Links should redirect to the signup or login page if the user is not logged in | Pass      |
+|                                    | Verify form fields for address details                     | Correct labels and fields for street address, city, country, and postcode    | ✅ Pass      |
+|                                    | Verify "Save this delivery information" checkbox visibility | Checkbox allows the user to save their address if authenticated              | ✅ Pass      |
+|                                    | Check the links for account creation or login              | Links should redirect to the signup or login page if the user is not logged in | ✅ Pass      |
 | Payment Section                    |                                                            |                                                                              |           |
-|                                    | Verify the Stripe payment section loads                    | The card input section should appear correctly with no errors                 | Pass      |
-|                                    | Verify error messages for invalid payment details          | Display appropriate error message if the user enters invalid payment details  | Pass      |
+|                                    | Verify the Stripe payment section loads                    | The card input section should appear correctly with no errors                 | ✅ Pass      |
+|                                    | Verify error messages for invalid payment details          | Display appropriate error message if the user enters invalid payment details  | ✅ Pass      |
 | **My Reviews Page**                |                                                            |                                                                              |           |
-|                                    | Verify page loads correctly                               | Page loads with the title "Your Reviews" and list of reviews if available     | Pass      |
-|                                    | Verify "No reviews" message appears when there are no reviews | "You have not written any reviews yet." message should display if no reviews exist | Pass      |
+|                                    | Verify page loads correctly                               | Page loads with the title "Your Reviews" and list of reviews if available     | ✅ Pass      |
+|                                    | Verify "No reviews" message appears when there are no reviews | "You have not written any reviews yet." message should display if no reviews exist | ✅ Pass      |
 |   Reviews List                     |                                                            |                                                                              |           |
-|                                    | Verify review title (product name) visibility              | Product name is displayed correctly for each review                           | Pass      |
-|                                    | Verify review rating stars                                 | Stars align correctly according to the rating value                           | Pass      |
-|                                    | Verify review creation date                               | Date of review creation is displayed in the correct format (e.g., "M j, Y, g:i A") | Pass      |
-|                                    | Verify review update date visibility                      | If a review is updated, display the correct "updated on" date                 | Pass      |
-|                                    | Verify comment visibility                                 | Review comment text is displayed correctly                                    | Pass      |
+|                                    | Verify review title (product name) visibility              | Product name is displayed correctly for each review                           | ✅ Pass      |
+|                                    | Verify review rating stars                                 | Stars align correctly according to the rating value                           | ✅ Pass      |
+|                                    | Verify review creation date                               | Date of review creation is displayed in the correct format (e.g., "M j, Y, g:i A") | ✅ Pass      |
+|                                    | Verify review update date visibility                      | If a review is updated, display the correct "updated on" date                 | ✅ Pass      |
+|                                    | Verify comment visibility                                 | Review comment text is displayed correctly                                    | ✅ Pass      |
 |   Review Actions                   |                                                            |                                                                              |           |
-|                                    | Verify "Edit" link functionality                           | Clicking "Edit" redirects to the review editing page                          | Pass      |
-|                                    | Verify "Delete" link functionality                         | Clicking "Delete" redirects to the review deletion page                       | Pass      |
-|                                    | Verify review deletion confirmation                       | Deleting a review should prompt a confirmation and update the page             | Pass      |
+|                                    | Verify "Edit" link functionality                           | Clicking "Edit" redirects to the review editing page                          | ✅ Pass      |
+|                                    | Verify "Delete" link functionality                         | Clicking "Delete" redirects to the review deletion page                       | ✅ Pass      |
+|                                    | Verify review deletion confirmation                       | Deleting a review should prompt a confirmation and update the page             | ✅ Pass      |
 | **My Wishlist Page**               |                                                            |                                                                              |           |
-|                                     | Verify page loads correctly                                | Page loads with the title "Your Wishlist" and displays items if available     | Pass      |
-|                                     | Verify "Empty Wishlist" message appears if no items exist   | "Your wishlist is empty." message should display if there are no items        | Pass      |
-|                                     | Verify product image visibility                            | Product image is displayed for each item                                      | Pass      |
-|                                     | Verify product name and price visibility                   | Product name and price are displayed for each item                            | Pass      |
-|                                     | Verify "View Product" button functionality                 | Clicking "View Product" redirects to the product detail page                  | Pass      |
-|                                     | Verify "Remove" button functionality                       | Clicking "Remove" removes the item from the wishlist                          | Pass      |
-|                                     | Verify card layout and responsiveness                      | Cards for products should be aligned properly and adjust to screen size      | Pass      |
+|                                     | Verify page loads correctly                                | Page loads with the title "Your Wishlist" and displays items if available     | ✅ Pass      |
+|                                     | Verify "Empty Wishlist" message appears if no items exist   | "Your wishlist is empty." message should display if there are no items        | ✅ Pass      |
+|                                     | Verify product image visibility                            | Product image is displayed for each item                                      | ✅ Pass      |
+|                                     | Verify product name and price visibility                   | Product name and price are displayed for each item                            | ✅ Pass      |
+|                                     | Verify "View Product" button functionality                 | Clicking "View Product" redirects to the product detail page                  | ✅ Pass      |
+|                                     | Verify "Remove" button functionality                       | Clicking "Remove" removes the item from the wishlist                          | ✅ Pass      |
+|                                     | Verify card layout and responsiveness                      | Cards for products should be aligned properly and adjust to screen size      | ✅ Pass      |
 
 [Back To Top](#table-of-contents)
 
@@ -240,21 +239,21 @@ All CSS files validated using the W3C Jigsaw, and no errors were detected.
 
 | File Name                                                                                                                                              | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>base.css</summary><img src="static/images/readme_images/testing/css/base-css.png"></details>        | PASS   |
-| <details><summary>checkout.css</summary><img src="static/images/readme_images/testing/css/checkout-css.png"></details>        | PASS   |
-| <details><summary>mailchimp.css</summary><img src="static/images/readme_images/testing/css/mailchimp-css.png"></details>               | PASS   |
+| <details><summary>base.css</summary><img src="static/images/readme_images/testing/css/base-css.png"></details>        | ✅ Pass   |
+| <details><summary>checkout.css</summary><img src="static/images/readme_images/testing/css/checkout-css.png"></details>        | ✅ Pass   |
+| <details><summary>mailchimp.css</summary><img src="static/images/readme_images/testing/css/mailchimp-css.png"></details>               | ✅ Pass   |
 
 ### JavaScript
 
 | File Name                                                                                                                                              | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>base.js</summary><img src="static/images/readme_images/testing/js/base-js.png"></details>        | PASS   |
-| <details><summary>Add Product Page</summary><img src="static/images/readme_images/testing/js/add-product-js.png"></details>        | PASS   |
-| <details><summary>Cart Page</summary><img src="static/images/readme_images/testing/js/cart-js.png"></details>        | PASS   |
-| <details><summary>Products Page</summary><img src="static/images/readme_images/testing/js/products-js.png"></details>        | PASS   |
-| <details><summary>Profile Page</summary><img src="static/images/readme_images/testing/js/profile-js.png"></details>        | PASS   |
-| <details><summary>quantity-input.js</summary><img src="static/images/readme_images/testing/js/quantity-input-js.png"></details>        | PASS   |
-| <details><summary>stripe-elements.js</summary><img src="static/images/readme_images/testing/js/stripe-elements-js.png"></details>        | PASS   |
+| <details><summary>base.js</summary><img src="static/images/readme_images/testing/js/base-js.png"></details>        | ✅ Pass   |
+| <details><summary>Add Product Page</summary><img src="static/images/readme_images/testing/js/add-product-js.png"></details>        | ✅ Pass   |
+| <details><summary>Cart Page</summary><img src="static/images/readme_images/testing/js/cart-js.png"></details>        | ✅ Pass   |
+| <details><summary>Products Page</summary><img src="static/images/readme_images/testing/js/products-js.png"></details>        | ✅ Pass   |
+| <details><summary>Profile Page</summary><img src="static/images/readme_images/testing/js/profile-js.png"></details>        | ✅ Pass   |
+| <details><summary>quantity-input.js</summary><img src="static/images/readme_images/testing/js/quantity-input-js.png"></details>        | ✅ Pass   |
+| <details><summary>stripe-elements.js</summary><img src="static/images/readme_images/testing/js/stripe-elements-js.png"></details>        | ✅ Pass   |
 
 ### Python
 
@@ -264,79 +263,79 @@ All Python files were processed using the [CI Python Linter](https://pep8ci.hero
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/blog/admin.png"></details>        | PASS   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/blog/apps.png"></details>        | PASS   |
-| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/blog/forms.png"></details>        | PASS   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/blog/models.png"></details>        | PASS   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/blog/urls.png"></details>        | PASS   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/blog/views.png"></details>        | PASS   |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/blog/admin.png"></details>        | ✅ Pass   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/blog/apps.png"></details>        | ✅ Pass   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/blog/forms.png"></details>        | ✅ Pass   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/blog/models.png"></details>        | ✅ Pass   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/blog/urls.png"></details>        | ✅ Pass   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/blog/views.png"></details>        | ✅ Pass   |
 
 #### Build Master
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>settings.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/settings.png"></details>        | PASS   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/urls.png"></details>        | PASS   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/views.png"></details>        | PASS   |
-| <details><summary>wsgi.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/wsgi.png"></details>        | PASS   |
+| <details><summary>settings.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/settings.png"></details>        | ✅ Pass   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/urls.png"></details>        | ✅ Pass   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/views.png"></details>        | ✅ Pass   |
+| <details><summary>wsgi.py</summary><img src="static/images/readme_images/testing/py-linter/build_master/wsgi.png"></details>        | ✅ Pass   |
 
 #### Cart app
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/cart/apps.png"></details>        | PASS   |
-| <details><summary>cart_tool.py</summary><img src="static/images/readme_images/testing/py-linter/cart/cart_tool.png"></details>        | PASS   |
-| <details><summary>context-processors.py</summary><img src="static/images/readme_images/testing/py-linter/cart/context-processors.png"></details>        | PASS   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/cart/urls.png"></details>        | PASS   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/cart/views.png"></details>        | PASS   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/cart/apps.png"></details>        | ✅ Pass   |
+| <details><summary>cart_tool.py</summary><img src="static/images/readme_images/testing/py-linter/cart/cart_tool.png"></details>        | ✅ Pass   |
+| <details><summary>context-processors.py</summary><img src="static/images/readme_images/testing/py-linter/cart/context-processors.png"></details>        | ✅ Pass   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/cart/urls.png"></details>        | ✅ Pass   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/cart/views.png"></details>        | ✅ Pass   |
 
 #### Checkout app
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/admin.png"></details>        | PASS   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/apps.png"></details>        | PASS   |
-| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/forms.png"></details>        | PASS   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/models.png"></details>        | PASS   |
-| <details><summary>signals.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/signals.png"></details>        | PASS   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/urls.png"></details>        | PASS   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/views.png"></details>        | PASS   |
-| <details><summary>webhook_handler.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/webhook_handler.png"></details>        | PASS   |
-| <details><summary>webhooks</summary><img src="static/images/readme_images/testing/py-linter/checkout/webhooks.png"></details>        | PASS   |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/admin.png"></details>        | ✅ Pass   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/apps.png"></details>        | ✅ Pass   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/forms.png"></details>        | ✅ Pass   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/models.png"></details>        | ✅ Pass   |
+| <details><summary>signals.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/signals.png"></details>        | ✅ Pass   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/urls.png"></details>        | ✅ Pass   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/views.png"></details>        | ✅ Pass   |
+| <details><summary>webhook_handler.py</summary><img src="static/images/readme_images/testing/py-linter/checkout/webhook_handler.png"></details>        | ✅ Pass   |
+| <details><summary>webhooks</summary><img src="static/images/readme_images/testing/py-linter/checkout/webhooks.png"></details>        | ✅ Pass   |
 
 #### Home app
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/home/admin.png"></details>        | PASS   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/home/apps.png"></details>        | PASS   |
-| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/home/forms.png"></details>        | PASS   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/home/models.png"></details>        | PASS   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/home/urls.png"></details>        | PASS   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/home/views.png"></details>        | PASS   |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/home/admin.png"></details>        | ✅ Pass   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/home/apps.png"></details>        | ✅ Pass   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/home/forms.png"></details>        | ✅ Pass   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/home/models.png"></details>        | ✅ Pass   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/home/urls.png"></details>        | ✅ Pass   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/home/views.png"></details>        | ✅ Pass   |
 
 #### Products app
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/products/admin.png"></details>        | PASS   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/products/apps.png"></details>        | PASS   |
-| <details><summary>custom_filters.py</summary><img src="static/images/readme_images/testing/py-linter/products/custom_filters.png"></details>        | PASS   |
-| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/products/forms.png"></details>        | PASS   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/products/models.png"></details>        | PASS   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/products/urls.png"></details>        | PASS   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/products/views.png"></details>        | PASS   |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/products/admin.png"></details>        | ✅ Pass   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/products/apps.png"></details>        | ✅ Pass   |
+| <details><summary>custom_filters.py</summary><img src="static/images/readme_images/testing/py-linter/products/custom_filters.png"></details>        | ✅ Pass   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/products/forms.png"></details>        | ✅ Pass   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/products/models.png"></details>        | ✅ Pass   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/products/urls.png"></details>        | ✅ Pass   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/products/views.png"></details>        | ✅ Pass   |
 
 #### Profiles app
 
 | Python File                                                                                                                                               | Result              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/admin.png"></details>        | PASS   |
-| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/apps.png"></details>        | PASS   |
-| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/forms.png"></details>        | PASS   |
-| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/models.png"></details>        | PASS   |
-| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/urls.png"></details>        | PASS   |
-| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/views.png"></details>        | PASS   |
+| <details><summary>admin.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/admin.png"></details>        | ✅ Pass   |
+| <details><summary>apps.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/apps.png"></details>        | ✅ Pass   |
+| <details><summary>forms.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/forms.png"></details>        | ✅ Pass   |
+| <details><summary>models.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/models.png"></details>        | ✅ Pass   |
+| <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/urls.png"></details>        | ✅ Pass   |
+| <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/views.png"></details>        | ✅ Pass   |
 
 [Back To Top](#table-of-contents)
 

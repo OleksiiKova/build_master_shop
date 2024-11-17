@@ -92,9 +92,9 @@
                     </div>
 
                     <div class="text-center">
-                        {% if from_profile %}
-                        <a href="{% url 'profile' %}" class="btn btn-secondary py-2 px-4">
-                            <i class="bi bi-chevron-left"></i> Back to Profile
+                        {% if from_order_history_list %}
+                        <a href="{% url 'order_history_list' %}" class="btn btn-secondary py-2 px-4">
+                            <i class="bi bi-chevron-left"></i> Back to Order List
                         </a>
                         {% else %}
                         <a href="{% url 'products' %}" class="btn btn-primary py-2 px-4">

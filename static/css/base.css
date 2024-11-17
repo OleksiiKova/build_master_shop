@@ -193,11 +193,6 @@ a:not(.btn):hover {
 }
 
 /* -------------- My Profile Page ------------ */
-.order-history {
-    max-height: 416px;
-    overflow-y: auto;
-} 
-
 .profile-form-input .form-control,
 #id_default_country,
 #id_default_country option:not(:first-child) {
@@ -238,15 +233,8 @@ input[name='q']::placeholder {
 }
 
 .add-wishlist-btn{
-    color: #3a5c63;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.8rem;
-}
 
-.add-wishlist-btn:focus,
-.add-wishlist-btn:hover {
-    color: #527F89;
+    font-size: 0.7rem;
 }
 
 .sr-only {

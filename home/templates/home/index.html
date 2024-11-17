@@ -23,53 +23,58 @@
                     <!-- Power Tools Card -->
                     <div class="col-md-4 mb-4">
                         <div class="card border-0 shadow-sm h-100">
-                            <div class="row g-0 flex-row flex-md-column">
-                                <div class="col-4 col-md-12">
-                                    <img src="{% static 'images/power-tools.webp' %}" alt="Power Tools"
-                                        class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
+                            <a href="{% url 'products' %}?first_level=tools&second_level=power_tools"
+                                class="text-decoration-none">
+                                <div class="row g-0 flex-row flex-md-column">
+                                    <div class="col-4 col-md-12">
+
+                                        <img src="{% static 'images/power-tools.webp' %}" alt="Power Tools"
+                                            class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
+
+                                    </div>
+                                    <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
+                                        <h3 class="card-title mb-1 h5">Power Tools for Construction</h3>
+                                        <p class="card-text">Reliable, high-performance tools for any job.</p>
+                                    </div>
                                 </div>
-                                <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
-                                    <h3 class="card-title mb-1 h5"><a
-                                            href="{% url 'products' %}?first_level=tools&second_level=power_tools"
-                                            class="text-decoration-none">Power Tools for Construction</a></h3>
-                                    <p class="card-text">Reliable, high-performance tools for any job.</p>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
                     <!-- Workwear Card -->
                     <div class="col-md-4 mb-4">
                         <div class="card border-0 shadow-sm h-100">
-                            <div class="row g-0 flex-row flex-md-column">
-                                <div class="col-4 col-md-12">
-                                    <img src="{% static 'images/workwear.webp' %}" alt="Workwear"
-                                        class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
+                            <a href="{% url 'products' %}?first_level=workwear" class="text-decoration-none">
+                                <div class="row g-0 flex-row flex-md-column">
+                                    <div class="col-4 col-md-12">
+                                        <img src="{% static 'images/workwear.webp' %}" alt="Workwear"
+                                            class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
+                                    </div>
+                                    <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
+                                        <h3 class="card-title mb-1 h5">Durable Workwear</h3>
+                                        <p class="card-text">Tough, comfortable workwear built for outdoor jobs.</p>
+                                    </div>
                                 </div>
-                                <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
-                                    <h3 class="card-title mb-1 h5"><a href="{% url 'products' %}?first_level=workwear"
-                                            class="text-decoration-none">Durable Workwear</a></h3>
-                                    <p class="card-text">Tough, comfortable workwear built for outdoor jobs.</p>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
                     <!-- Safety Equipment Card -->
                     <div class="col-md-4 mb-4">
                         <div class="card border-0 shadow-sm h-100">
-                            <div class="row g-0 flex-row flex-md-column">
-                                <div class="col-4 col-md-12">
-                                    <img src="{% static 'images/safety-equipment.webp' %}" alt="Safety Equipment"
-                                        class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
+                            <a href="{% url 'products' %}?first_level=safety_equipment" class="text-decoration-none">
+                                <div class="row g-0 flex-row flex-md-column">
+                                    <div class="col-4 col-md-12">
+                                        <img src="{% static 'images/safety-equipment.webp' %}" alt="Safety Equipment"
+                                            class="img-fluid rounded w-100 h-100" style="object-fit: cover;">
+                                    </div>
+                                    <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
+                                        <h3 class="card-title mb-1 h5">Safety Equipment</h3>
+                                        <p class="card-text">Stay protected with high-quality gloves, helmets, and more.
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-8 col-md-12 d-flex flex-column justify-content-center p-3">
-                                    <h3 class="card-title mb-1 h5"><a
-                                            href="{% url 'products' %}?first_level=safety_equipment"
-                                            class="text-decoration-none">Safety Equipment</a></h3>
-                                    <p class="card-text">Stay protected with high-quality gloves, helmets, and more.</p>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -133,13 +138,14 @@
                                 <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
                                     alt="Default Image">
                                 {% endif %}
+
+                                <div class="card-body">
+                                    <h3 class="card-blog-title h5">{{ latest_posts.0.title }}</h3>
+                                    <p class="card-blog-text m-0">Published on: {{ latest_posts.0.published_date }}</p>
+                                    <p class="card-blog-text m-0">Views: {{ latest_posts.0.views }} <i
+                                            class="bi bi-eye-fill"></i></p>
+                                </div>
                             </a>
-                            <div class="card-body">
-                                <h3 class="card-blog-title h5">{{ latest_posts.0.title }}</h3>
-                                <p class="card-blog-text m-0">Published on: {{ latest_posts.0.published_date }}</p>
-                                <p class="card-blog-text m-0">Views: {{ latest_posts.0.views }} <i
-                                        class="bi bi-eye-fill"></i></p>
-                            </div>
                         </div>
                         {% else %}
                         <p>No blog posts available.</p>
@@ -160,14 +166,14 @@
                                         <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
                                             alt="Default Image">
                                         {% endif %}
+                                        <div class="card-body">
+                                            <h3 class="card-blog-title h5">{{ post.title }}</h3>
+                                            <p class="text-muted small card-blog-text m-0">Published on:
+                                                {{ post.published_date }}</p>
+                                            <p class="text-muted small card-blog-text m-0">Views: {{ post.views }} <i
+                                                    class="bi bi-eye-fill"></i></p>
+                                        </div>
                                     </a>
-                                    <div class="card-body">
-                                        <h3 class="card-blog-title h5">{{ post.title }}</h3>
-                                        <p class="text-muted small card-blog-text m-0">Published on:
-                                            {{ post.published_date }}</p>
-                                        <p class="text-muted small card-blog-text m-0">Views: {{ post.views }} <i
-                                                class="bi bi-eye-fill"></i></p>
-                                    </div>
                                 </div>
                             </div>
                             {% empty %}
@@ -190,14 +196,14 @@
                                         <img src="{{ MEDIA_URL }}blog_images/default-image.webp" class="card-img-top"
                                             alt="Default Image">
                                         {% endif %}
+                                        <div class="card-body px-0">
+                                            <h3 class="card-blog-title h5">{{ post.title }}</h3>
+                                            <p class="text-muted small card-blog-text m-0">Published on:
+                                                {{ post.published_date }}</p>
+                                            <p class="text-muted small card-blog-text m-0">Views: {{ post.views }} <i
+                                                    class="bi bi-eye-fill"></i></p>
+                                        </div>
                                     </a>
-                                    <div class="card-body px-0">
-                                        <h3 class="card-blog-title h5">{{ post.title }}</h3>
-                                        <p class="text-muted small card-blog-text m-0">Published on:
-                                            {{ post.published_date }}</p>
-                                        <p class="text-muted small card-blog-text m-0">Views: {{ post.views }} <i
-                                                class="bi bi-eye-fill"></i></p>
-                                    </div>
                                 </div>
                             </div>
                             {% empty %}

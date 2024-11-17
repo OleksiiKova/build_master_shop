@@ -20,10 +20,7 @@ def profile(request):
 
     This function retrieves the user's profile and displays the profile form,
     allowing the user to update their information.
-    It also retrieves the user's order history. If the form is submitted with
-    valid data, the profile is updated. The page is populated with the user's
-    profile information, order history, and an active flag for the profile
-    page, which is passed to the template for rendering.
+    If the form is submitted with valid data, the profile is updated.
     """
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -40,18 +37,32 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
 
-    orders = profile.orders.all().order_by('-order_date')
-
     template = 'profiles/profile.html'
     context = {
         'form': form,
-        'orders': orders,
         'on_profile_page': True
     }
 
     return render(request, template, context)
 
 
+@login_required
+def order_history_list(request):
+    """
+    Display the user's order history (list of all orders).
+    """
+    profile = get_object_or_404(UserProfile, user=request.user)
+    orders = profile.orders.all().order_by('-order_date')
+
+    template = 'profiles/order_history_list.html'
+    context = {
+        'orders': orders,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
 def order_history(request, order_number):
     """
     Display the order history for a specific order.
@@ -73,15 +84,10 @@ def order_history(request, order_number):
     """
     order = get_object_or_404(Order, order_number=order_number)
 
-    messages.info(request, (
-        f'This is a past confirmation for order number {order_number}. '
-        'A confirmation email was sent on the order date.'
-    ))
-
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        'from_profile': True,
+        'from_order_history_list': True,
     }
 
     return render(request, template, context)
