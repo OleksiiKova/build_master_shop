@@ -1,6 +1,6 @@
 # Build Master Shop
 
-Build Master Shop is a full-featured e-commerce web application specializing in the sale of tools and workwear. Built with Django, this project demonstrates a modern, responsive shopping platform with a user-friendly interface for browsing, selecting, and purchasing products.
+Build Master Shop is a full-featured e-commerce web application specialising in the sale of tools and workwear. Built with Django, this project demonstrates a modern, responsive shopping platform with a user-friendly interface for browsing, selecting, and purchasing products.
 
 ### [Link to the Build Master live website](https://build-master-shop-84761d123763.herokuapp.com/)
 
@@ -66,7 +66,7 @@ Build Master Shop is a full-featured e-commerce web application specializing in 
 
 
 ## Overview
-Build Master Shop is a web application developed using Django, designed as an online store specializing in tools and workwear. The platform allows users to browse a comprehensive selection of high-quality tools and workwear, add items to their cart, and complete purchases with ease. This project was created as part of my portfolio to showcase my proficiency in e-commerce web development.
+Build Master Shop is a web application developed using Django, designed as an online store specialising in tools and workwear. The platform allows users to browse a comprehensive selection of high-quality tools and workwear, add items to their cart, and complete purchases with ease. This project was created as part of my portfolio to showcase my proficiency in e-commerce web development.
 
 #### First-Time User
 - Tool Seeker: A user looking for specific tools or workwear, whether for professional or personal use, who values reliable and high-quality products.
@@ -81,14 +81,14 @@ Build Master Shop is a web application developed using Django, designed as an on
 [Back To Top](#table-of-contents)
 
 ## Agile Methodology
-This project followed Agile principles, utilizing GitHub Issues to document and manage User Stories effectively. Each User Story was associated with clear Acceptance Criteria and broken down into smaller tasks, which allowed for flexible adjustments and ensured that the development process stayed aligned with project goals. You can view the issues for this project [here](https://github.com/OleksiiKova/build_master_shop/issues).
+This project followed Agile principles, utilising GitHub Issues to document and manage User Stories effectively. Each User Story was associated with clear Acceptance Criteria and broken down into smaller tasks, which allowed for flexible adjustments and ensured that the development process stayed aligned with project goals. You can view the issues for this project [here](https://github.com/OleksiiKova/build_master_shop/issues).
 
-A Kanban Board was employed to visualize and streamline the workflow, using columns such as Backlog, To Do, In Progress, and Done. This structure provided a straightforward way to track task progress and adjust priorities as needed. The board layout supported a flexible, iterative approach, making it easier to implement new features and address feedback throughout development.
+A Kanban Board was employed to visualise and streamline the workflow, using columns such as Backlog, To Do, In Progress, and Done. This structure provided a straightforward way to track task progress and adjust priorities as needed. The board layout supported a flexible, iterative approach, making it easier to implement new features and address feedback throughout development.
 
 [Kanban view](https://github.com/users/OleksiiKova/projects/4/views/1)
 
 <details><summary>Click to view a screenshot of the Kanban view</summary><img src="static/images/readme_images/kanban-1.png"></details> <br>
-In addition to the Kanban Board, GitHub's Table view was used for a more organized, high-level overview of the project. This view allowed me to see all tasks, priorities, and their statuses at a glance, ensuring efficient planning and resource allocation.
+In addition to the Kanban Board, GitHub's Table view was used for a more organised, high-level overview of the project. This view allowed me to see all tasks, priorities, and their statuses at a glance, ensuring efficient planning and resource allocation.
 
 [Table view](https://github.com/users/OleksiiKova/projects/4/views/4)
 
@@ -102,37 +102,37 @@ I structured the project around Epics and User Stories, dividing the development
 4. [EPIC: Customer Support](https://github.com/OleksiiKova/build_master_shop/issues/25)
 5. [EPIC: Cart & Orders](https://github.com/OleksiiKova/build_master_shop/issues/14)
 
-The MoSCoW Method of Prioritization was employed to categorize each User Story into Must Have, Should Have, or Could Have priorities. Some features were labeled as Won't Have and deferred to the Backlog for potential future development. This approach helped to maintain a strong focus on the Minimum Viable Product (MVP), ensuring that essential features, such as product catalog browsing, user authentication, and checkout, were prioritized.
+The MoSCoW method of prioritisation was employed to categorise each user story into Must Have, Should Have, or Could Have priorities. Some features were labelled as Won't Have and deferred to the Backlog for potential future development. This approach helped to maintain a strong focus on the Minimum Viable Product (MVP), ensuring that essential features, such as product catalogue browsing, user authentication, and checkout, were prioritised.
 
-Overall, implementing Agile Methodology, combined with the MoSCoW prioritization technique, proved highly effective. This approach kept development organized and facilitated better time management by ensuring that the most valuable features were addressed first. While I did not set rigid timeframes for each iteration, moving tasks from To Do to Done was both motivating and provided a tangible sense of progress.
+Overall, implementing Agile methodology, combined with the MoSCoW prioritisation technique, proved highly effective. This approach kept development organised and facilitated better time management by ensuring that the most valuable features were addressed first. While I did not set rigid timeframes for each iteration, moving tasks from To Do to Done was both motivating and provided a tangible sense of progress.
 
 [Back To Top](#table-of-contents)
 
 ## UX
 
 ### Strategy
-Build Master Shop aims to deliver a seamless and enjoyable shopping experience for customers seeking high-quality tools and workwear. The website’s primary features include a comprehensive product catalog, easy-to-navigate categories, and a streamlined checkout process. Additionally, the site highlights the brand's commitment to quality and customer satisfaction, with detailed product descriptions and usage guides for each item. A "Why Choose Us" section emphasizes the advantages of purchasing through Build Master Shop, building trust with customers and setting the brand apart in the market.
+Build Master Shop aims to deliver a seamless and enjoyable shopping experience for customers seeking high-quality tools and workwear. The website’s primary features include a comprehensive product catalogue, easy-to-navigate categories, and a streamlined checkout process. Additionally, the site highlights the brand's commitment to quality and customer satisfaction, with detailed product descriptions and usage guides for each item. A "Why Choose Us" section emphasises the advantages of purchasing through Build Master Shop, building trust with customers and setting the brand apart in the market.
 
 ### Scope
-Functional Specifications: Key functionalities include user registration and authentication, product inventory management by administrators, a personalized profile for customers, and a shopping cart for managing selected products. Customers can search, filter, and sort through the product catalog to find specific items, with options to read and leave product reviews. Additional features include viewing order history, tracking current orders, and accessing customer support for inquiries or assistance with purchases.
+Functional Specifications: Key functionalities include user registration and authentication, product inventory management by administrators, a personalised profile for customers, and a shopping cart for managing selected products. Customers can search, filter, and sort through the product catalogue to find specific items, with options to read and leave product reviews. Additional features include viewing order history, tracking current orders, and accessing customer support for enquiries or assistance with purchases.
 
-Content Requirements: Engaging content will include product descriptions, usage tips, brand information to help customers make informed purchasing decisions. Each product listing will contain detailed specifications, designed to support both professionals and DIY enthusiasts in selecting the right tools and workwear.
+Content Requirements: Engaging content will include product descriptions, usage tips, and brand information to help customers make informed purchasing decisions. Each product listing will contain detailed specifications, designed to support both professionals and DIY enthusiasts in selecting the right tools and workwear.
 
 ### Structure
-The site structure is designed to guide users intuitively from browsing products to completing purchases. The information architecture is organized to provide a logical and seamless user flow, with easily accessible pages for the home, product categories, cart, and checkout, enhancing overall usability.
+The site structure is designed to guide users intuitively from browsing products to completing purchases. The information architecture is organised to provide a logical and seamless user flow, with easily accessible pages for the home, product categories, cart, and checkout, enhancing overall usability.
 
-The navbar displays the Build Master Shop logo consistently across all pages and devices, reinforcing brand identity. Optimized for mobile users, the navbar features a responsive toggler that collapses the menu for a cleaner view on smaller screens. Links to essential pages, including Home and Products Categories are prominently displayed. For logged-in users, a profile icon provides access to personalized options such as my profile (include default delivery information and order history), my reviews, and my wishlist. New visitors or users not yet signed in will see links to Login and Register, ensuring a smooth onboarding experience.
+The navbar displays the Build Master Shop logo consistently across all pages and devices, reinforcing brand identity. Optimised for mobile users, the navbar features a responsive toggler that collapses the menu for a cleaner view on smaller screens. Links to essential pages, including Home and Products Categories are prominently displayed. For logged-in users, a profile icon provides access to personalised options such as my profile (include default delivery information and order history), my reviews, and my wishlist. New visitors or users not yet signed in will see links to Login and Register, ensuring a smooth onboarding experience.
 
 Call to Action (CTA) Placement: Key CTAs are strategically placed to drive conversions. For instance, on the Home page, the "Shop Now" button is prominently displayed, encouraging users to begin browsing immediately. On product pages, the "Add to Cart" button is clearly highlighted to facilitate quick actions. On the blog page, the "Shop Now" button is also available, allowing readers to transition seamlessly from reading informative articles to browsing related products. This design ensures that critical CTAs are easily visible, enhancing user engagement and promoting conversions.
 
-The footer of the Build Master Shop website offers users easy access to essential information, including contact details (phone and email), policy links, and social media channels. The Contact Information section provides users with a phone number and email address for quick support. The Stay Connected area includes a link to our Facebook page, allowing customers to stay updated and engaged with the brand on social media. For easy navigation, the Our Links section contains direct links to key pages like the Blog and Contact Us pages, giving users quick access to content and support resources. There’s also a Useful Links section, featuring external resources like the Health and Safety Authority (HSA), which provides additional industry-related information. The Policies section includes links to our Privacy Policy and Terms of Service, promoting transparency and ensuring users can conveniently access important legal information. Finally, a Subscribe form allows users to sign up for updates, offering an opportunity to stay informed about new products, promotions, and company news. This organized and informative footer supports user convenience and trust, enhancing their overall experience on the site.
+The footer of the Build Master Shop website offers users easy access to essential information, including contact details (phone and email), policy links, and social media channels. The Contact Information section provides users with a phone number and email address for quick support. The Stay Connected area includes a link to our Facebook page, allowing customers to stay updated and engaged with the brand on social media. For easy navigation, the Our Links section contains direct links to key pages like the Blog and Contact Us pages, giving users quick access to content and support resources. There’s also a Useful Links section, featuring external resources like the Health and Safety Authority (HSA), which provides additional industry-related information. The Policies section includes links to our Privacy Policy and Terms of Service, promoting transparency and ensuring users can conveniently access important legal information. Finally, a Subscribe form allows users to sign up for updates, offering an opportunity to stay informed about new products, promotions, and company news. This organised and informative footer supports user convenience and trust, enhancing their overall experience on the site.
 
 ### Skeleton
 
 #### Wireframes
 
 The website is designed to be clear and simple. To create the wireframe I used Balsamiq software. During the design phase, some elements were modified to enhance the user experience.
-PDF file with my wireframe you cand find [here](static/images/readme_images/balsamiq-build-master.pdf).
+PDF file with my wireframe you can find [here](static/images/readme_images/balsamiq-build-master.pdf).
 
 #### Database structure
 After deciding on the project's features, I used Lucidchart to plan the database structure. The diagram below serves as an initial guide, illustrating the types of data and their relationships.
@@ -150,7 +150,7 @@ The following colour palette was used from [Coolors](https://coolors.co/):
 #### Typography
 
 - Headings: The "Montserrat" font-family is used for all heading levels to ensure a modern and clean look.
-- Body Text: The default Bootstrap font settings are utilized for all other text to maintain consistency and readability across the site.
+- Body Text: The default Bootstrap font settings are utilised for all other text to maintain consistency and readability across the site.
 
 [Back To Top](#table-of-contents)
 
@@ -172,7 +172,7 @@ The newsletter subscription feature allows the business to maintain regular comm
 
 ### Keywords
 
-In my work on optimizing the SEO for Build Master Shop, I focused on finding relevant and impactful keywords that align with the business's focus: tools, workwear, and safety equipment. Below is an overview of my keyword research process and findings.
+In my work on optimising the SEO for Build Master Shop, I focused on identifying relevant and impactful keywords that align with the business's focus: tools, workwear, and safety equipment. Below is an overview of my keyword research process and findings.
 
 #### Brainstorming Topics
 I started by identifying five key categories that represent the product offerings and audience interests for Build Master Shop. These categories became the foundation for generating keyword ideas:
@@ -233,7 +233,7 @@ To refine these ideas, I ran them through Google to:
 
 - Check Autocomplete suggestions—these show popular related queries.
 - Review Related Searches at the bottom of the search results.
-- Analyze competitor keywords by looking at top-ranking websites and ads.
+- Analyse competitor keywords by looking at top-ranking websites and ads.
 
 For example, searching "best cordless drills" revealed related searches like "cordless drills for woodworking" and "top-rated cordless drills for contractors," which I added to the list.
 
@@ -277,7 +277,7 @@ This process not only supports attracting relevant traffic but also sets the fou
 
 ### Sitemap
 
-An XML sitemap has been created using tools like [XML-Sitemaps](https://www.xml-sitemaps.com), which automatically crawls the entire website and generates a complete sitemap. The sitemap provides search engines with a structured overview of the website’s pages, improving indexing.
+An XML sitemap has been created using tools [XML-Sitemaps](https://www.xml-sitemaps.com), which automatically crawls the entire website and generates a complete sitemap. The sitemap provides search engines with a structured overview of the website’s pages, improving indexing.
 
 The sitemap is available here: [sitemap.xml](sitemap.xml)
 
@@ -300,7 +300,7 @@ I created a dedicated [Facebook page](https://www.facebook.com/p/build-master-61
 - Interacting with customers through comments, messages, and community discussions.
 - Running targeted ad campaigns to reach users interested in tools, workwear, and safety equipment.
 
-By focusing on these, BuildMaster will effectively utilize Facebook to enhance brand visibility, engage with readers, and drive traffic to its online store.
+By focusing on these, BuildMaster will effectively utilise Facebook to enhance brand visibility, engage with readers, and drive traffic to its online store.
 
 <details><summary>Facebook page</summary>
 
@@ -325,7 +325,7 @@ My content strategy is focused on value-driven posts, ensuring users find my pag
 
 ### Newsletter Marketing
 
-Currently, Build Master Shop has a basic email subscription form that allows users to sign up for updates. While the newsletter system is still in its early stages, there are plans to expand and optimize this feature to enhance customer engagement. 
+Currently, Build Master Shop has a basic email subscription form that allows users to sign up for updates. While the newsletter system is still in its early stages, there are plans to expand and optimise this feature to enhance customer engagement. 
 
 Here's an outline of the future goals for newsletter marketing:
 
@@ -333,7 +333,7 @@ Here's an outline of the future goals for newsletter marketing:
 - A simple sign-up form collects subscriber email addresses.
 - The collected data is securely stored for future use in email campaigns.
 #### Planned Enhancements
-1. Organize Subscriber Groups
+1. Organise Subscriber Groups
    - Segment subscribers into groups based on interests, such as tools, workwear, or safety equipment, to enable targeted communication.
 2. Create Engaging Content
    - Develop newsletters featuring:
@@ -347,9 +347,9 @@ Here's an outline of the future goals for newsletter marketing:
       - Welcome messages for new subscribers.
       - Thank-you emails after purchases, suggesting related products.
       - Reminders for abandoned carts.
-5. Analyze and Optimize
+5. Analyse and Optimise
    - Monitor metrics such as open rates and click-through rates to understand what resonates with subscribers.
-   - Test different subject lines and email formats to maximize engagement.
+   - Test different subject lines and email formats to maximise engagement.
 
 By gradually implementing these steps, Build Master Shop aims to build a strong connection with its subscribers and use newsletters as a key tool for driving customer loyalty and sales.
 
@@ -382,17 +382,17 @@ As part of the Build Master Shop project, the application provides front-end and
 
 ##### Product Management:
 
-- Create: Admins can add new products to the catalog through the admin interface, including product descriptions, images, pricing, and stock.
-- Read: Admins can view all products in the catalog, along with detailed information for each item.
-- Update: Admins can update product details such as prices, descriptions, and stock, ensuring the catalog is always up-to-date.
-- Delete: Admins can remove products from the catalog when necessary, for instance, when a product is discontinued or out of stock.
+- Create: Admins can add new products to the catalogue through the admin interface, including product descriptions, images, pricing, and stock.
+- Read: Admins can view all products in the catalogue, along with detailed information for each item.
+- Update: Admins can update product details such as prices, descriptions, and stock, ensuring the catalogue is always up-to-date.
+- Delete: Admins can remove products from the catalogue when necessary, for instance, when a product is discontinued or out of stock.
 
 ##### Blog Management:
 
 - Create: Admins can write and publish blog posts directly from the admin interface, sharing industry news, product updates, or customer tips.
 - Read: Admins can view all blog posts, including drafts and published content, for management purposes.
 - Update: Admins can edit blog posts as needed, updating text, images, or categories to keep content fresh and relevant.
-- Delete: Admins can delete blog posts that are outdated or irrelevant, ensuring that the site remains organized and informative.
+- Delete: Admins can delete blog posts that are outdated or irrelevant, ensuring that the site remains organised and informative.
 
 #### User Features
 
@@ -417,13 +417,13 @@ The Build Master website features a sleek and user-friendly navigation bar desig
 
 - The BuildMaster logo is prominently displayed in the top navigation section of the website, ensuring brand consistency and recognition. This logo is clearly visible across all screen sizes and contributes to a professional and cohesive identity. However, for mobile users, the logo remains part of the top navigation, while the navbar toggler button is used to collapse the menu for a cleaner view on smaller screens. The toggler focuses on providing a functional way to access the menu rather than displaying the logo itself.
 
-- Mobile-First Design: Optimized for mobile devices, the navbar includes a responsive toggler button that collapses the menu into a more compact layout on smaller screens. This ensures that users can easily access the menu without unnecessary clutter, even on mobile.
+- Mobile-First Design: Optimised for mobile devices, the navbar includes a responsive toggler button that collapses the menu into a more compact layout on smaller screens. This ensures that users can easily access the menu without unnecessary clutter, even on mobile.
 
 - Search Functionality: The navbar includes a dedicated search bar, allowing users to quickly search for cars, bookings, or other relevant information. On mobile devices, the search option is also available in a dropdown for easy access.
 
 - Dynamic Navigation Links: The navbar includes key links such as My Account, My Wishlist, My Profile, and Cart, along with options like Add Product and Add Post for admins. These links are designed to be easily accessible and provide a smooth navigation experience.
 
-    - User-Specific Options: For authenticated users, the My Account dropdown gives access to personalized features, including links to My Profile, My Reviews, My Wishlist, and a logout option.
+    - User-Specific Options: For authenticated users, the My Account dropdown gives access to personalised features, including links to My Profile, My Reviews, My Wishlist, and a logout option.
 
     - Admin-Specific Options: Admins (superusers) have additional management options in the navbar, such as Add Product and Add Post, to manage site content directly from the navigation menu.
 
@@ -527,7 +527,7 @@ Each section is designed to engage users, provide valuable information, and enco
 - Sorting updates dynamically adjust the page URL, allowing users to share or bookmark a specific sorted view with ease.
 
 #### Responsive Product Grid Layout
-- The responsive grid layout displays between 1 and 4 product columns depending on screen size, ensuring an optimized and visually appealing experience on any device, from mobile to desktop.
+- The responsive grid layout displays between 1 and 4 product columns depending on screen size, ensuring an optimised and visually appealing experience on any device, from mobile to desktop.
 
 #### Detailed Product Display with Ratings
 - Each product card includes essential information: a high-quality image, price, and an average rating represented as stars with half-star precision.
@@ -610,14 +610,14 @@ This page is designed for a Django-based e-commerce application and renders an i
 
 ### Checkout Page
 
-This page provides an organized, user-friendly layout for customers to review their orders, enter shipping information, and complete payments.
+This page provides an organised, user-friendly layout for customers to review their orders, enter shipping information, and complete payments.
 
 #### Order Summary Display:
 - Provides a detailed order summary with product images, names, quantities, sizes, SKUs, and subtotals.
 - Displays a final breakdown of the cart total, delivery cost, and grand total.
 
 #### Customer Information Forms:
-- Organized sections for entering customer details (name, email, phone) and delivery address (address lines, city, county, country, and postal code).
+- Organised sections for entering customer details (name, email, phone) and delivery address (address lines, city, county, country, and postal code).
 - Forms are styled with Django Crispy Forms for easy customization and improved aesthetics.
 - If the user is authenticated, a checkbox option is available to save delivery information to their profile. If not, links to sign up or log in are displayed.
 
@@ -654,7 +654,7 @@ The Blog feature allows users to engage with articles, updates, and other conten
  <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/blog.png"></details>
 
 ### My Profile Page
-The My Profile page provides authenticated users with an area to view and manage their personal information. It combines a user-friendly layout with essential functionalities like profile updates , creating a centralized hub for managing account details.
+The My Profile page provides authenticated users with an area to view and manage their personal information. It combines a user-friendly layout with essential functionalities like profile updates , creating a centralised hub for managing account details.
 
 #### Personal Information:
 - Displays a form pre-filled with the user's current profile information (e.g., name, email, and address details).
@@ -673,7 +673,7 @@ The My Order History page provides authenticated users with an area to view thei
  <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/order-history-list.png"></details>
 
 ### Wishlist Page
-The Wishlist page allows users to save and manage products they are interested in for future reference. This feature provides a personalized shopping experience by keeping desired products readily accessible.
+The Wishlist page allows users to save and manage products they are interested in for future reference. This feature provides a personalised shopping experience by keeping desired products readily accessible.
 
 #### Wishlist Display:
 - Lists all the products saved by the user, including product images, names, and prices.
@@ -768,7 +768,7 @@ Deletion: If a review is deleted, a message informs the user that the review has
 -Error notifications inform users when something goes wrong during their actions, such as invalid inputs, out-of-stock issues, or problems with the payment process.
 
 
-Notifications appear as brief messages (often called "toasts") at the right top of the screen. These messages automatically disappear after a few seconds. Notifications are designed to be informative and customized based on the type of user action. They include messages about the successful completion of actions, warnings, and error messages.
+Notifications appear as brief messages (often called "toasts") at the right top of the screen. These messages automatically disappear after a few seconds. Notifications are designed to be informative and customised based on the type of user action. They include messages about the successful completion of actions, warnings, and error messages.
 
 Note: This is not an exhaustive list of all the notifications in the system, but rather just a few examples of the types of notifications users may encounter during their interactions with the site. There are many more notifications that can be triggered by different user actions.
 
@@ -788,7 +788,7 @@ At the moment, only Standard Shipping is available, which costs 7 EUR. Free ship
 
 ## Django Admin Portal
 
-Django Admin Portal allows superuser to manage content and users of the website. The admin view is customized to reflect the scope of this project.
+Django Admin Portal allows superuser to manage content and users of the website. The admin view is customised to reflect the scope of this project.
 
  <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/django_admin.png"></details>
 
@@ -837,10 +837,10 @@ This project was created using the following:
 - Git: Version control tool.
 - Am I Responsive: Used to show the website image on a range of devices.
 - Lighthouse: Used for performance auditing and optimization.
-- [Wave](wave.webaim.org): Used for accessibility testing and ensuring compliance with accessibility standards.
-- [OpenArt](openart.ai): Used for creating images.
-- [Insmind](www.insmind.com): Used for creating transparent backgrounds for images.
-- [Design.com](www.design.com): Used for creating logo.
+- [OpenArt](https://openart.ai/): Used for creating images.
+- [DeepAI](https://deepai.org/): Used for creating images.
+- [Insmind](https://www.insmind.com/): Used for creating transparent backgrounds for images.
+- [Design.com](https://www.design.com/): Used for creating logo.
 - [Coolors.co](https://coolors.co/): Used to choose the colours.
 - [Squoosh](https://squoosh.app/): Used to reduce the size of an image without significant loss of quality.
 
@@ -873,18 +873,18 @@ For a comprehensive overview of the testing strategy, including detailed informa
 - Choose Git Providers from the sidebar (note: in this case, there will be only one option: GitHub).
 - From the three-dot menu next to GitHub, select Connect.
 
-4. Authorize Access:
+4. Authorise Access:
 
-- Authorize Code-Institute-Org to access your GitHub account. You will be redirected back to the Gitpod Enterprise site.
+- Authorise Code-Institute-Org to access your GitHub account. You will be redirected back to the Gitpod Enterprise site.
 
 5. Edit Permissions:
 
 - Again, from the three-dot menu next to GitHub, choose Edit Permissions.
 - Check all the permissions checkboxes and click Update Permissions.
 
-6. Re-authorize:
+6. Re-authorise:
 
-- After clicking Update Permissions, you will need to authorize Code-Institute-Org again, similar to step 4.
+- After clicking Update Permissions, you will need to authorise Code-Institute-Org again, similar to step 4.
 
 </details>
 

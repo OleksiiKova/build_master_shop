@@ -71,7 +71,7 @@ Return back to the [README.md](README.md) file.
 | General                           |                                                            |                                                                              |           |
 |                                   | Check responsiveness (desktop, tablet, mobile)            | Layout adjusts properly across all screen sizes                              | ✅ Pass      |
 |                                   | Check for broken images or links                          | All images and links load correctly                                          | ✅ Pass      |
-|                                   | Verify page performance                                    | Page loads quickly and assets are optimized                                  | ✅ Pass      |
+|                                   | Verify page performance                                    | Page loads quickly and assets are optimised                                  | ✅ Pass      |
 | **My Profile Page**               |                                                            |                                                                              |           |
 |                                   | Click on "Change Password" link                           | Redirects to the Change Password page                                       | ✅ Pass      |
 |                                   | Update profile information and click "Update Information" button | Profile information is successfully updated, with a success message         | ✅ Pass      |
@@ -390,9 +390,9 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 |                 |             |               |                |     |
 | **Mobile**      |             |               |                |     |
 | Home            |     90      |      100      |      100       | 100 | <details><summary>Home</summary><img src="static/images/readme_images/testing/lighthouse/mobile/home.png"></details>                    |
-| Products            |     79      |      100      |      100       | 100 | <details><summary>Products</summary><img src="static/images/readme_images/testing/lighthouse/mobile/products.png"></details>                    |
-| Product Detail            |     62      |      100      |      100       | 100 | <details><summary>Product Detail</summary><img src="static/images/readme_images/testing/lighthouse/mobile/product-detail.png"></details>                    |
-| Cart            |     70      |      100      |      100       | 100 | <details><summary>Cart</summary><img src="static/images/readme_images/testing/lighthouse/mobile/cart.png"></details>                    |
+| Products            |     85      |      100      |      100       | 100 | <details><summary>Products</summary><img src="static/images/readme_images/testing/lighthouse/mobile/products.png"></details>                    |
+| Product Detail            |     77      |      100      |      100       | 100 | <details><summary>Product Detail</summary><img src="static/images/readme_images/testing/lighthouse/mobile/product-detail.png"></details>                    |
+| Cart            |     90      |      100      |      100       | 100 | <details><summary>Cart</summary><img src="static/images/readme_images/testing/lighthouse/mobile/cart.png"></details>                    |
 | Checkout            |     80      |      93      |      79       | 100 | <details><summary>Checkout</summary><img src="static/images/readme_images/testing/lighthouse/mobile/checkout.png"></details>                    |
 | Checkout Success            |     80      |      100      |      100       | 100 | <details><summary>Checkout Success</summary><img src="static/images/readme_images/testing/lighthouse/mobile/checkout_success.png"></details>    
 | My Profile            |     90      |      96      |      100       | 100 | <details><summary>My Profile</summary><img src="static/images/readme_images/testing/lighthouse/mobile/my-profile.png"></details>                    |
@@ -403,18 +403,18 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | My Wishlist            |     80      |      100      |      100       | 100 | <details><summary>My Wishlist</summary><img src="static/images/readme_images/testing/lighthouse/mobile/my-wishlist.png"></details>                    |
 | Add a Product            |     84      |      100      |      100       | 100 | <details><summary>Add a Product</summary><img src="static/images/readme_images/testing/lighthouse/mobile/add-product.png"></details>                    |
 | Edit a Product            |     85      |      100      |      100       | 100 | <details><summary>Edit a Product</summary><img src="static/images/readme_images/testing/lighthouse/mobile/edit-product.png"></details>                    |
-| Delete a Product            |     81      |      100      |      100       | 100 | <details><summary>Delete a Product</summary><img src="static/images/readme_images/testing/lighthouse/mobile/delete-product.png"></details>                    |
+| Delete a Product            |     89      |      100      |      100       | 100 | <details><summary>Delete a Product</summary><img src="static/images/readme_images/testing/lighthouse/mobile/delete-product.png"></details>                    |
 |Add a Post            |     85      |      100      |      100       | 100 | <details><summary>Add a Post </summary><img src="static/images/readme_images/testing/lighthouse/mobile/add-post.png"></details>                    |
 | Edit a Post            |     83      |      96      |      100       | 100 | <details><summary>Edit a Post </summary><img src="static/images/readme_images/testing/lighthouse/mobile/edit-post.png"></details>                    |
 | Delete a Post            |     81      |      100      |      100       | 100 | <details><summary>Delete a Post</summary><img src="static/images/readme_images/testing/lighthouse/mobile/delete-post.png"></details>                    |
-| All Posts            |     71      |      100      |      100       | 100 | <details><summary>All Posts</summary><img src="static/images/readme_images/testing/lighthouse/mobile/all-posts.png"></details>                    |
-| Blog Post            |     72      |      100      |      100       | 100 | <details><summary>Blog Post</summary><img src="static/images/readme_images/testing/lighthouse/mobile/blog-post.png"></details>                    |
+| All Posts            |     85      |      100      |      100       | 100 | <details><summary>All Posts</summary><img src="static/images/readme_images/testing/lighthouse/mobile/all-posts.png"></details>                    |
+| Blog Post            |     90      |      100      |      100       | 100 | <details><summary>Blog Post</summary><img src="static/images/readme_images/testing/lighthouse/mobile/blog-post.png"></details>                    |
 | Contact Us            |     88      |      100      |      100       | 100 | <details><summary>Contact Us</summary><img src="static/images/readme_images/testing/lighthouse/mobile/contact-us.png"></details>                    |
 | Privacy Policy            |     82      |      96      |      100       | 100 | <details><summary>Privacy Policy</summary><img src="static/images/readme_images/testing/lighthouse/mobile/privacy-policy.png"></details>                    |
 | Terms of Service            |     87      |      100      |      100       | 100 | <details><summary>Terms of Service</summary><img src="static/images/readme_images/testing/lighthouse/mobile/terms-of-service.png"></details>                    |                |
 | Sign In            |     81      |      96      |      100       | 100 | <details><summary>Sign In</summary><img src="static/images/readme_images/testing/lighthouse/mobile/sign-in.png"></details>                    |
 | Sign Up            |     91      |      96      |      100       | 100 | <details><summary>Sign Up</summary><img src="static/images/readme_images/testing/lighthouse/mobile/sign-up.png"></details>                    |
-| Sign Out            |     85      |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="static/images/readme_images/testing/lighthouse/mobile/sign-out.png"></details>                    |
+| Sign Out            |     89      |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="static/images/readme_images/testing/lighthouse/mobile/sign-out.png"></details>                    |
 | Password Reset            |     91      |      100      |      100       | 100 | <details><summary>Password Reset</summary><img src="static/images/readme_images/testing/lighthouse/mobile/reset-password.png"></details>                    |
 
 [Back To Top](#table-of-contents)
