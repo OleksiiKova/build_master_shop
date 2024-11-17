@@ -37,6 +37,7 @@ Build Master Shop is a full-featured e-commerce web application specializing in 
    * [Checkout Page](#checkout-page)
    * [Blog Feature](#blog-feature)
    * [My Profile Page](#my-profile-page)
+   * [My Order History Page](#my-order-history-page)
    * [Wishlist Page](#wishlist-page)
    * [Product Rating and Review System](#product-rating-and-review-system)
    * [Stock Availability Check](#stock-availability-check)
@@ -653,18 +654,23 @@ The Blog feature allows users to engage with articles, updates, and other conten
  <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/blog.png"></details>
 
 ### My Profile Page
-The My Profile page provides authenticated users with an area to view and manage their personal information and past orders. It combines a user-friendly layout with essential functionalities like profile updates and access to order history, creating a centralized hub for managing account details.
+The My Profile page provides authenticated users with an area to view and manage their personal information. It combines a user-friendly layout with essential functionalities like profile updates , creating a centralized hub for managing account details.
 
-#### Personal Information Section:
+#### Personal Information:
 - Displays a form pre-filled with the user's current profile information (e.g., name, email, and address details).
 - A button to Update Information submits the form, saving any changes made by the user.
 - A Change Password link allows users to navigate to the password change form, improving account security.
 
-#### Order History Section:
-- Lists the user's past orders in reverse chronological order with order number, date, items purchased, and order total.
+ <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/my-profile.png"></details>
+
+ ### My Order History Page
+The My Order History page provides authenticated users with an area to view their past orders. 
+
+#### Order History:
+- Display lists the user's past orders in reverse chronological order with order number, date, items purchased, and order total.
 - Each order is linked to a detailed view that users can access by clicking on the order number. This detail view opens the order’s original confirmation page, allowing users to review their order contents, total, and confirmation message.
 
- <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/my-profile.png"></details>
+ <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/order-history-list.png"></details>
 
 ### Wishlist Page
 The Wishlist page allows users to save and manage products they are interested in for future reference. This feature provides a personalized shopping experience by keeping desired products readily accessible.
