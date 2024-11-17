@@ -78,7 +78,7 @@ Build Master Shop is a web application developed using Django, designed as an on
 - Quick Buyer: A returning user with an account who wishes to make purchases efficiently, without having to re-enter their information.
 - New Arrivals Explorer: A returning customer who checks the site regularly to discover the latest tools, workwear, and promotions.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Agile Methodology
 This project followed Agile principles, utilising GitHub Issues to document and manage User Stories effectively. Each User Story was associated with clear Acceptance Criteria and broken down into smaller tasks, which allowed for flexible adjustments and ensured that the development process stayed aligned with project goals. You can view the issues for this project [here](https://github.com/OleksiiKova/build_master_shop/issues).
@@ -93,7 +93,7 @@ In addition to the Kanban Board, GitHub's Table view was used for a more organis
 [Table view](https://github.com/users/OleksiiKova/projects/4/views/4)
 
 <details><summary>Click to view a screenshot of the Table view</summary><img src="static/images/readme_images/kanban-2.png"></details> <br>
-I structured the project around Epics and User Stories, dividing the development into manageable chunks. Each Epic corresponded to a core feature of the "Build Master Shop" platform, such as user management, card and orders, or reviews and rating. This structure ensured that each feature was user-centric and aligned with real-world needs.
+I structured the project around Epics and User Stories, dividing the development into manageable chunks. Each Epic corresponded to a core feature of the "Build Master Shop" platform, such as user management, cart and orders, or reviews and rating. This structure ensured that each feature was user-centric and aligned with real-world needs.
 
 #### Epics:
 1. [EPIC: Product Management](https://github.com/OleksiiKova/build_master_shop/issues/7)
@@ -106,7 +106,7 @@ The MoSCoW method of prioritisation was employed to categorise each user story i
 
 Overall, implementing Agile methodology, combined with the MoSCoW prioritisation technique, proved highly effective. This approach kept development organised and facilitated better time management by ensuring that the most valuable features were addressed first. While I did not set rigid timeframes for each iteration, moving tasks from To Do to Done was both motivating and provided a tangible sense of progress.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## UX
 
@@ -152,7 +152,7 @@ The following colour palette was used from [Coolors](https://coolors.co/):
 - Headings: The "Montserrat" font-family is used for all heading levels to ensure a modern and clean look.
 - Body Text: The default Bootstrap font settings are utilised for all other text to maintain consistency and readability across the site.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Ecommerce Business Model
 
@@ -166,7 +166,7 @@ Social media platforms, particularly popular ones like Facebook, provide a power
 ### Role of Newsletter Marketing
 The newsletter subscription feature allows the business to maintain regular communication with interested customers. Subscribers can receive updates about new products, exclusive offers, and special promotions, keeping them engaged and informed. For more details on how newsletters can enhance marketing efforts, refer to Newsletter Marketing.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Search Engine Optimization (SEO)
 
@@ -277,7 +277,7 @@ This process not only supports attracting relevant traffic but also sets the fou
 
 ### Sitemap
 
-An XML sitemap has been created using tools [XML-Sitemaps](https://www.xml-sitemaps.com), which automatically crawls the entire website and generates a complete sitemap. The sitemap provides search engines with a structured overview of the website’s pages, improving indexing.
+An XML sitemap has been created using tools [XML-Sitemaps tool](https://www.xml-sitemaps.com), which automatically crawls the entire website and generates a complete sitemap. The sitemap provides search engines with a structured overview of the website’s pages, improving indexing.
 
 The sitemap is available here: [sitemap.xml](sitemap.xml)
 
@@ -285,7 +285,7 @@ The sitemap is available here: [sitemap.xml](sitemap.xml)
 
 A [robots.txt](robots.txt) file has been configured at the root level of the project to guide search engine crawlers. This file includes specific rules to restrict access to sensitive pages like the checkout process and administrative areas, while also linking to the site’s sitemap for proper indexing.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Web Marketing
 
@@ -296,7 +296,7 @@ To enhance the visibility and reach of Build Master Shop, I have implemented a f
 I created a dedicated [Facebook page](https://www.facebook.com/p/build-master-61568320523905/) for Build Master Shop, which serves as a hub for:
 
 - Sharing product updates, promotions, and new arrivals.
-- Posting engaging content like tips for tool usage, safety guidelines, and project inspiration.
+- Posting engaging content such as tips for tool usage, safety guidelines, and project inspiration.
 - Interacting with customers through comments, messages, and community discussions.
 - Running targeted ad campaigns to reach users interested in tools, workwear, and safety equipment.
 
@@ -358,7 +358,7 @@ By gradually implementing these steps, Build Master Shop aims to build a strong 
 ![Mailchimp](static/images/readme_images/mailchimp.png)
 </details>
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Existing Features
 
@@ -371,7 +371,7 @@ By gradually implementing these steps, Build Master Shop aims to build a strong 
 - Password Recovery: If users forget their password, they can reset it through a secure process.
    <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/reset-password.png"></details>
 
-- Change Recovery: If users wants to change their password, they can change it on My Profile Page.
+- Change Password: If users want to change their password, they can change it on the My Profile Page.
    <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/change-password.png"></details>
 
 ### CRUD Functionality
@@ -774,7 +774,7 @@ Note: This is not an exhaustive list of all the notifications in the system, but
 
  <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/message.png"></details>
 
- [Back To Top](#table-of-contents)
+ [Back to Top](#table-of-contents)
 
 ## Features Left to Implement
 
@@ -784,7 +784,7 @@ This feature allows users to choose between different shipping methods during ch
 
 At the moment, only Standard Shipping is available, which costs 7 EUR. Free shipping is applied for orders over 50 EUR, but other shipping methods (such as express delivery) are not yet implemented.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Django Admin Portal
 
@@ -792,7 +792,7 @@ Django Admin Portal allows superuser to manage content and users of the website.
 
  <details><summary>Click to view a screenshot of the feature</summary><img src="static/images/readme_images/features/django_admin.png"></details>
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Technologies
 
@@ -830,8 +830,8 @@ This project was created using the following:
 - Lucid.app: Used to create a Database ER diagram.
 - Сode Institute IDE: Used to code the website.
 - Django Template Language: Templating engine.
-- GitHub: Used for storing the code and for the projects Kanban board.
-- Heroku: Used for hosting and deployement of this project.
+- GitHub: Used for storing the code and for the project's Kanban board.
+- Heroku: Used for hosting and deployment of this project.
 - Google Chrome Developer Tools: Used during testing, debugging and making the website responsive.
 - Google Fonts: Used to import fonts.
 - Git: Version control tool.
@@ -844,13 +844,13 @@ This project was created using the following:
 - [Coolors.co](https://coolors.co/): Used to choose the colours.
 - [Squoosh](https://squoosh.app/): Used to reduce the size of an image without significant loss of quality.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Testing
 
 For a comprehensive overview of the testing strategy, including detailed information on both automated and manual testing, please refer to the [Testing Documentation](TESTING.md).
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Deployment
 
@@ -1074,7 +1074,7 @@ json
 7. IAM User Setup:
 - In the IAM (Identity and Access Management) section, create a new user group with permissions to access the S3 bucket. Attach the AmazonS3FullAccess policy.
 - Create a new user and assign the user to the group.
-- Ensure to save the Access Key ID and Secret Access Key for future use in your app configuration.
+- Ensure that you save the Access Key ID and Secret Access Key for future use in your app configuration.
 
 8. Final Steps:
 - In Heroku, remove the DISABLE_COLLECTSTATIC config variable if it exists.
@@ -1096,10 +1096,10 @@ This section outlines how to configure Stripe for payment processing in your e-c
 - Go to <a href="https://stripe.com">Stripe</a> and create an account if you don't have one already.
 
 #### Step 2: Get Your API Keys
-- Once you've created an account, go to your Stripe Dashboard. Under the 'Developers' tab, click on 'API keys'. Here, you'll find your <strong>Publishable Key</strong> and <strong>Secret Key</strong>. You will need to configure these keys in your project to connect with the Stripe API.</p>
+- Once you've created your account, go to your Stripe Dashboard. Under the 'Developers' tab, click 'API keys'. Here, you'll find your <strong>Publishable Key</strong> and <strong>Secret Key</strong>. You will need to configure these keys in your project to connect with the Stripe API.</p>
 
 #### Step 3: Add Stripe Keys to Heroku Environment Variables
-- In your Heroku Dashboard, go to the 'Settings' tab of your application. Under the 'Config Vars' section, add the following environment variables:
+- In your Heroku Dashboard, navigate to the 'Settings' tab of your application. Under the 'Config Vars' section, add the following environment variables:
   
    - STRIPE_TEST_PUBLIC_KEY: Your Stripe Publishable Key
    - STRIPE_TEST_SECRET_KEY: Your Stripe Secret Key
@@ -1160,19 +1160,19 @@ BuildMaster uses Gmail to manage email communications with users, including acco
 
 By integrating Gmail, BuildMaster can send secure and reliable emails for account verifications and purchase confirmations, enhancing communication with users and supporting overall customer engagement and satisfaction
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Credits
  
 ### Media
 
-- Images: All images for the website were either generated using [OpenArt](https://openart.ai/) and [DeepAI](https://deepai.org/) or sourced from [Pixabay](https://pixabay.com/).
-- Logo: The logo for the website was created using [Design.com](www.design.com).
+- Images: All images for the website were generated using [OpenArt](https://openart.ai/) and [DeepAI](https://deepai.org/) or sourced from [Pixabay](https://pixabay.com/).
+- Logo: The Facebook logo was created using [Design.com](www.design.com).
 - Transparent Backgrounds: To ensure consistency, transparent backgrounds for products were created using [Insmind](https://www.insmind.com/).
 
 ### Content and Resources
 
-- [Butique Ado project from Code Institute](https://ado-clothes-shop.herokuapp.com/).
+- [Boutique Ado project from Code Institute](https://ado-clothes-shop.herokuapp.com/).
 - [Django Documentation](https://www.djangoproject.com/): The official documentation for Django, a high-level Python web framework. It provides comprehensive guides, tutorials, and reference material to help you develop powerful web applications with Django.
 - [Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/): The official documentation for Bootstrap 5.3, a popular front-end framework for developing responsive and mobile-first websites. This guide includes instructions for getting started, as well as detailed explanations of Bootstrap components and utilities.
 - [Bootstrap 5 Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR): A YouTube playlist by The Net Ninja that offers a crash course in Bootstrap 5. This tutorial series covers the basics of Bootstrap, including layout, components, and customization, ideal for beginners.
@@ -1183,4 +1183,4 @@ By integrating Gmail, BuildMaster can send secure and reliable emails for accoun
 - Project Portfolio-5 E-Commerce channel on Slack
 - [ChatGPT](https://openai.com/chatgpt/overview/)
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)

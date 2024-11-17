@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const backToTopButton = document.getElementById('backToTop');
 
-    // Проверяем, существует ли элемент
     if (backToTopButton) {
         backToTopButton.addEventListener('click', function (event) {
             event.preventDefault();

@@ -12,7 +12,7 @@
 - [User Story Testing](#user-story-testing)
 - [Bugs](#bugs)
 
-Return back to the [README.md](README.md) file.
+Return to the [README.md](README.md) file.
 
 ## Manual Testing
 
@@ -152,7 +152,7 @@ Return back to the [README.md](README.md) file.
 |                                    | Verify cart total is correct after quantity change         | Cart total updates correctly after changing the quantity of any item          | ✅ Pass      |
 |                                    | Verify Grand Total calculation                            | Grand total, including delivery, is correct after quantity or removal changes | ✅ Pass      |
 |                                    | Test free delivery condition                              | Displays the free delivery message when the total exceeds the threshold      | ✅ Pass      |
-|   **Chekout Page**                 |                                                            |                                                                              |           |
+|   **Checkout Page**                 |                                                            |                                                                              |           |
 |                                    | Verify checkout page loads correctly                       | The page should load the checkout form with correct sections for order summary, delivery, and payment | ✅ Pass      |
 |                                    | Verify order summary visibility                            | Displays correct order summary including item name, SKU, quantity, and price | ✅ Pass      |
 |                                    | Check that the "Adjust Cart" button works                  | Redirects to the cart page when clicked                                        | ✅ Pass      |
@@ -192,7 +192,7 @@ Return back to the [README.md](README.md) file.
 |                                     | Verify "Remove" button functionality                       | Clicking "Remove" removes the item from the wishlist                          | ✅ Pass      |
 |                                     | Verify card layout and responsiveness                      | Cards for products should be aligned properly and adjust to screen size      | ✅ Pass      |
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Code Validation
 
@@ -208,7 +208,6 @@ All HTML pages were validated using the W3C HTML Validator, and no errors were d
 | My Reviews        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fuser-reviews%2F) |
 | Edit a Review        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Freview%2Fedit%2F1%2F%3Fnext%3Dmy_reviews) |
 | Delete a Review        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Freview%2Fdelete%2F1%2F%3Fnext%3Dmy_reviews) |
-| My Reviews        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fuser-reviews%2F) |
 | My Wishlist        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fprofile%2Fwishlist%2F) |
 | Products        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fproducts%2F) |
 | Product Detail        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Fproducts%2Fbm-8220111%2F) |
@@ -229,7 +228,6 @@ All HTML pages were validated using the W3C HTML Validator, and no errors were d
 | Sign In        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Flogin%2F) |
 | Sign Up        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Fsignup%2F) |
 | Sign Out        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Flogout%2F) |
-| Password Reset        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Fpassword%2Freset%2F) |
 | Password Reset        | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbuild-master-shop-84761d123763.herokuapp.com%2Faccounts%2Fpassword%2Freset%2F) |
 
 ### CSS
@@ -338,19 +336,19 @@ All Python files were processed using the [CI Python Linter](https://pep8ci.hero
 | <details><summary>urls.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/urls.png"></details>        | ✅ Pass   |
 | <details><summary>views.py</summary><img src="static/images/readme_images/testing/py-linter/profiles/views.png"></details>        | ✅ Pass   |
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Responsiveness and Device Testing
 
 Throughout the development process, the website was rigorously tested across a range of devices, including desktops, laptops, smartphones, and tablets. This testing ensured that the website displayed correctly on screens of various sizes and orientations, both portrait and landscape. Additionally, the responsive design was validated using Google Chrome's Developer Tools to confirm that the layout remained structurally sound and adaptable across different screen dimensions. No issues were noted, affirming that the site functions as expected across diverse environments.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Browser Testing
 
-The website was tested across Google Chrome, Safari, and Microsoft Edge, and no issues were found.
+The website was tested across Google Chrome, Safari, Microsoft Edge, and no issues were found.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Lighthouse Testing
 
@@ -417,7 +415,7 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Sign Out            |     89      |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="static/images/readme_images/testing/lighthouse/mobile/sign-out.png"></details>                    |
 | Password Reset            |     91      |      100      |      100       | 100 | <details><summary>Password Reset</summary><img src="static/images/readme_images/testing/lighthouse/mobile/reset-password.png"></details>                    |
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## User Story Testing
 
@@ -447,10 +445,10 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | As a user I want to subscribe to the newsletter by entering my email so that I can receive updates and promotions.  | ![screenshot](static/images/readme_images/testing/user_stories/subscribe.png)                                                                                                                                                                     |
 | As a customer I want to search for tools and clothing easily so that I can find the products I'm looking for without browsing the entire website.  | ![screenshot](static/images/readme_images/testing/user_stories/search.png)                                                                                                                                                                     |
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
 
 ## Bugs
 
 All known bugs and issues have been thoroughly addressed and resolved. The application is currently functioning as intended, with no outstanding errors reported.
 
-[Back To Top](#table-of-contents)
+[Back to Top](#table-of-contents)
