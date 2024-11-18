@@ -42,7 +42,9 @@
                 </div>
                 <div class="col-7">
                     <!-- Product name, size, SKU, and quantity -->
-                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                    <a href="{% url 'product_detail_by_sku' sku=item.product.sku %}">
+                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                    </a>
                     <p class="my-0 small text-muted">
                         {% if item.size %}
                         Size:

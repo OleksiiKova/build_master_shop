@@ -44,7 +44,9 @@
                         {% for item in order.lineitems.all %}
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <p class="mb-0">{{ item.product.name }}</p>
+                                <a href="{% url 'product_detail_by_sku' sku=item.product.sku %}">
+                                    <p class="mb-0">{{ item.product.name }}</p>
+                                </a>
                                 {% if item.variant %} <p class="mb-0"><small>Size: {{ item.variant.size }}</small></p>
                                 {% endif %}
                             </div>
