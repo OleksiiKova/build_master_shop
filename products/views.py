@@ -316,6 +316,10 @@ def product_detail_by_sku(request, sku):
     product, selected_variant, current_sku = (
         get_product_and_variant_by_sku(sku)
     )
+
+    # Sort variants by size
+    sorted_variants = product.variants.all().order_by('size')
+
     # Check if the user is verified (has purchased this product)
     is_verified_user = check_user_verified(request, product)
 
@@ -347,6 +351,7 @@ def product_detail_by_sku(request, sku):
         'selected_variant': selected_variant,
         'current_sku': current_sku,
         'is_out_of_stock': is_out_of_stock,
+        'sorted_variants': sorted_variants,
     }
 
     return render(request, 'products/product_detail.html', context)

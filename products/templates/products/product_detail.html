@@ -121,7 +121,7 @@
                             <p><strong>Available Sizes:</strong></p>
                             <div class="sizes">
                                 <!-- Display available sizes of product variants -->
-                                {% for variant in product.variants.all %}
+                                {% for variant in sorted_variants %}
                                 <a href="{% url 'product_detail_by_sku' variant.sku %}" class="btn 
                                 {% if selected_variant and selected_variant.sku == variant.sku %}
                                     {% if variant.stock == 0 %}btn-secondary out-of-stock selected-out-of-stock{% else %}btn-secondary{% endif %}
