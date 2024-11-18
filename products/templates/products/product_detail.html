@@ -109,8 +109,8 @@
                 {% endif %}
 
                 <!-- Display product description and additional attributes -->
-                <p class="mt-3">{{ product.description|linebreaks  }}</p>
-                <p class="mt-3">{{ product.additional_attributes|linebreaks }}</p>
+                <p class="mt-3">{{ product.description|linebreaksbr  }}</p>
+                <p class="mt-3">{{ product.additional_attributes|linebreaksbr }}</p>
 
                 <!-- Add to cart form -->
                 <form class="form" action="{% url 'add_to_cart' current_sku %}" method="POST">
